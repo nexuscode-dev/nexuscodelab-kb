@@ -498,6 +498,13 @@ Without these it is decoration:
 - **A backlog file per layer is mandatory.** It is the pressure valve. Without it, people smuggle content into
   existing notes — worse than a new note, because it makes notes non-atomic and degrades retrieval for everything.
 
+### 7.2 Stop-early condition
+
+**If T2 passes at 28 notes, we stop at 28.** The budget is a ceiling, not a quota. Left unsaid, every team treats
+a budget as a target and fills it.
+
+---
+
 ### 7.3 Enforce the contract in a script, not in a rule
 
 Measured across the team's `nexusbim-brain/bim-vault` on 2026-08-19 — 172 notes built under a documented contract
@@ -523,13 +530,6 @@ Neither repo has any CI, linter, or validator to copy, so this one gets written.
 a note under 150 or over 400 words · frontmatter missing a required key · a domain note with empty `sources:` · a
 layer over its cap · a note with no `INDEX.md` line · a `status:` change in a commit that does not also touch
 `tests/audit-log.md`. Roughly 30 lines, and it converts every rule above from an intention into a gate.
-
-### 7.2 Stop-early condition
-
-**If T2 passes at 28 notes, we stop at 28.** The budget is a ceiling, not a quota. Left unsaid, every team treats
-a budget as a target and fills it.
-
----
 
 ## 8. Timebox
 
