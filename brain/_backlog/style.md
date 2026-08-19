@@ -10,3 +10,4 @@ A deferred idea needs one line and a reason. If it has no reason, it is not defe
 
 | Idea | Why deferred | Raised |
 |---|---|---|
+| japanese-exemplars-inline | Required only if courses go Japanese (proposal §12 decision 6, deferred). **Do not write these speculatively** — they are unverifiable by anyone currently on the team, and a wrong Japanese exemplar is worse than none. The English-side insurance is the one L5 note requiring every analogy to survive translation | 2026-08-19 |
