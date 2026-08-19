@@ -7,17 +7,27 @@ knowledge and the generated courses; NexusLab itself is a separate product.
 layer definitions, budget, timebox. This file holds only the rules that must be enforced on every turn.
 **Read `HANDOVER.md`** for why the design is shaped this way and where to start.
 
+**v1 is scoped to the web-system-architecture course** (decided 2026-08-19). Charter:
+`curriculum/web-system-architecture.md`. L3 is scoped by that charter, never by the field. **Courses ship in
+English; labs are JavaScript, never SQL** — SQL labs are unverified and every lab needs a named function.
+
 ## Layout
 ```
 brain/{pedagogy,audience,domain,platform,style,sources}/   # L1…L6 — the knowledge
 brain/_backlog/<layer>.md                                  # deferred ideas (the pressure valve)
+curriculum/<course-slug>.md                                # the charter — what L3 is scoped BY
 courses/<course-slug>/                                     # GENERATED lessons — outputs, not knowledge
-tests/{retrieval-questions.md,audit-log.md}                # T1 questions (fixed), T3/T4 results
+tests/retrieval-questions.md                               # T1 — fixed, with a registered answer path each
+tests/audit-log.md                                         # dated test results + the standing UNMET block
+tests/auditor-prompts/                                     # versioned T1/T3/T4 prompts (§6.4)
+scripts/check-vault.py                                     # the contract validator — run before every commit
 INDEX.md                                                   # retrieval entry point, sectioned by layer
 ```
 
 ## The note contract (KB_DESIGN_PROPOSAL §4)
-Frontmatter on every note: `id · layer · status · confidence · decay · last_verified · sources · teaches`.
+Frontmatter on every note: `id · layer · status · confidence · decay · last_verified · sources · teaches ·
+depends_on`. Plus `review_by` on every `decay: volatile` note, and `verified_against` (an admin-repo commit SHA)
+on any note whose claim rests on the platform.
 
 Domain-note body, in this order: **Claim → why our learner needs it → how we teach it → the misconception →
 minimal example → assessment hook → sources.** A note that only states facts produces a lecture that reads like
@@ -49,17 +59,36 @@ Wikipedia; the teaching angle is what makes it a lesson.
   `decay: volatile` notes so a refresh stays bounded.
 - NEVER tune the KB to pass the ten retrieval questions in `tests/retrieval-questions.md`. They are fixed, and
   fitting the vault to them turns the only real test into theatre.
+- NEVER state a platform fact from the admin app's **type files**. They are consistently more optimistic than the
+  code — they carry fields and enum members no schema, component or wire contract reads. **Read the editor
+  component and cite `file:line` @ a commit SHA.** This rule exists because §11 was stamped "verified" and was
+  wrong in four material ways against code that had not changed in eight months.
+- NEVER write an assessment hook that is not a **single-answer** MCQ. No true/false, no multi-select — the platform
+  has neither. And NEVER write a filler distractor: there is no `explanation` field, so a wrong option is the only
+  teaching a mistake ever receives, and it must be self-diagnosing.
+- NEVER mark a test passed when it did not run. If a test cannot run yet, it gets a dated `UNMET` row in
+  `tests/audit-log.md`. Quietly loosening what *pass* means is the one failure this whole design exists to prevent.
+- NEVER change a `status:` line in a commit that does not also touch `tests/audit-log.md`.
 
 ## Adding a note
+0. **Search before creating.** `grep -ri "<keyword>" brain/ INDEX.md`. Expanding an existing note beats a
+   near-duplicate; near-duplicates are how retrieval degrades for both notes.
 1. Check the layer's cap and its backlog first — the idea may already be deferred, or a merge may be the answer.
 2. Write it to the §4 contract, 150–400 words, `status: draft`.
 3. Add the `INDEX.md` line under the right layer section.
-4. Domain notes: add or reuse an L6 source record, then queue for a fresh-session verify pass.
+4. Domain notes: add or reuse an L6 source record — including its `quote:` field, the exact supporting sentence —
+   then queue for a fresh-session verify pass.
+5. Run `python3 scripts/check-vault.py`. It is the only enforcement that exists; the sibling repo is measured proof
+   that unenforced contract rules drift while enforced ones hold at 100%.
 
 ## Working rules
 - **The design is challengeable, the rules are not silently ignorable.** If the design is wrong, say so and
   propose a change to `KB_DESIGN_PROPOSAL.md` — do not work around it quietly. (Same norm as the
   `nexusbim-brain` repo: the brain is fallible, and disagreement is wanted output.)
 - **Definition of done is the five tests, not a note count.** If T2 passes at 28 notes, v1 is done at 28.
-- Record test results in `tests/audit-log.md` with the date. An untested claim of reliability is the exact
-  failure this design exists to prevent.
+- Record test results in `tests/audit-log.md` with the date and the auditor-prompt hash. An untested claim of
+  reliability is the exact failure this design exists to prevent.
+- **The build is solo (KB_DESIGN_PROPOSAL §6.4).** Ownership runs through the commit graph: one commit touches one
+  `brain/<layer>/` plus `INDEX.md`, and a commit spanning layers must be titled `cross-layer:` and say in its body
+  what it changed elsewhere and why. Run T4 from **outside** this folder — `CLAUDE.md` auto-loads here and primes
+  agreement, which is fine for T1/T2 and fatal for a source audit.

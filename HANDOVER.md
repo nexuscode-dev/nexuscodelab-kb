@@ -83,65 +83,116 @@ covers L3 well. It cannot verify L1/L2, which are opinions with no source. So **
 `reviewed`** until a human who has taught signs them. The KB is fully usable that way — the risk is only that
 someone later mistakes an opinion note for sourced fact.
 
-**Open:**
+**Closed 2026-08-19** (all four; full reasoning in proposal §12):
 
-| # | Open question | Blocks |
+| # | Was open | Decided |
 |---|---|---|
-| 1 | Layer ownership: slot assignment across three people, and auditor as fourth-hat vs rotating (proposal §6) | multi-person work, not solo start |
-| 2 | **Course language** (ja / en / both) — separate from the KB language, still undecided | L5 style notes |
-| 3 | The CSS-lab fork: build a render/assertion lab type, or design that course around the limitation | course 3 only |
-| 4 | Which single course v1 is scoped to | L3 domain notes |
+| 1 | Layer ownership | **Solo now, staged later.** Proposal §6.4 states which guards survive, which are substituted, and which are labelled `UNMET` rather than faked. Auditor is **rotating, not fourth-hat** — fourth-hat would have slot C auditing the source register it wrote |
+| 2 | Course language | **English for v1**, recorded as *English-authoritative, Japanese derived — deferred*. Reopen trigger is a **named person who reads Japanese** committing to be the T2 judge and T5 cold reader — not a date. The whole accommodation is one L5 note: every analogy must survive translation without a rewrite |
+| 3 | The CSS-lab fork | **Deferred**, as an L4 note rather than a backlog line (backlogs are not in `INDEX.md`, so T1 never surfaces them). Trigger: the first charter proposing a "learner produces visual output" outcome. **Safe only while course 1 has no visual-output assessment** — a dependency this table previously hid |
+| 4 | Which course v1 is scoped to | **The web-system-architecture course.** Recommendation kept, **stated reason rejected** — §7 recommended it for SQL labs, which are unverified. It wins on decay, reusability, and salesperson fit. **Labs are JavaScript** |
 
-If courses go Japanese, L5 must carry **Japanese exemplars inline** even inside English notes — translated
-pedagogy phrasing loses exactly the nuance being captured.
+**Carried open, with owners** (proposal §12): how a *stored* lab grades a real submission — gates every lab, and
+only the backend team can answer · `pass_rate` percentage vs raw count, contradictory in the codebase · whether SQL
+labs execute at all · where lecture diagrams are hosted, since images are URL-only.
 
-## 6. Platform constraints (verified 2026-08-19)
+On language: the platform is already bilingual at the *chrome* level, which will keep making a Japanese course look
+cheaper than it is. It is not — no locale field exists on any course object, so "both" means two full course trees
+with no platform-level pairing, and the three lesson editors are the only un-translated screens in the app.
 
-Read from the admin app at `../NexusCodeLabAdmin`, in `src/types/{course,lab}.ts` and `src/constants/course.ts`.
-**That path is outside this folder** — a session here needs it added as a working directory to re-verify.
+## 6. Platform constraints — **re-verified, and the first version was wrong**
 
-- Hierarchy: **Curriculum → Course → Section → Lesson.**
-- A lesson is exactly one of three things: **Lecture** (a single TipTap HTML blob) · **Quiz**
-  (`multiple_choice` or `true_false` only, plus a pass rate) · **Lab** (Monaco + template code + language + test
-  cases, graded by comparing stdout to expected output).
-- **No free-text or human-graded submission type exists** anywhere in the model.
-- `html` and `css` are in the lab language list, but grading compares stdout with no render or DOM assertion —
-  **a CSS lab cannot be auto-graded.** This is open question #3.
-- **SQL labs work properly** — a database module can be hands-on at no extra cost.
-- Lecture content is stored as an HTML blob with **no markdown source**, which is why `courses/` here must be the
-  authoring source of truth. Otherwise updating a course means hand-editing rich text in a browser forever, with
-  no diff and no review.
-- `i18n/locales/{en,ja}` exist and are empty.
+**Read `KB_DESIGN_PROPOSAL.md` §11 for the authoritative version.** It is pinned to `NexusCodeLabAdmin` @
+`b633a07` (2025-12-24) and lists the files it was read from. The admin app is at `../NexusCodeLabAdmin`, **outside
+this folder** — a session here needs it added as a working directory to re-verify.
+
+**The method finding matters more than any single fact.** The first version of §11 was written from
+`src/types/{course,lab}.ts` and `src/constants/course.ts` and was wrong in four material ways. The code had not
+changed since 2025-12-24, so this was not drift — it was wrong on the day it was stamped "verified 2026-08-19".
+**In that codebase the type files are consistently more optimistic than the code**, carrying fields and enum
+members that no schema, component or wire contract ever reads. **The authoring UI is the tiebreaker. Read the
+editor components.**
+
+What changed:
+
+| First version said | Actually |
+|---|---|
+| Quiz supports `multiple_choice` **or `true_false`** | **Multiple choice only, single-answer.** `true_false` occurs once in the codebase and nothing reads it. No multi-select either |
+| `i18n/locales/{en,ja}` exist and are **empty** | **Fully populated** — 18 files, ~40KB, real Japanese, working en/ja switcher. But i18n covers admin chrome, **not course content**: no locale field exists on any course object |
+| Lecture holds headings, images, **tables, links**, YouTube | **No tables, no link button.** The editor loads StarterKit + Heading + Image + Youtube; the Table and Link packages are installed but never registered |
+| **SQL labs work properly** | **Unverified.** `sql` is one string in a flat dropdown beside the two known-broken entries. It also conflicts with the universal `function_name` requirement, since SQL has no function to name |
+| Lab = graded by comparing stdout | Half right. Every lab **also requires a function name and a full reference solution, and stores neither** — so nobody can currently say how a *saved* lab grades a real submission |
+
+Still true, and confirmed: the hierarchy (**Course → Section → Lesson**, with Curriculum optional, not mandatory) ·
+a lesson is exactly one of Lecture / Quiz / Lab · no free-text or human-graded submission type is reachable ·
+a CSS lab is impossible — in fact it cannot even be *authored*, not merely cannot be auto-graded · lecture content
+is an HTML blob with no markdown source, which is why `courses/` here must be the authoring source of truth.
+
+**Three limits §11 originally missed that reshape the pedagogy rather than merely bounding it:**
+
+- **No per-question `explanation` field. The platform cannot tell a learner why they were wrong.** Corrective
+  teaching has to be pushed into the distractors, so every wrong option must be self-diagnosing.
+- **No prerequisites, gating, or locking**, and **unlimited quiz attempts** — sequence is presentational, so a quiz
+  cannot gate progress and every lesson must restate its load-bearing prior idea rather than assume it.
+- **Progress and analytics are hardcoded mock data.** There is no feedback loop from learners, so the misconception
+  catalog must come from pilot sessions run by hand, not from platform evidence.
 
 ## 7. Start here
 
 The proposal's timebox (§8) puts the first two days on skeleton + seed notes, and **day 3 on running the tests
 against a deliberately thin vault.** That ordering is the point — read it before deviating.
 
+**Day 0 is done** (2026-08-19): the repo is under git with the three original documents committed unmodified as
+`baseline`, so every correction since is a reviewable diff. §11 was re-verified and rewritten, both worked examples
+were corrected and demoted to `draft`, all four open decisions were closed, and §2.2's T2 rubric was fixed before
+any note exists — which is the point of writing it then.
+
 A first session, in order:
 
-1. **Read** `KB_DESIGN_PROPOSAL.md` end to end. `CLAUDE.md` is already loaded and holds the enforceable rules.
-2. **Decide open question #4** — which single course v1 is scoped to. Everything in L3 depends on it, and the
-   budget assumes one course. Recommended: the architecture course, because it needs no CSS labs and can use SQL
-   labs for a genuinely hands-on module.
-3. **Create the skeleton** — the directory tree in `CLAUDE.md`, `INDEX.md` with its six layer sections, and an
-   empty backlog file per layer.
-4. **Copy the ten retrieval questions** from proposal §2.1 into `tests/retrieval-questions.md` and do not touch
-   them again.
-5. **Write 3 seed notes per layer**, to the §4 contract. Use the two worked examples in proposal §4.3 and §4.4 as
-   the pattern — they are complete, not sketches.
-6. **Run T1 and T2 on the thin vault. Expect failure.** A thin-vault failure is cheap and names exactly which
-   layer is underfed. The same failure on day 8 against a full vault is expensive and ambiguous. Record the result
-   in `tests/audit-log.md` with the date.
-7. **Then fill to budget**, guided by what step 6 exposed — not by what feels incomplete.
+1. **Read** `KB_DESIGN_PROPOSAL.md` end to end, starting with the revision note at the top. `CLAUDE.md` is already
+   loaded and holds the enforceable rules.
+2. **Read `curriculum/web-system-architecture.md`** — the charter. Open question #4 is closed: v1 is the
+   architecture course. Note that the *reason* given in the earlier version of this section was rejected — it
+   recommended the course for its SQL labs, and SQL labs turned out to be unverified. The course still wins, on
+   decay, reusability and salesperson fit. **Labs are JavaScript.**
+3. **Write the seed notes** — and note the seeding is deliberately uneven: **2 for L2/L4/L5, 3 for L1, 4 for L3**,
+   plus the L6 source records those L3 notes cite. Three per layer would complete L2, L4 and L5 outright *before*
+   the day-3 diagnostic that is supposed to guide filling, which wastes the diagnostic. Use §4.3 and §4.4 as the
+   pattern — but both are now `status: draft`, and copying an exemplar stamped `verified` is exactly how a
+   self-verified note enters the vault.
+4. **Run T1 and T2 on the thin vault. Expect failure.** A thin-vault failure is cheap and names exactly which layer
+   is underfed. The same failure on day 8 against a full vault is expensive and ambiguous. Record it in
+   `tests/audit-log.md` with the date and the auditor-prompt hash.
+   **One sharpening:** make the T2 lesson the one most dependent on the KB's own opinion — *"why a schema change is
+   not a text edit"* — **not** a section-1 lecture. Section 1 leans on the pre-worked §4.3 note and will pass for
+   the wrong reason. The diagnostic is *which layer* the failure names.
+5. **Then fill to budget**, guided by what step 4 exposed — not by what feels incomplete.
+6. **Run `scripts/check-vault.py` before every commit.** The sibling repo is measured evidence (proposal §7.3) that
+   the disciplines embedded in a mechanical check hold at 100% and the ones requiring the author to remember prose
+   drift. This is the only enforcement either repo has.
 
 **Solo-run warning:** the stop-early condition (proposal §7.2) matters most when nobody else is present to say
 "that's enough." If T2 passes at 28 notes, stop at 28. The budget is a ceiling, not a quota.
 
+**The two things to go and get from a human**, because no amount of solo diligence substitutes for them
+(proposal §6.4):
+
+1. **Twenty minutes of any non-author, to read three notes.** That clears T5 outright. A model asked to explain a
+   note back is *anti-correlated* with what T5 measures — it already knows the domain, so it succeeds on exactly
+   the notes a human finds impenetrable. Simulating T5 does not weaken it, it inverts it.
+2. **The backend team's answer on lab grading.** `function_name` is mandatory to author and is never stored, so
+   nobody can say how a saved lab grades a real submission — and that gates every lab in v1. Ask in the same
+   message whether the runner has, or could gain, a DOM context; that answer prices the CSS-lab fork before its
+   trigger ever fires.
+
 ## 8. What is settled vs. challengeable
 
-The four decisions in §5 are settled; propose a change rather than working around them. **Everything in the design
-proposal is challengeable** — including the note caps, the layer split, and the tests themselves. The norm carried
+The four decisions in §5's first table are settled; propose a change rather than working around them. The four in
+the second table were *closed* on 2026-08-19 with reasoning in proposal §12 — reopen them by proposing a change,
+not by treating them as still open. **Everything in the design proposal is challengeable** — including the note
+caps, the layer split, and the tests themselves. Several things already were: T1's counting unit, T4's sample size,
+§13's definition of done, §8's calendar arithmetic, and this document's own claim about what `nexusbim-brain`'s
+dissent norm is. The norm carried
 over from the team's `nexusbim-brain` repo: the brain is fallible, and disagreement is wanted output rather than
 friction. Record dissent in the note or the proposal; never silently overwrite.
 
@@ -161,3 +212,7 @@ whole design exists to guarantee.
 | **T1–T5** | the five acceptance tests: retrieval · sufficiency · contradiction sweep · source audit · cold reader |
 | **`decay`** | `durable` (concepts) vs `volatile` (tool versions, prices, model names) — bounds refresh cost |
 | **Overflow rule** | at a layer's cap: merge two notes, or defer to `brain/_backlog/<layer>.md`. Never raise the cap mid-build. |
+| **`verified_against`** | an admin-repo commit SHA on any note resting on a platform fact. A date stamp is unfalsifiable; a SHA makes staleness a `git diff` |
+| **`review_by`** | a date on `decay: volatile` notes, so "due for re-verification" (retrieval question 9) has a computable answer |
+| **The tripwire** | a deliberately corrupted claim planted in every T4 batch. If the batch passes it, the audit did not run — discard the batch and every stamp it would have granted (proposal §6.4) |
+| **`UNMET`** | a dated row in `tests/audit-log.md` for a test that genuinely cannot run yet. The honest alternative to quietly loosening what *pass* means |
