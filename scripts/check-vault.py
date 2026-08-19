@@ -166,6 +166,28 @@ def check_status_gate() -> None:
         )
 
 
+def check_hook_wiring() -> None:
+    """The check cannot enforce its own distribution, so it makes its own absence loud.
+
+    A hook in `.git/hooks/` is untracked and guards exactly one working copy. This repo had one, and
+    a clone was tested on 2026-08-19: it committed a note violating six rules without complaint. The
+    hook now lives in `hooks/` and is reached via core.hooksPath, which is per-clone config — so the
+    first manual run of this script on a new machine is what reveals the hook is not wired.
+    """
+    try:
+        path = subprocess.run(
+            ["git", "config", "--get", "core.hooksPath"],
+            cwd=ROOT, capture_output=True, text=True,
+        ).stdout.strip()
+    except FileNotFoundError:
+        return
+    if path != "hooks":
+        problems.append(
+            "core.hooksPath is not set to `hooks` — the pre-commit check is not installed on this "
+            "clone. Run: git config core.hooksPath hooks   (see hooks/README.md)"
+        )
+
+
 def main() -> int:
     brain = ROOT / "brain"
     if not brain.is_dir():
@@ -202,6 +224,8 @@ def main() -> int:
     for layer in CAPS:
         if not (brain / "_backlog" / f"{layer}.md").is_file():
             problems.append(f"brain/_backlog/{layer}.md is missing — the pressure valve is mandatory (§7.1)")
+
+    check_hook_wiring()
 
     if "--staged" in sys.argv:
         check_status_gate()
