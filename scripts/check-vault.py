@@ -98,10 +98,11 @@ def check_note(path: Path, layer: str) -> None:
     if layer in {"pedagogy", "audience"} and fields.get("status") == "verified":
         fail(path, "L1/L2 notes can never be `verified` — they are opinions with no source (§9). Cap at `reviewed`")
 
-    # §4.1 — a date stamp is unfalsifiable; a SHA makes staleness a `git diff`. §11 was stamped "verified" against
-    # code eight months old and was wrong in four material ways.
+    # §4.1 — a date stamp is unfalsifiable; a SHA makes staleness a `git diff`. §11 was stamped "verified" twice
+    # and was wrong both times — first from type files, then from a stale fork of apps/admin. The SHA is of the
+    # platform monorepo (nexuscode-devs/myanlearn), read at origin/develop.
     if layer == "platform" and not SHA.match(fields.get("verified_against", "")):
-        fail(path, "platform notes need `verified_against: <admin-repo SHA>`, not just a date (§4.1)")
+        fail(path, "platform notes need `verified_against: <myanlearn commit SHA>`, not just a date (§4.1)")
 
     # §4.1 — retrieval question 9 asks which notes are "due" for re-verification. Without a date, "due" has no answer.
     if fields.get("decay") == "volatile" and "review_by" not in fields:

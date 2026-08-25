@@ -41,9 +41,10 @@ that is a v1-review conversation rather than a mid-build cap raise.
 
 ## Notes on three of these
 
-- **Q4** must land on the L4 lab note, and that note has to state the limits honestly: labs are function-in /
-  stdout-out, a CSS lab cannot even be authored, SQL is unverified, and how a *stored* lab grades a real submission
-  is an open question with the backend team. A note that answers Q4 optimistically is worse than no note.
+- **Q4** must land on the L4 lab note, and that note has to state the limits honestly: a lab is one JavaScript
+  buffer run as Node.js on managed Judge0 (`language_id` 63 hardcoded — non-JS labs silently mis-grade), stdout
+  compared byte-exactly to ≤255 chars, no stdin/network/multi-file, 10 executions a day, and a CSS or visual lab
+  can never be auto-graded. A note that answers Q4 optimistically is worse than no note.
 - **Q9** was unanswerable as originally designed — the vault defined `decay` but no re-verification interval, so
   "due" had no meaning. `review_by` (§4.1) fixes it, and the answer is now one grep.
 - **Q10** is why `curriculum/` exists. Without a written scope boundary, one of the ten fixed questions is

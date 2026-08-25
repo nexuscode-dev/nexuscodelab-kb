@@ -21,6 +21,16 @@ curriculum now has a home (§3.3), but its content is still out of scope here.
 > read solo was off by ~2.4x · **§9** T4 audits all domain notes and logs every pass · **§12** all four open
 > decisions closed, four new ones carried with owners · **§13** definition of done made reachable under solo
 > without loosening what *pass* means.
+>
+> **Revision note — 2026-08-24.** §11 re-verified a second time, now against the actual platform monorepo
+> (`nexuscode-devs/myanlearn`, `origin/develop` @ `3d34a4e`) — the 2026-08-19 pass had corrected §11 against
+> `~/Desktop/NexusCodeLabAdmin`, which turned out to be a **detached fork of `apps/admin` frozen 2025-12-24**.
+> Materially changed: `pass_rate` is a raw count (was "ambiguous, default percentage") · tables and mermaid
+> diagrams render natively in lectures (was "tables are impossible") — the *editor* is the limitation, and it is
+> destructive on re-save · a curriculum is **required** on course create (was "optional") · bilingual is 11
+> nullable column pairs on one record, but course/section creation requires Japanese titles · labs run on managed
+> RapidAPI Judge0 with `language_id` hardcoded to Node.js in the learner path (two platform bugs reported) · the
+> full authoring API is token-scriptable. All four §12 carried-open questions are now answered.
 
 ---
 
@@ -92,11 +102,11 @@ a bit weak":
 | 3 | uses our analogy for each concept, not a generic one | L1 + L3 |
 | 4 | pre-empts the misconception the domain note names | L3 |
 | 5 | sounds like us — no hedging, no "in today's fast-paced world" | L5 |
-| 6 | fits what a TipTap lecture blob can hold (no tables, no links) | L4 |
+| 6 | fits what a lecture body can hold — HTML via the API: tables, links and mermaid are fine; nothing that needs the admin editor to survive a re-save | L4 |
 | 7 | ends in an assessment that is a single-answer scenario MCQ with self-diagnosing distractors | L1 + L4 |
 | 8 | **every factual claim traces to a note id** | L3 + L6 |
 | 9 | **contains no fact that is not in the vault** | — |
-| 10 | needs no rewrite before it could be pasted into the admin app | overall |
+| 10 | needs no rewrite before it could be published to the platform via the API | overall |
 
 Lines 8 and 9 are mechanically checkable and catch T2's real failure mode: a lesson that reads beautifully because
 the model filled the gaps from its own knowledge, which is precisely the thing the vault is supposed to be tested
@@ -205,7 +215,7 @@ confidence: high           # high | medium | low
 decay: durable             # durable | volatile
 last_verified: 2026-08-19
 review_by: 2026-11-17      # REQUIRED on `decay: volatile` notes; omit on durable ones
-verified_against: b633a07  # REQUIRED where the claim rests on the admin app — an admin-repo SHA, not a date
+verified_against: 3d34a4e  # REQUIRED where the claim rests on the platform — a myanlearn commit SHA, not a date
 sources: [src-mdn-http-overview]
 teaches: [web-architecture/module-2]    # empty = not yet backing any course
 depends_on: []             # note ids this note's argument rests on — grep-able, unlike wikilinks
@@ -220,7 +230,8 @@ mechanism for:
   then one grep with an unambiguous answer, and §10's staleness guard gains the trigger it lacked.
 - **`verified_against`** — a date stamp is unfalsifiable. §11 was stamped "verified 2026-08-19" against code last
   touched 2025-12-24 and was wrong in four material ways; a SHA makes staleness a `git diff` instead of a
-  judgement. Required on any note whose claim rests on the admin app.
+  judgement. Required on any note whose claim rests on the platform — and the SHA is of the **monorepo**
+  (`nexuscode-devs/myanlearn`, read at `origin/develop`), never of the deprecated `NexusCodeLabAdmin` fork.
 - **`depends_on`** — nothing linked a pedagogy or domain note to the platform fact underneath it, so changing an
   L4 note could silently invalidate an L1 rule. Before changing any L4 note, run
   `grep -rl "depends_on:.*<that-id>" brain/` and file the hits. Solo, that grep is the entire mechanism, and it
@@ -246,7 +257,7 @@ status: draft              # an exemplar inside the design doc; `verified` is gr
 confidence: high
 decay: durable
 last_verified: 2026-08-19
-verified_against: n/a      # L4-dependent notes pin an admin-repo SHA here; see §4.1
+verified_against: n/a      # L4-dependent notes pin a myanlearn commit SHA here; see §4.1
 sources: [src-mdn-http-overview, src-owasp-top10-a01]
 teaches: [web-architecture/module-2]
 ---
@@ -330,7 +341,7 @@ teaches nothing and makes the question easier than it looks.
 | **L1 Pedagogy** | lesson archetypes, sequencing rules, outcome verbs, assessment patterns for an MCQ+stdout platform, misconception catalog, cognitive-load rules | subject matter |
 | **L2 Audience** | the three personas, prior knowledge, weekly time budget, motivation, how each fails | teaching technique (that's L1) |
 | **L3 Domain** | concept notes **scoped by the curriculum**, each with source + teaching angle + misconception | anything no planned lesson needs |
-| **L4 Platform** | NexusLab primitives and their limits, verified against the admin app | course content |
+| **L4 Platform** | NexusLab primitives and their limits, verified against the platform monorepo (`myanlearn`) | course content |
 | **L5 Style** | voice, language policy, code style, the things we never do | rules about *what* to teach |
 | **L6 Sources** | the register: source id, title, URL, date accessed, licensing stance | claims (claims live in the note that cites the source) |
 
@@ -607,141 +618,136 @@ Rules that make that decision honest:
 
 ## 11. Platform constraints (input to L4)
 
-**Re-verified 2026-08-19 against `NexusCodeLabAdmin` @ `b633a07` (committed 2025-12-24).**
+**Re-verified 2026-08-24 against the platform monorepo `nexuscode-devs/myanlearn`, `origin/develop` @ `3d34a4e`
+(committed 2026-07-29).**
 
-**Read the editor components, not the type files.** The first pass of this section was written from
-`src/types/{course,lab}.ts` and `src/constants/course.ts` and was wrong in four material ways — against exactly
-the code that is there now, which has not changed since 2025-12-24. In this codebase the type files are
-consistently more optimistic than the code: they carry fields and enum members that no schema, no component and
-no wire contract ever reads. **The authoring UI is the tiebreaker.** Any future re-verification must open the
-editor components and cite `file:line` @ a commit SHA.
-
-Files this section was read from:
-
-```
-src/constants/course.ts                        lesson categories, quiz question-type enum (partly dead)
-src/types/{course,lesson,lab,quiz,curricula}.ts  storage shapes — optimistic, not authoritative
-src/api/LessonApi.ts                           the wire contract — authoritative on what can be sent
-src/components/sheets/ManageQuizSheet.tsx      quiz authoring — authoritative on questions
-src/pages/ManageLabPage.tsx                    lab authoring + grading comparison
-src/pages/ManageLecturePage.tsx                TipTap extension list — authoritative on lecture nodes
-src/i18n/config.ts, src/i18n/locales/{en,ja}/  localization
-```
+**Read the system of record.** This section has now been wrong twice, for graduated versions of one mistake. v1
+read the TypeScript *type files* — which invent fields nothing implements. v2 read the *editor components* — but
+of `~/Desktop/NexusCodeLabAdmin`, which turned out to be a **detached fork of `apps/admin` frozen 2025-12-24**,
+seven months before the bilingual migrations landed. **Never cite that folder again.** The monorepo is the only
+source, with a precedence order inside it: the **backend** (`database/migrations`, `app/Http/Requests`,
+`app/Http/Controllers`, `app/Services`) is authoritative for what the platform *is*; `apps/admin` editor
+components only for what a human author can do in the UI; type files never — five documented divergences so far
+(`explanation`, `points`, `attempts_allowed`, `true_false`, `QuizStats`).
 
 ### 11.1 Structure
 
-- Hierarchy: **Course → Section → Lesson**, optionally grouped under a **Curriculum**. A course may exist with no
-  curriculum, and membership is set from the course side. **A v1 scoped to one course needs no curriculum at all.**
-- A lesson is exactly one of three things: **Lecture · Quiz · Lab** (`COURSE_LESSON_CATEGORY_ENUM`,
-  `constants/course.ts:1-5`).
-- **No free-text or human-graded submission type is reachable.** `types/quiz.ts` carries short-answer/essay
-  scaffolding (`correct_answer`, `answer_text`) that is absent from every schema and from the wire contract —
-  aspirational, unreachable. Recorded here so a later verifier does not read those lines and reverse the finding.
-- Lessons, sections, and courses can all be reordered (drag-and-drop, dedicated reorder endpoints).
-- **No draft/published state** on a course, section, or lesson. Anything saved is live; there is no staging area
-  and no "publish" step.
-- **No prerequisites, gating, or locking.** Sequence is presentational only — a learner can open lesson 7 first.
-- **Per-student progress and analytics are hardcoded mock data.** There is no feedback loop from learners to the
-  author, which is why §10's "tie the update ritual to course revision" cannot be driven by platform data.
+- Hierarchy: **Curriculum → Course → Section → Lesson**, and **`curriculum_id` is required on course create**
+  (`CourseController/CreateRequest.php:22`) — the fork-era claim that a course can exist without a curriculum was
+  wrong. v1 therefore needs one curriculum record: single-language by design, thumbnail image required, and
+  created by **the same account that will author under it** — row-level ownership 403s everything else
+  (`app/Services/OwnershipService.php`).
+- A lesson is exactly one of **Lecture (1) · Quiz (2) · Lab (3)** (`category`, validated `in:1,2,3`).
+- **No draft state anywhere.** Everything saved is immediately live to learners.
+- No prerequisites, gating, or locking; sequence is presentational. `order` is explicit (per-section for lessons)
+  and dedicated reorder endpoints exist.
+- No free-text or human-graded submission type is reachable.
+- **The admin analytics/progress pages are mock, but the data is real**: `course_progress`, `lesson_progress`
+  (unique per learner), `code_executions`, certificates. However **quiz submissions are never persisted** — per-
+  question accuracy and distractor-selection rates are unobtainable from this platform. The `lesson_questions`/
+  `lesson_answers` Q&A API exists but is unused by both frontends (one endpoint is broken); per-lesson
+  learner↔instructor `chats` is the only live free-text signal about learner confusion.
 
 ### 11.2 Lecture
 
-- One TipTap HTML blob, no markdown source. This is why `courses/` must be the authoring source of truth (§3).
-- The editor registers **StarterKit + Heading(1-3) + Image + Youtube** and nothing else
-  (`ManageLecturePage.tsx:96-111`). The Table, Link, TextAlign, Color and Highlight packages are in
-  `package.json` and **never loaded**, so those nodes are not in the schema.
-- **Tables are impossible.** So is a link button. The real palette is: H1-H3, paragraph, bold/italic/strike, two
-  list types, blockquote, code block, image-by-URL, YouTube-by-URL. A comparison table — the natural device for
-  "frontend vs backend" — must become a definition list, a two-bullet contrast, or an image.
-- **Images are inserted by URL only.** No asset upload exists inside a lesson, so every diagram needs external
-  hosting that outlives the course, or base64 inlined into the single content blob.
-- Markdown authoring *does* exist in this platform — for **Articles**, with draft/published, slugs and
-  categories. Lectures are the outlier, not the rule.
+- One HTML blob per language (`content_en`/`content_ja`, `longText`, **no length cap** — lesson length is a
+  pedagogy decision, not a platform one).
+- **No server-side sanitisation.** The write path runs `html_entity_decode`, so escaped tags in a code sample
+  become *live markup* — a code sample containing `<h1>` injects a phantom heading into the lesson.
+- Learner rendering is DOMPurify (defaults + `iframe` re-allowed) → html-react-parser. **Tables, links, images,
+  code blocks and iframes all render — and ` ```mermaid ` fences render as live diagrams**
+  (`resources/ts/src/components/lesson/Lecture.tsx`). 16 tables and 184 mermaid blocks already ship in seeded
+  content. **Architecture diagrams need no image hosting: write them as mermaid.**
+- **The admin TipTap editor is strictly less capable than the platform** — it loads only StarterKit + Heading(1-3)
+  + Image + Youtube, cannot author tables or tagged code fences, **and destroys them on re-save** (it writes back
+  `editor.getHTML()` of what it could parse). Publish via API or seeder; **never round-trip a generated lecture
+  through the admin editor.**
+- Images by URL or base64; video upload ≤50 MB or `video_url`.
 
 ### 11.3 Quiz — narrower than it looks
 
-- **Single-answer multiple choice only.** `ManageQuizSheet.tsx:56` is `question_type: z.literal("multiple_choice")`
-  and the UI renders "Question Type" as a static label above a hidden input. There is no selector.
-- `true_false` **is dead code.** It occurs exactly once in the whole codebase (`constants/course.ts:30`) and
-  nothing reads it. True/false can only be simulated as a two-option MCQ reading "True" / "False".
-- **Multi-select is structurally impossible** — exactly one option must be correct, enforced by a `.refine()`, and
-  the checkbox behaves as a radio. This rules out "select all that apply".
-- Options: minimum 2, no maximum, each a single plain-text string. No rich text, images, or code in an option.
-- The complete quiz wire contract (`api/LessonApi.ts:6-26`) is `quiz_instructions`, `duration`, `pass_rate`, and
-  `questions[{question_text, question_type, options[{option_text, is_correct}]}]`. **Nothing else exists.**
-- **There is no per-question `explanation` field. The platform cannot tell a learner why they were wrong.**
-  Declared in `types/quiz.ts:30`, absent from the editor and the wire. This is the single most consequential
-  limit for L1: corrective teaching must be pushed *into the distractors*, so every wrong option has to be a
-  recognisable, self-diagnosing misconception. Nothing follows the click.
-- **Per-question points are not authorable** — every question is worth the same.
-- **`attempts_allowed` is not authorable.** Quizzes are effectively unlimited-retry, so a quiz cannot gate
-  progress; it is formative feedback only.
-- `duration` (minutes) *is* authorable and **defaults to 30**. Nobody chose that as pedagogy — it is a form
-  default, and L1 needs a position on it.
-- Also absent: question/option shuffling, question banks, partial credit, draft state.
-- **`pass_rate` is ambiguous in the codebase itself** — the form labels it `Pass Rate (%)` and one type comment
-  says percentage, while another says a raw count ("3 out of 5"). It is transmitted as an unadorned string.
-  `confidence: low`; default to percentage and verify against the learner app before relying on it.
+- **Single-answer MCQ only, locked at three layers**: the submission API takes one scalar `option_id` per question
+  (`SubmitQuizRequest.php:23-24`), grading consults only the *first* `is_correct` option
+  (`LessonController.php:190`), and the editor enforces exactly-one-correct (`ManageQuizSheet.tsx:60,72`).
+  Marking two options correct does not make a multi-select — it makes a silently mis-graded question.
+  `true_false` is a dead constant with zero call sites.
+- **`pass_rate` is a raw count of questions, not a percentage** — migration comment `'in no. of questions'`,
+  grading `if ($passedCount >= $quiz->pass_rate)` (`LessonController.php:215`). Decide the threshold and the
+  question count together. The API accepts it (and `duration`) as *strings*.
+- **No explanation field. Proven from the schema**: zero occurrences in all 59 migrations, `app/`, and `routes/`.
+  The submission response returns per-question `passed` + `correct_option_id` — a learner learns *which* option
+  was right, never *why*. **The correct option's text is therefore the de facto explanation surface: write it as
+  a complete, self-justifying statement.** Distractors carry all corrective teaching (see the NEVER list).
+- No per-question points, no attempt limits, no shuffling, no banks, no partial credit — all phantom type fields.
+- Options are plain text, bilingual (`_ja` nullable); the editor requires ≥2 per question.
 
-### 11.4 Lab — function-implementation, not script-writing
+### 11.4 Lab — one JavaScript buffer, stdout-matched
 
-- Stored: `content` (instructions), `template_code`, `language`, and 1-10 `test_cases` of `{input, expected_output}`.
-- **Authoring additionally requires a `function_name` and a full `solution_code`, and neither is persisted**
-  (`ManageLabPage.tsx:113-116`; absent from the save payload at `:465-483` and from `LabDetail`). The runner is
-  told which function to call, so labs are function-implementation exercises — the "write a script that prints"
-  mental model is misleading. A consequence for authors: both fields come back blank on edit and must be retyped
-  before an existing lab can be saved.
-- Grading is **trimmed, case-sensitive, whole-string equality** on stdout. Leading/trailing whitespace is
-  forgiven; internal whitespace and line breaks are not.
-- **A lab cannot be saved until every one of its test cases passes.** A genuine free quality gate — the one place
-  the platform actively stops an unverified expected-output reaching a learner. Lean on it in the curriculum.
-  Caveat: an author who never runs the tests can still save, so the gate is bypassable by omission.
-- **`html` and `css` are offered as lab languages, but a CSS lab cannot even be authored** — not merely cannot be
-  auto-graded. Two independent blocks: there is no function to name, and the save gate requires passing tests
-  which no stdout comparison can produce for a stylesheet. See §12 open #3.
-- **SQL labs are unverified.** `sql` is one string in a flat client-side dropdown, indistinguishable from the two
-  known-broken entries beside it, with no capability metadata anywhere. Nothing in the admin repo supports the
-  earlier claim that "SQL labs work properly", and it sits in direct tension with the universal `function_name`
-  requirement, since SQL has no function to name. `confidence: low`.
-- **Open, and it gates every lab:** because `function_name` is not stored, nobody can currently state how a saved
-  lab grades a real learner submission. Either the backend re-derives the entry point, or grading really is plain
-  stdin→stdout and the function harness exists only in the authoring preview, or stored labs grade differently
-  than they previewed. **Not answerable from the admin repo — ask the backend team.**
-- Lab instructions are a plain `<textarea>` (5000-char limit, ~800 words), not rich text. Whether the learner app
-  renders that string as markdown, HTML, or literal text is unknown — write it to survive as plain text and put
-  any structure in comments inside the template code.
-- Languages offered: javascript, typescript, python, java, cpp, c, csharp, php, ruby, go, rust, sql, html, css.
-  The list asserts nothing about what the runner supports.
+- A learner submission is **one POST carrying only the code string** (`POST /labs/{id}/submissions`).
+- **Execution is the managed RapidAPI Judge0 CE endpoint, not self-hosted** — RapidAPI auth headers, a polling
+  workaround written specifically for that host's behaviour, and no judge0 service in `docker-compose.yml`.
+- **The learner path hardcodes `language_id: 63` (Node.js)** — `LessonController.php:292` — regardless of the
+  lab's stored `language`. The admin *preview* maps javascript/python/cpp/java (`LessonService.php:107`), so a
+  non-JS lab passes the author's preview and mis-grades for every learner. **Reported as a platform bug
+  2026-08-24. Until fixed: labs are JavaScript, full stop.** No SQL id exists in the map at all.
+- **No stdin, no network, no multi-file, no resource limits** — none of those Judge0 fields is ever sent. A lab
+  cannot fetch a URL, install a package, or read input. For this course that is the hard boundary: learners can
+  *model* a request/response in pure JS, never make one.
+- Grading is a strict `===` on CRLF-normalized, outer-trimmed stdout — case-sensitive, internal whitespace
+  significant. `expected_output` is `VARCHAR(255)`. Design answers as one short scalar line.
+- Rate limit: **10 executions per day** for free learners, charged per test case — labs must be passable in a few
+  tries, which argues for small, well-scaffolded exercises.
+- `function_name` is **nullable in the API**, and the admin UI fails to persist it. The admin preview wraps a
+  named function; the learner path runs the buffer as-is. So author labs as *"complete the template so it prints
+  X"*, with the function scaffold living in `template_code`.
+- **A CSS or visual-design lab can never be auto-graded on this stack** — a managed CE instance cannot host a
+  custom image with a browser. Decision 7 (§12) stands; the Web Design course stays third.
 
 ### 11.5 Localization
 
-- **`i18n/locales/{en,ja}` are fully populated** — 9 namespaces per locale, 18 files, 39,990 bytes, genuine human
-  Japanese, with i18next wired (`fallbackLng: "en"`, localStorage detection) and a working en/ja switcher. The
-  earlier claim that they "exist but are empty" was false when written; the translation work landed 2025-12-23/24.
-- **But i18n covers admin UI chrome, not course content.** There is no `locale` field on a Course, Section,
-  Lesson, Lecture, Quiz, or Lab. **A course is authored in exactly one language, and shipping en+ja means two
-  separate course trees with no platform-level pairing.** That is a cost question for the curriculum, not a
-  capability question for the platform.
-- **The three lesson editors are the only un-internationalized screens in the app.** Localization stops precisely
-  at the content-production surface — a Japanese author writes lessons in an English UI.
-- Japanese content itself will store and render fine; character limits count characters, not bytes.
+- **11 `*_en`/`*_ja` column pairs across 8 tables** (migrations 2026-07-19 → 22): courses(title, description) ·
+  sections(title) · lessons(title) · lesson_lectures(content) · lesson_quizzes(quiz_instructions) ·
+  quiz_questions(question_text) · quiz_options(option_text) · articles(title, excerpt, content). Legacy
+  single-language columns dropped 2026-07-22.
+- All nullable; `localized()` null-coalesces to the other language, so **an English-only course is fully usable
+  by a Japanese-locale learner** — untranslated, not broken. **An empty string defeats the fallback** (`'' ?? x`
+  is `''`): omit `_ja` keys entirely, never send `""`.
+- **One course record holds both languages** — locked in by a regression test. "Both" = filling a second column,
+  never a second course tree.
+- But the API **requires** `title_ja` + `description_ja` on course create and `title_ja` on section create
+  (lessons, lectures and quizzes are JA-optional) — so even an English-first course owes Japanese for one title,
+  one description and each section title.
+- **Labs and curricula have no localization columns at all.**
+- Locale resolves per request from `Accept-Language` (en/ja, default en). **No completeness check exists
+  anywhere** — nothing warns when one language is missing.
 
-### 11.6 What a course can signal about itself
+### 11.6 Authoring and publishing (the API)
 
-- A course carries five fields: title, description, thumbnail, curriculum id, order. **No difficulty, level,
-  audience, duration, price, tags, or prerequisites.** Persona targeting can only live in the title and
-  description strings, which makes the L5 titling note load-bearing.
-- A lesson has **no authorable description**, and a section has nothing but a title. A ≤100-character title is the
-  only framing a learner gets before opening a lesson, so stated learning outcomes must live in the first
-  paragraph of the lecture body. A Quiz lesson's only framing is its required `quiz_instructions`.
-- Undocumented authoring limits worth knowing before writing: **section titles have a 10-character floor** (which
-  forbids "Intro" and "Setup"), lesson titles a 100-character ceiling, lab instructions 5000 characters, labs
-  1-10 test cases.
-- Roles include `student` and `teacher`, but the three L2 personas map to one undifferentiated role — persona
-  distinctions are an authoring device with no platform representation, so they cannot drive branching content or
-  filtered listings.
+- **The full chain is token-scriptable**: `POST /api/v1/admin/login` → Bearer token (Sanctum, no expiry;
+  `teacher` role holds every content permission), then `curricula|courses|sections|lessons /create`. No bulk
+  endpoint — but one lesson call carries its whole quiz/lab subtree, so a 40-lesson course is ~50 calls.
+- Course and curriculum create are **multipart** (`thumbnail` carries the `image` rule, ≤2 MB). Course `order`
+  on create is silently discarded — set it via update or reorder.
+- **Verbs are inconsistent and regression-tested that way**: course/curriculum update = `PUT /{id}`;
+  section/lesson update = `POST /{id}`.
+- **Lesson update upserts nested children by `id`** — keep an id manifest beside the source markdown; re-posting
+  without ids appends duplicate questions. Omit `lecture.id` on update (its validation is unscoped).
+- **Never address sections or lessons by title** — those lookups validate against columns dropped on 2026-07-22
+  and fail at the database. Use ids captured from create responses.
+- Swagger is wired but has zero annotations on the authoring endpoints — **the FormRequests are the spec.**
+- The admin UI's section dialogs impose a 10-character title floor (UI-only; the API allows 1–255) — via the UI,
+  "Intro" is rejected.
+- Lesson titles: `max:255` (the fork-era claim of 100 was wrong). A lesson has no description field — outcomes
+  live in the lecture's first paragraph; a quiz's only framing is its required `quiz_instructions`.
+- *Caveat:* every claim in this section is static code reading; nothing was executed. One smoke call against
+  staging (login + one throwaway section) proves the auth chain.
 
----
+### 11.7 Known platform bugs (reported 2026-08-24)
+
+1. **Learner lab submissions always execute as Node.js** — `language_id: 63` hardcoded in the learner path while
+   the preview maps four languages. Any non-JS lab passes preview and fails learners.
+2. **The admin lecture editor silently deletes tables and mermaid fences on re-save.** Destructive, not merely
+   limited — affects the already-seeded content today.
 
 ## 12. Decisions
 
@@ -756,7 +762,8 @@ src/i18n/config.ts, src/i18n/locales/{en,ja}/  localization
 
 5. **v1 is scoped to the web-system-architecture course.** Charter in `curriculum/`. The handover's recommendation
    is kept but **its stated reason is rejected** — it recommended this course because it "can use SQL labs for a
-   genuinely hands-on module", and SQL labs are unverified (§11.4). It wins on three better grounds: **decay** (a
+   genuinely hands-on module", and SQL cannot execute at all — the learner path runs every submission as
+   Node.js and no SQL id exists in the language map (§11.4). It wins on three better grounds: **decay** (a
    Claude 101 course is almost entirely volatile — model names, prices, feature lists — which §5.1 requires be
    isolated), **reusability** (its notes serve courses 2 and 3; a tool course's do not), and **persona fit** for
    the salesperson the team called out most specifically. **Labs are JavaScript, not SQL** — every lab requires a
@@ -781,18 +788,25 @@ src/i18n/config.ts, src/i18n/locales/{en,ja}/  localization
 8. **Ownership: solo now, staged later.** See §6.4 for the survives / substituted / `UNMET` split, the six
    substitution mechanics, the join order, and the rotating-auditor verdict with its amendment.
 
-**Open — carried, with owners:**
+**Carried open on 2026-08-19 — all four answered on 2026-08-24** by reading the platform monorepo at
+`origin/develop` @ `3d34a4e` (kept here so the answers are traceable):
 
-1. **How a stored lab grades a real learner submission.** `function_name` and `solution_code` are mandatory to
-   author and are never persisted (§11.4), so this is unanswerable from the admin repo. **Gates every lab in
-   v1.** Ask the backend team, together with: does the execution runner have — or could it cheaply gain — any DOM
-   or headless-browser context? The second question prices decision 7 before its trigger ever fires.
-2. **`pass_rate` semantics** — percentage or raw count. Contradictory inside the codebase (§11.3). Verify against
-   the learner app. Until then L4 carries it `confidence: low` and the curriculum defaults to percentage.
-3. **Whether SQL labs execute at all.** One end-to-end SQL lab against the real runner settles it. Not on v1's
-   critical path now that labs are JavaScript, but it decides whether a hands-on data module is ever possible.
-4. **Where lecture diagrams are hosted.** Images are URL-only with no asset upload (§11.2), and an architecture
-   course is mostly diagrams. Needed before L3 is written, not during.
+1. **How a stored lab grades a real learner submission** → the learner posts one code buffer; it runs on managed
+   RapidAPI Judge0 as Node.js (hardcoded) and stdout is `===`-compared to `expected_output`. `function_name` is
+   nullable and unused at learner runtime — the preview's function harness is preview-only (§11.4).
+2. **`pass_rate` semantics** → a **raw count** of correctly answered questions; grading is
+   `$passedCount >= $quiz->pass_rate` (§11.3). The fork's "%" label was wrong.
+3. **Whether SQL labs execute** → no. No SQL id exists in the language map, and the learner path runs everything
+   as Node.js regardless (§11.4).
+4. **Where lecture diagrams are hosted** → nowhere: ` ```mermaid ` fences render as live diagrams in the learner
+   app, and 184 already ship in seeded content (§11.2). No image pipeline needed.
+
+**Newly open (2026-08-24):**
+
+1. **A staging smoke test of the authoring API** — every §11.6 claim is static code reading; one login + one
+   throwaway section proves the auth chain. Owner: whoever holds staging credentials.
+2. **The two reported platform bugs** (§11.7) — the hardcoded Node.js runner and the destructive lecture editor.
+   Owner: platform team; the KB only tracks whether they are fixed, since both bound course design.
 
 ---
 

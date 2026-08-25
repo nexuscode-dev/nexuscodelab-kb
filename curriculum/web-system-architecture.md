@@ -6,7 +6,7 @@ decided: 2026-08-19
 spine_persona: salesperson
 language: en
 length_weeks: 4
-verified_against: b633a07
+verified_against: 3d34a4e
 ---
 
 # Course charter — How a Web System Works
@@ -19,8 +19,9 @@ This is not a note and is exempt from the 150–400 word cap. It is the **scope 
 ## Why this course, and not the other two
 
 Decided 2026-08-19, closing open question #4. The handover recommended this course **because it "can use SQL labs
-for a genuinely hands-on module" — that reason is rejected**, because SQL labs turned out to be unverified (§11.4).
-The course still wins, on three better grounds:
+for a genuinely hands-on module" — that reason is rejected**: SQL cannot execute at all, since the learner runner
+is hardcoded to Node.js and no SQL id exists in the language map (§11.4). The course still wins, on three better
+grounds:
 
 - **Decay.** A *Claude 101* course is almost entirely `volatile` — model names, prices, feature lists — which §5.1
   requires be isolated in volatile notes. This one is nearly all `durable`; HTTP's shape has not moved in a decade.
@@ -30,7 +31,8 @@ The course still wins, on three better grounds:
   three candidates that is genuinely *for* them rather than adapted to them.
 
 It also avoids the CSS-lab fork entirely (open decision #7), which the *Web Design & Development* course would have
-walked straight into — a CSS lab cannot even be authored.
+walked straight into — labs execute on managed RapidAPI Judge0 with no browser and no custom images, so a visual
+lab can never be auto-graded (§11.4).
 
 ## The title is load-bearing
 
@@ -51,7 +53,8 @@ costs a skipping learner nothing.
 
 **4 weeks · ~2–3 h/week · 4 sections · 20 lessons — 13 Lecture · 4 Quiz · 3 Lab (all optional).**
 
-All four section titles clear the undocumented **10-character floor** (§11.6), which forbids "Intro" and "Setup".
+All four section titles clear the admin UI's **10-character floor** (§11.6 — UI-only; the API allows 1–255),
+which forbids "Intro" and "Setup" for anyone editing by hand.
 
 ### S1 · The Two Machines — the client/server split and the trust boundary
 
@@ -99,13 +102,14 @@ day-3 T2 run (HANDOVER §7 step 4).
 
 ## Why the labs are JavaScript and not SQL
 
-**Every lab requires a `function_name` regardless of language** (§11.4), and SQL has no function to name. `sql` is
-one string in a flat client-side dropdown, sitting between the two known-broken entries `html` and `css`, with no
-capability metadata anywhere. Nothing in the admin repo supports the claim that SQL labs work.
+**The learner runner executes every submission as Node.js** — `language_id: 63` is hardcoded in the learner path
+(§11.4), and no SQL id exists in the language map at all. A SQL lab would pass the author's preview (which does
+map languages) and then silently mis-grade for every learner. JavaScript is not a preference here; it is the only
+language that grades correctly until the platform bug is fixed.
 
-All three labs are function-in / stdout-out in JavaScript, which is the only verified execution shape. Note the
-carried-open question: because `function_name` is not persisted, **nobody can yet state how a saved lab grades a
-real submission** — which is why all three labs are optional and none is on the critical path.
+All three labs are one-buffer JavaScript whose stdout is compared byte-exactly (≤255 chars) — "complete the
+template so it prints X", with the scaffold in `template_code`. They stay optional: the 10-execution daily limit
+(§11.4) means each must be passable in a few tries, and none is on the course's critical path.
 
 ## Candidate L3 notes — 17 against a cap of 15–20
 
@@ -149,7 +153,7 @@ which is one of the ten fixed T1 questions and is unanswerable without a written
 | HTML / CSS / JavaScript syntax | This is an architecture course. The salesperson will never write any |
 | Any framework by name (React, Rails, Django…) | Vocabulary churn with no explanatory power at this level; pure `volatile` content |
 | Any cloud provider, or its pricing | `volatile`, and it dates the course within a quarter |
-| SQL syntax | The data module models a query without teaching one. SQL labs are unverified |
+| SQL syntax | The data module models a query without teaching one. SQL cannot execute — the runner is Node.js-only (§11.4) |
 | `git`, environments, "works on my machine" | Developer culture, not a salesperson need. Deferred to `_backlog/domain.md` |
 | DNS, TCP, anything below HTTP | One layer below the useful abstraction. Deferred |
 | HTTPS beyond "the padlock means the pipe is private" | The trust boundary is the security concept this course teaches. Deferred |
@@ -157,9 +161,13 @@ which is one of the ten fixed T1 questions and is unanswerable without a written
 | Prompt engineering | Lesson 19 is about what AI changes *architecturally*, not how to use a tool |
 | Deployment as a practice | Folded into lesson 18 as one paragraph |
 
-## Open questions this charter depends on
+## Open questions this charter depended on — answered 2026-08-24 (§12)
 
-1. **How a stored lab grades a real submission** — gates all three labs. Backend team.
-2. **Where lecture diagrams are hosted.** Images are URL-only with no asset upload (§11.2), and this course is
-   mostly diagrams. Needed **before** L3 is written, not during.
-3. **`pass_rate` semantics** — percentage or raw count. Affects all four quizzes.
+1. **How a stored lab grades a real submission** → one JS buffer, run as Node.js on managed Judge0, stdout
+   `===`-compared. Labs below are designed to that shape.
+2. **Where lecture diagrams are hosted** → nowhere: ` ```mermaid ` fences render as live diagrams in the learner
+   app. Every diagram in this course is authored as mermaid text.
+3. **`pass_rate` semantics** → a raw count of correct questions. Each quiz below fixes its question count and
+   threshold together (e.g. pass 3 of 4).
+
+Still open: a staging smoke test of the authoring API before the publisher script is trusted (§12).

@@ -9,7 +9,8 @@ layer definitions, budget, timebox. This file holds only the rules that must be 
 
 **v1 is scoped to the web-system-architecture course** (decided 2026-08-19). Charter:
 `curriculum/web-system-architecture.md`. L3 is scoped by that charter, never by the field. **Courses ship in
-English; labs are JavaScript, never SQL** — SQL labs are unverified and every lab needs a named function.
+English; labs are JavaScript, never anything else** — the learner runner executes every submission as Node.js
+(`language_id` 63 hardcoded), so a non-JS lab passes the author's preview and silently mis-grades for learners.
 
 ## Layout
 ```
@@ -26,8 +27,8 @@ INDEX.md                                                   # retrieval entry poi
 
 ## The note contract (KB_DESIGN_PROPOSAL §4)
 Frontmatter on every note: `id · layer · status · confidence · decay · last_verified · sources · teaches ·
-depends_on`. Plus `review_by` on every `decay: volatile` note, and `verified_against` (an admin-repo commit SHA)
-on any note whose claim rests on the platform.
+depends_on`. Plus `review_by` on every `decay: volatile` note, and `verified_against` (a **myanlearn** commit SHA
+— the platform monorepo, read at `origin/develop`) on any note whose claim rests on the platform.
 
 Domain-note body, in this order: **Claim → why our learner needs it → how we teach it → the misconception →
 minimal example → assessment hook → sources.** A note that only states facts produces a lecture that reads like
@@ -59,10 +60,18 @@ Wikipedia; the teaching angle is what makes it a lesson.
   `decay: volatile` notes so a refresh stays bounded.
 - NEVER tune the KB to pass the ten retrieval questions in `tests/retrieval-questions.md`. They are fixed, and
   fitting the vault to them turns the only real test into theatre.
-- NEVER state a platform fact from the admin app's **type files**. They are consistently more optimistic than the
-  code — they carry fields and enum members no schema, component or wire contract reads. **Read the editor
-  component and cite `file:line` @ a commit SHA.** This rule exists because §11 was stamped "verified" and was
-  wrong in four material ways against code that had not changed in eight months.
+- NEVER cite `~/Desktop/NexusCodeLabAdmin` — it is a **detached fork of `apps/admin` frozen 2025-12-24**, seven
+  months behind the platform. Platform facts come from the monorepo **`~/Desktop/MyanLearn` at `origin/develop`**
+  (read via `git show origin/develop:<path>`; the working tree is stale). Precedence inside it: the **backend**
+  (migrations, FormRequests, controllers, services) is authoritative for what the platform *is*; `apps/admin`
+  editor components only for what an author can do in the UI; **type files never** — five documented divergences
+  (`explanation`, `points`, `attempts_allowed`, `true_false`, `QuizStats`). Cite `file:line` @ a commit SHA.
+  This rule exists because §11 was stamped "verified" twice and was wrong both times — first from type files,
+  then from the fork.
+- NEVER round-trip a generated lecture through the admin editor — it silently deletes tables and mermaid fences
+  on re-save. Lectures are published via API or seeder only (§11.2).
+- NEVER write a quiz `pass_rate` as a percentage. It is a **raw count** of correct questions
+  (`$passedCount >= $quiz->pass_rate`); on a 4-question quiz, `70` is unpassable.
 - NEVER write an assessment hook that is not a **single-answer** MCQ. No true/false, no multi-select — the platform
   has neither. And NEVER write a filler distractor: there is no `explanation` field, so a wrong option is the only
   teaching a mistake ever receives, and it must be self-diagnosing.

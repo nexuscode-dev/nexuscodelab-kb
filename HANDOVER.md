@@ -8,7 +8,9 @@ different project directory, and none of its memory travels here.
 
 ## 1. What this repo is for
 
-**NexusLab** is a learning platform (separate product; admin app at `../NexusCodeLabAdmin`). The team wants a set
+**NexusLab** is a learning platform (separate product; monorepo at `../MyanLearn` =
+`github.com/nexuscode-devs/myanlearn` — Laravel API + learner SPA + admin SPA. The `../NexusCodeLabAdmin` folder
+is a stale detached fork of just the admin app; never cite it). The team wants a set
 of short, beginner-friendly tech courses on it — 2–4 weeks each, modern, AI-native — aimed at three audiences:
 
 - a high-school or college student starting out,
@@ -102,9 +104,19 @@ with no platform-level pairing, and the three lesson editors are the only un-tra
 
 ## 6. Platform constraints — **re-verified, and the first version was wrong**
 
-**Read `KB_DESIGN_PROPOSAL.md` §11 for the authoritative version.** It is pinned to `NexusCodeLabAdmin` @
-`b633a07` (2025-12-24) and lists the files it was read from. The admin app is at `../NexusCodeLabAdmin`, **outside
-this folder** — a session here needs it added as a working directory to re-verify.
+**Read `KB_DESIGN_PROPOSAL.md` §11 for the authoritative version.** It is pinned to the platform monorepo
+`nexuscode-devs/myanlearn` @ **`3d34a4e`** (`origin/develop`, 2026-07-29). The monorepo is at `../MyanLearn`,
+**outside this folder** — a session here needs it added as a working directory, and must read via
+`git show origin/develop:<path>` because the working tree is checked out at a January commit.
+
+**This section was wrong twice before it was right, and the second failure is the one to remember.** The first
+pass read TypeScript type files. The corrected pass read the editor components — of `../NexusCodeLabAdmin`, which
+turned out to be a **detached fork of `apps/admin` frozen 2025-12-24**, seven months before the bilingual work
+landed. Reading the right files in the wrong repo produces the same confident wrongness as reading the wrong
+files. The 2026-08-24 re-verification against the real backend materially changed: `pass_rate` is a raw count ·
+tables and mermaid render natively (the *editor* is the limitation, and destructive) · a curriculum is required
+on course create · course/section creation requires Japanese titles · labs execute as Node.js regardless of their
+stored language (bug, reported) · the full authoring API is token-scriptable.
 
 **The method finding matters more than any single fact.** The first version of §11 was written from
 `src/types/{course,lab}.ts` and `src/constants/course.ts` and was wrong in four material ways. The code had not
@@ -212,7 +224,7 @@ whole design exists to guarantee.
 | **T1–T5** | the five acceptance tests: retrieval · sufficiency · contradiction sweep · source audit · cold reader |
 | **`decay`** | `durable` (concepts) vs `volatile` (tool versions, prices, model names) — bounds refresh cost |
 | **Overflow rule** | at a layer's cap: merge two notes, or defer to `brain/_backlog/<layer>.md`. Never raise the cap mid-build. |
-| **`verified_against`** | an admin-repo commit SHA on any note resting on a platform fact. A date stamp is unfalsifiable; a SHA makes staleness a `git diff` |
+| **`verified_against`** | a **myanlearn** commit SHA on any note resting on a platform fact. A date stamp is unfalsifiable; a SHA makes staleness a `git diff` |
 | **`review_by`** | a date on `decay: volatile` notes, so "due for re-verification" (retrieval question 9) has a computable answer |
 | **The tripwire** | a deliberately corrupted claim planted in every T4 batch. If the batch passes it, the audit did not run — discard the batch and every stamp it would have granted (proposal §6.4) |
 | **`UNMET`** | a dated row in `tests/audit-log.md` for a test that genuinely cannot run yet. The honest alternative to quietly loosening what *pass* means |
