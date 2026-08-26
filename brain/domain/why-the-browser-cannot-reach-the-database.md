@@ -18,7 +18,7 @@ depends_on: [nexuslab-lesson-primitives]
 
 **How we teach it (framing, not sourced).** Use a **bank teller**, not a waiter: you can ask the teller for your balance, but you cannot walk into the vault. The teller checks who you are, decides what you are allowed, then goes in on your behalf. The vault has no public door on purpose.
 
-**The misconception to pre-empt.** That the browser "has" the data, or could reach the database if it tried. It cannot, and this is deliberate: the browser runs on a machine we do not control, so anything it holds, the user holds. Server-side is the first place anything can be trusted — client-side controls can be circumvented by anyone who disables JavaScript or uses a proxy (`src-owasp-input-validation`).
+**The misconception to pre-empt.** That the browser "has" the data, or could reach the database if it tried. In the model we teach it does not, and that is deliberate: the browser runs on a machine we do not control, so anything it holds, the user holds. Server-side is the first place anything can be trusted — client-side controls can be circumvented by anyone who disables JavaScript or uses a proxy (`src-owasp-input-validation`).
 
 **Minimal example.** View source on any site. The database password is not there. That is not an oversight — there is nowhere in the browser it *could* live safely.
 

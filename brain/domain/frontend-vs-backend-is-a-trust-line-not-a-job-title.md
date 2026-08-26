@@ -10,7 +10,7 @@ teaches: []
 depends_on: [why-the-browser-cannot-reach-the-database, nexuslab-lesson-primitives]
 ---
 
-**Claim (sourced).** Client-side JavaScript validation can be circumvented — by disabling JavaScript or using a web proxy — so input validation must be implemented on the server before any data is processed (`src-owasp-input-validation`). The two sides communicate over HTTP (`src-mdn-client-server-overview`).
+**Claim (sourced).** Client-side JavaScript validation can be circumvented — by disabling JavaScript or using a web proxy — so input validation must be implemented on the server before any data is processed by an application's functions (`src-owasp-input-validation`). The two sides communicate over HTTP (`src-mdn-client-server-overview`).
 
 **Framing (not sourced).** We read this as a *trust line*, not two job titles: the frontend is the region we cannot trust, and the backend is the first region we can (see "How we teach it"). That the frontend runs on a machine the operator does not control, and that *anything* it sends can be altered, are the reasoning behind the framing — not claims taken from the source above, which speaks only to client-side validation.
 
