@@ -20,7 +20,7 @@ depends_on: [nexuslab-lesson-primitives]
 
 **The misconception to pre-empt.** That a "field" is a single box of text — the value in one cell. It is not: a column is the whole labelled slot across every row, which is exactly why adding one is not a one-cell edit. Beginners also assume rows can have different columns; in a table they cannot — the columns are fixed for every row.
 
-**Minimal example.** Add a customer and you add one row, using the columns that already exist. Add "phone number" and you have changed what *every* row now has a slot for — a different kind of change entirely.
+**Minimal example.** Add a customer and you add one row, using the columns that already exist. Add "phone number" and you have changed the *set of columns* itself — now every row has that slot. (What that change then forces you to check is a later lesson's idea, not this one.)
 
 **Assessment hook (paired Quiz, single-answer scenario MCQ).** "A spreadsheet-minded colleague says 'a field is just the value in a cell.' Which correction is right?" Distractors are the cell-value model, the row-is-a-field model, and the rows-can-differ model — each a real belief a beginner holds.
 
