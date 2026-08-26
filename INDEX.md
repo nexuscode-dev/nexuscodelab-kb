@@ -21,11 +21,12 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 
 - [web-system-architecture](curriculum/web-system-architecture.md) — v1's course charter: the salesperson spine, the 20-lesson outline, and **what we deliberately decided not to teach** (draft)
 
-## L1 Pedagogy · 3 / 8–10
+## L1 Pedagogy · 4 / 8–10
 
 *How we teach — lesson archetypes, sequencing, outcome verbs, assessment patterns, cognitive load. Tops out at
 `reviewed`: these are opinions with no source (§9).*
 
+- [beginner-lecture-archetype](brain/pedagogy/beginner-lecture-archetype.md) — the fixed section order of a beginner Lecture, and its paired Quiz, so two authors write recognizably similar lessons (draft · durable)
 - [one-new-idea-per-lesson](brain/pedagogy/one-new-idea-per-lesson.md) — a lesson introduces exactly one new idea; everything else is scaffolding for it (draft · durable)
 - [our-analogies-chosen-and-rejected](brain/pedagogy/our-analogies-chosen-and-rejected.md) — one house analogy per concept, chosen for its boundary, with the rejected ones and why (draft · durable)
 - [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (draft · durable)
@@ -37,11 +38,12 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 
 - [salesperson-persona](brain/audience/salesperson-persona.md) — the spine persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (draft · durable)
 
-## L3 Domain · 3 / 15–20
+## L3 Domain · 4 / 15–20
 
 *What we teach — scoped by the charter above, never by the field. Every note needs a source in L6 and a teaching
 angle. 17 candidates are listed in the charter.*
 
+- [what-a-table-record-and-column-are](brain/domain/what-a-table-record-and-column-are.md) — a table is rows sharing the same named columns; a column is a labelled slot every row has, not one cell's value (draft · durable)
 - [why-the-browser-cannot-reach-the-database](brain/domain/why-the-browser-cannot-reach-the-database.md) — the browser talks to a server over HTTP and the server fetches from the database; "cannot reach it directly" is the teaching frame (draft · durable)
 - [frontend-vs-backend-is-a-trust-line-not-a-job-title](brain/domain/frontend-vs-backend-is-a-trust-line-not-a-job-title.md) — client-side JavaScript validation can be circumvented, so the server must validate before using data; we teach the split as a trust line (draft · durable)
 - [a-schema-change-is-not-a-text-edit](brain/domain/a-schema-change-is-not-a-text-edit.md) — in MySQL, adding a field is an ALTER TABLE that changes the table's structure; "not a text edit" is the teaching frame (draft · durable)

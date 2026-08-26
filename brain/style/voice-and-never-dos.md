@@ -17,7 +17,7 @@ depends_on: [salesperson-persona]
 **Never-dos.**
 
 - **No jargon without a plain-language handle first.** "API" may appear only after the lesson has said what it is in the reader's own terms. A term the salesperson cannot repeat to a client is a term the lesson failed to teach.
-- **No "simply", "just", "obviously", "of course".** They punish the reader who did not find it simple, which for a beginner course is most of them.
+- **No "simply", "just", "obviously", "of course" in the author's own voice.** They punish the reader who did not find it simple, which for a beginner course is most of them. This applies to authorial voice only — quoting a learner's or client's own words is allowed when the lesson needs it (for example, teaching why "can you just add a field?" is not a small change).
 - **No proving how much the author knows.** Depth the persona will never use is not thoroughness; it is theft of their time.
 - **No wall of definitions.** A lesson teaches one idea (`one-new-idea-per-lesson`); definitions that do not serve it are cut, not parked.
 - **No motivational padding.** "In today's fast-moving digital world…" and similar openers say nothing and train the reader to skim.

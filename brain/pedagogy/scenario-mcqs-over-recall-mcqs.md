@@ -22,6 +22,6 @@ depends_on: [nexuslab-lesson-primitives]
 
 **Rewrites.** "The page shows yesterday's price after you clicked refresh — which is the likeliest cause?" · "You log in, then open a second tab and you're logged in there too — what must be travelling with the second tab's requests?"
 
-**The distractor rule — load-bearing, not stylistic.** Because there is no `explanation` field, a wrong answer is the *only* teaching a mistake ever receives. Every distractor must therefore be a real misconception from the catalog and self-diagnosing: a learner who picks it should be able to see which belief led them there. A wrong answer nobody would pick teaches nothing and makes the question easier than it looks.
+**The distractor rule — load-bearing, not stylistic.** Because there is no `explanation` field, a wrong answer is the *only* teaching a mistake ever receives. Every distractor must therefore be a real misconception — the one the matching Domain note names in its "misconception to pre-empt" section — and self-diagnosing: a learner who picks it should be able to see which belief led them there. A wrong answer nobody would pick teaches nothing and makes the question easier than it looks.
 
 **The misconception this pre-empts (in us).** That a quiz certifies coverage. A quiz certifies a working model or it certifies nothing; recall questions quietly do the second while looking like the first.

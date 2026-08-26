@@ -103,7 +103,7 @@ a bit weak":
 | 4 | pre-empts the misconception the domain note names | L3 |
 | 5 | sounds like us — no hedging, no "in today's fast-paced world" | L5 |
 | 6 | fits what a lecture body can hold — HTML via the API: tables, links and mermaid are fine; nothing that needs the admin editor to survive a re-save | L4 |
-| 7 | ends in an assessment that is a single-answer scenario MCQ with self-diagnosing distractors | L1 + L4 |
+| 7 | is paired with a separate Quiz lesson (a lesson is exactly one type) whose single-answer scenario MCQ has self-diagnosing distractors | L1 + L4 |
 | 8 | **every factual claim traces to a note id** | L3 + L6 |
 | 9 | **contains no fact that is not in the vault** | — |
 | 10 | needs no rewrite before it could be published to the platform via the API | overall |
