@@ -10,7 +10,9 @@ teaches: []
 depends_on: [why-the-browser-cannot-reach-the-database, nexuslab-lesson-primitives]
 ---
 
-**Claim (sourced).** The line between frontend and backend is a *trust* line. The frontend runs on a machine the operator does not control, so anything it sends can be circumvented; validation must be done on the server before the data is used (`src-owasp-input-validation`). The two halves talk over HTTP (`src-mdn-client-server-overview`).
+**Claim (sourced).** Client-side JavaScript validation can be circumvented — by disabling JavaScript or using a web proxy — so input validation must be implemented on the server before any data is processed (`src-owasp-input-validation`). The two sides communicate over HTTP (`src-mdn-client-server-overview`).
+
+**Framing (not sourced).** We read this as a *trust line*, not two job titles: the frontend is the region we cannot trust, and the backend is the first region we can (see "How we teach it"). That the frontend runs on a machine the operator does not control, and that *anything* it sends can be altered, are the reasoning behind the framing — not claims taken from the source above, which speaks only to client-side validation.
 
 **Why our learner needs it.** "Frontend = looks, backend = logic" is the definition every salesperson arrives with, and it collapses the first time they see the same check happening in both places. The trust framing survives that; the job-title framing does not.
 

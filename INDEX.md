@@ -42,9 +42,9 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 *What we teach — scoped by the charter above, never by the field. Every note needs a source in L6 and a teaching
 angle. 17 candidates are listed in the charter.*
 
-- [why-the-browser-cannot-reach-the-database](brain/domain/why-the-browser-cannot-reach-the-database.md) — the browser talks to a server over HTTP; the server, not the browser, reaches the database (draft · durable)
-- [frontend-vs-backend-is-a-trust-line-not-a-job-title](brain/domain/frontend-vs-backend-is-a-trust-line-not-a-job-title.md) — the split is a trust line: the frontend can be tampered with, so the server must re-check everything (draft · durable)
-- [a-schema-change-is-not-a-text-edit](brain/domain/a-schema-change-is-not-a-text-edit.md) — adding a field changes the table's structure (ALTER TABLE), not its data (draft · durable)
+- [why-the-browser-cannot-reach-the-database](brain/domain/why-the-browser-cannot-reach-the-database.md) — the browser talks to a server over HTTP and the server fetches from the database; "cannot reach it directly" is the teaching frame (draft · durable)
+- [frontend-vs-backend-is-a-trust-line-not-a-job-title](brain/domain/frontend-vs-backend-is-a-trust-line-not-a-job-title.md) — client-side JavaScript validation can be circumvented, so the server must validate before using data; we teach the split as a trust line (draft · durable)
+- [a-schema-change-is-not-a-text-edit](brain/domain/a-schema-change-is-not-a-text-edit.md) — in MySQL, adding a field is an ALTER TABLE that changes the table's structure; "not a text edit" is the teaching frame (draft · durable)
 
 ## L4 Platform · 2 / 4–6
 

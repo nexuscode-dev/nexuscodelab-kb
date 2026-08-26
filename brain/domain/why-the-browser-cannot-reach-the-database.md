@@ -10,7 +10,9 @@ teaches: []
 depends_on: [nexuslab-lesson-primitives]
 ---
 
-**Claim (sourced).** A browser communicates with a server over HTTP, and it is the server — not the browser — that fetches data from the database. Requests take two hops: browser → server, then server → database.
+**Claim (sourced).** A browser communicates with a server over HTTP, and the server fetches the data from the database (`src-mdn-client-server-overview`).
+
+**Framing (not sourced).** The title states the consequence we teach: the browser does not reach the database *directly*, so a request makes two hops (browser → server → database). The source establishes the two links only; "cannot reach the database" and "two hops" are our framing of them, not a quoted claim.
 
 **Why our learner needs it.** This is the load-bearing distinction behind "frontend" and "backend". Get it here and half the architecture vocabulary stops being arbitrary.
 

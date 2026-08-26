@@ -10,7 +10,9 @@ teaches: []
 depends_on: [nexuslab-lesson-primitives]
 ---
 
-**Claim (sourced).** Adding or changing a field in a relational database changes the table's *structure*, not its contents. It is an `ALTER TABLE` operation — "add or delete columns, create or destroy indexes, change the type of existing columns" (`src-mysql-alter-table`) — a different kind of act from editing the data inside a row.
+**Claim (sourced).** In MySQL, adding or changing a column is an `ALTER TABLE` statement, which changes the *structure* of a table — you can "add or delete columns, create or destroy indexes, change the type of existing columns" (`src-mysql-alter-table`).
+
+**Framing (not sourced).** We generalize this to relational databases in the course, and we contrast it with editing data: a schema change alters the *shape* that holds the rows, not the values in them. The source supports the MySQL `ALTER TABLE` behavior only; the generalization beyond MySQL, the structure-vs-contents contrast, and "not a text edit" are teaching framing.
 
 **Why our learner needs it.** "Can you just add a field?" is a sentence a salesperson says weekly. Understanding why the honest answer is often "that touches the structure" is the difference between scoping a change credibly and promising something that quietly is not small.
 
@@ -22,4 +24,4 @@ depends_on: [nexuslab-lesson-primitives]
 
 **Assessment hook (single-answer scenario MCQ).** "A client asks to 'just add a field' mid-project. Which of these is the reason it is not a one-line change?" Distractors are the spreadsheet model, the "developers are slow" model, and the "it is only slow because of testing" model.
 
-**Sources.** `src-mysql-alter-table` — adding or changing a column is an `ALTER TABLE`, a change to the table's structure.
+**Sources.** `src-mysql-alter-table` — in MySQL, adding or changing a column is an `ALTER TABLE`, which changes the table's structure.
