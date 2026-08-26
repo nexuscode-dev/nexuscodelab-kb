@@ -16,7 +16,7 @@ depends_on: [what-a-table-record-and-column-are, nexuslab-lesson-primitives]
 
 **The single new idea.** The table's structure is a shared agreement, so changing it means checking everything that relied on it.
 
-**Why our learner needs it.** "Can you just add a field?" is a sentence a salesperson says weekly. Understanding why the honest answer is often "that touches the structure" is the difference between scoping a change credibly and promising something that quietly is not small.
+**Why our learner needs it.** "Can you just add a field?" is a request a salesperson fields from clients. Understanding why the honest answer is often "that touches the structure" is the difference between scoping a change credibly and promising something that quietly is not small.
 
 **How we teach it (framing, not sourced).** Editing data is writing in a form's existing boxes. A schema change is **renovating the building**: adding a room changes the floor plan every other room was laid out against. The data did not change; the shape that holds it did — and everything built on the old shape has to be checked.
 
@@ -24,6 +24,6 @@ depends_on: [what-a-table-record-and-column-are, nexuslab-lesson-primitives]
 
 **Minimal example.** Adding a "phone number" field is not one edit. Existing rows have no value for it (is it required?), forms and validation must learn it exists, and code that read the old shape must be checked. None of that is typing a value into a cell.
 
-**Assessment hook (single-answer scenario MCQ).** "A client asks to 'just add a field' mid-project. Which of these is the reason it is not a one-line change?" Distractors are the spreadsheet model, the "developers are slow" model, and the "it is only slow because of testing" model.
+**Assessment hook (single-answer scenario MCQ).** "A client asks to 'just add a field' mid-project. Which of these is the reason it is not a one-line change?" Distractors are the spreadsheet-one-click model (adding a column is a one-click change), the "developers are slow" model, and the "only the new column changes" model.
 
 **Sources.** `src-mysql-alter-table` — in MySQL, adding or changing a column is an `ALTER TABLE`, which changes the table's structure.

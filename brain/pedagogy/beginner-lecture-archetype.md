@@ -16,7 +16,7 @@ depends_on: [one-new-idea-per-lesson, scenario-mcqs-over-recall-mcqs, nexuslab-l
 
 **Section order (always this order):**
 
-1. **Hook.** Open with the reader's own situation or a question they would actually ask — never a definition, never "In this lesson we will…". One or two sentences.
+1. **Hook.** Open with the reader's own situation or a question they would actually ask — never a definition, never "In this lesson we will…". One or two sentences. **Hooks and examples use neutral hypotheticals** (for example, "A client asks to add a phone-number field") — never an invented date, frequency, popularity, statistic, or claim about how the audience behaves, unless the Brain grounds it. A hypothetical scene is fine; an unsupported real-world fact is not.
 2. **Plain explanation.** State the idea in the reader's words *before* any analogy or jargon. If they cannot repeat this paragraph to a colleague, rewrite it.
 3. **Analogy.** Add the one house analogy only after the plain statement, and only if it carries the concept's boundary. Skip it if the plain explanation already lands.
 4. **Diagram (optional).** Include a ```mermaid``` diagram only when the idea is a *structure or a flow* (client↔server, a request's path). For a single distinction, prose is clearer — a decorative diagram costs attention and earns nothing.
