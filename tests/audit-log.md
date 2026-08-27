@@ -27,7 +27,33 @@ a pass. Both clear cheaply; neither can be faked.
 
 ## Runs
 
-*(No test has been run yet. The vault has no notes.)*
+### T1 · 2026-08-27 · prompt 0ada20ae1a12 · vault @ 659c4ef (week1-thin-brain, 13 notes + 4 sources)
+
+Ten fresh sessions, one per question, no shared context. Mode: solo (§6.4 substitutions).
+
+| Q | Outcome | Searches | Landed on |
+|---|---|---|---|
+| 1 | PASS — answer right; key re-registered (analogy lives in L1, not the pre-guessed L3 path) | 2 | `pedagogy/our-analogies-chosen-and-rejected` |
+| 2 | PASS | 1 | `audience/salesperson-persona` |
+| 3 | PASS | 2 | `pedagogy/beginner-lecture-archetype` + `one-new-idea-per-lesson` |
+| 4 | PASS | 1 | `platform/what-a-lab-can-actually-grade` |
+| 5 | PASS | 1 | `domain/frontend-vs-backend-is-a-trust-line-not-a-job-title` |
+| 6 | PASS | 2 | `pedagogy/scenario-mcqs-over-recall-mcqs` |
+| 7 | **honest NOT IN VAULT** — searched 3×, declined to invent a position | 3 | — |
+| 8 | PASS — full provenance chain incl. verbatim `quote:` from the OWASP record | 3 | note → `sources:` → `sources/src-owasp-input-validation` |
+| 9 | PASS — six volatile notes, all `review_by: 2026-11-23`, none overdue | 2 | grep `decay: volatile` |
+| 10 | PASS | 2 | `curriculum/web-system-architecture` § out-of-scope |
+
+**Result: 9/10 found, 1 honest miss, 0 fabrications, every question ≤3 searches. T1 pass condition met.**
+
+**Diagnostic value (the point of the thin run):** the one miss names the next note precisely — the L1 stance on
+AI tooling before/after the manual mental model does not exist. Q1 flagged a duplication risk: the charter still
+lists `what-a-server-is-bank-teller-not-waiter` as a candidate L3 note, but the analogy now lives in L1 —
+merge or strike the candidate when filling L3.
+
+**Honest caveat:** the note author could read the frozen questions, so 9/10 here is weaker evidence than 9/10
+blind. The guards are that the questions predate every note and the seed list came from the charter, not from
+the question list — but T2 (can it write a lesson), not T1, is the test that cannot be gamed this way.
 
 Expected first entries, per HANDOVER §7: **T1 and T2 on the deliberately thin vault**, which the timebox says will
 fail — that is the point. A thin-vault failure is cheap and names exactly which layer is underfed; the same failure
