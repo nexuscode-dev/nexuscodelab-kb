@@ -490,8 +490,8 @@ judgement call made under sunk-cost pressure into an arithmetic check.
 | Layer | Notes |
 |---|---|
 | L1 Pedagogy | 8–10 |
-| L2 Audience | 3–4 |
-| L3 Domain | 15–20 |
+| L2 Audience | 6–8 |
+| L3 Domain | 12–15 |
 | L4 Platform | 4–6 |
 | L5 Style | 3–5 |
 | L6 Sources | register — a ledger, doesn't count against the cap |
