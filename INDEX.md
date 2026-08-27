@@ -73,9 +73,8 @@ never by browsing.*
 
 ## Reading this index when nothing is in it yet
 
-The vault is empty by design as of 2026-08-19. The build order is in HANDOVER §7, and the point of the sequencing is
-that **the seed notes are deliberately uneven** — 2 for L2/L4/L5, 3 for L1, 4 for L3 — so that no layer is complete
-before the day-3 diagnostic that is supposed to tell us which layer is underfed.
+The vault is deliberately thin (the live per-layer counts are in the section headers above) so that no layer is
+complete before the thin-vault diagnostic that tells us which layer is underfed — the build order is in HANDOVER §7.
 
 An empty vault passes every mechanical check in `scripts/check-vault.py`. Only the five tests in `tests/` measure
 whether it is any good.

@@ -194,6 +194,14 @@ def check_cap_literals() -> None:
                 f"the validator's CAPS"
             )
 
+    # T3 final sweep (2026-08-27) found a stale cap in a backlog ROW after the header was fixed — so scan
+    # every prose mention, not just headers. Any "cap of X–Y" in brain/ or curriculum/ must be a current pair.
+    current = {(lo, hi) for lo, hi in CAPS.values()}
+    for md in list((ROOT / "brain").rglob("*.md")) + list((ROOT / "curriculum").glob("*.md")):
+        for m in re.finditer(r"cap (?:of|for this layer:)\s*(\d+)[–-](\d+)", md.read_text(encoding="utf-8")):
+            if (int(m.group(1)), int(m.group(2))) not in current:
+                fail(md, f"mentions a cap of {m.group(1)}–{m.group(2)}, which is no current layer's cap — stale literal")
+
 
 def check_hook_wiring() -> None:
     """The check cannot enforce its own distribution, so it makes its own absence loud.
