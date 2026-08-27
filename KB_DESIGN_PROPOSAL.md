@@ -103,14 +103,23 @@ a bit weak":
 | 4 | pre-empts the misconception the domain note names | L3 |
 | 5 | sounds like us — no hedging, no "in today's fast-paced world" | L5 |
 | 6 | fits what a lecture body can hold — HTML via the API: tables, links and mermaid are fine; nothing that needs the admin editor to survive a re-save | L4 |
-| 7 | ends in an assessment that is a single-answer scenario MCQ with self-diagnosing distractors | L1 + L4 |
+| 7 | contributes one single-answer scenario question (with self-diagnosing distractors) to its section's Quiz lesson — a Lecture does not get its own Quiz | L1 + L4 |
 | 8 | **every factual claim traces to a note id** | L3 + L6 |
-| 9 | **contains no fact that is not in the vault** | — |
+| 9 | **every domain / platform / audience factual claim is grounded in the vault; neutral hypothetical scene-setting is allowed only when it asserts no real-world statistic, behaviour pattern, technical fact, or learner fact** | — |
 | 10 | needs no rewrite before it could be published to the platform via the API | overall |
 
 Lines 8 and 9 are mechanically checkable and catch T2's real failure mode: a lesson that reads beautifully because
 the model filled the gaps from its own knowledge, which is precisely the thing the vault is supposed to be tested
 for.
+
+**Scoring line 9 — what counts as a "fact".** A *factual claim* is a statement about the domain, the platform, or
+the audience that a reader could take as true of the real world; it must trace to a note (line 8). A *neutral
+hypothetical* — a made-up scene used only to illustrate — is allowed and is not scored as an ungrounded fact,
+*provided* it asserts no real-world statistic, behaviour pattern, technical fact, or fact about the learner.
+Allowed: "A client asks to add a phone-number field." Not allowed unless a note supports it: "Most people first
+learn tables from spreadsheets." · "Spreadsheets get slow when more columns are added." · invented dates,
+frequencies ("weekly"), or popularity claims. The grounding rule is not weakened — only made precise: illustration
+is free, assertion is grounded.
 
 ### 2.1 The ten retrieval questions (fixed — do not tune the KB to them after the fact)
 
