@@ -24,8 +24,8 @@ ROOT = Path(__file__).resolve().parent.parent
 # KB_DESIGN_PROPOSAL §7 — per layer, never global. A global cap gets eaten by whoever writes fastest, always L3.
 CAPS = {
     "pedagogy": (8, 10),
-    "audience": (3, 4),
-    "domain": (15, 20),
+    "audience": (6, 8),   # raised from 3-4 — PM amendment 7, accepted 2026-08-24: audience carries the binding constraint
+    "domain": (12, 15),   # lowered from 15-20 — same amendment; total stays ~40
     "platform": (4, 6),
     "style": (3, 5),
     "sources": (0, 10_000),  # a register, not capped (§7)

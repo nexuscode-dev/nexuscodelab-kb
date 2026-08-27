@@ -37,7 +37,7 @@ Wikipedia; the teaching angle is what makes it a lesson.
 ## The NEVER list (violating any of these fails review)
 - NEVER exceed **400 words** in a note (floor 150). The count holding while notes bloat defeats retrieval, which
   is the whole point of the structure.
-- NEVER exceed a layer's note cap (L1 8–10 · L2 3–4 · L3 15–20 · L4 4–6 · L5 3–5). At cap: **merge two notes, or
+- NEVER exceed a layer's note cap (L1 8–10 · L2 6–8 · L3 12–15 · L4 4–6 · L5 3–5). At cap: **merge two notes, or
   file the idea in `brain/_backlog/<layer>.md`.** NEVER raise a cap mid-build — that is a v1-review decision.
 - NEVER write a domain note without a source in `brain/sources/`. Claims live in the note, source records live in
   L6.

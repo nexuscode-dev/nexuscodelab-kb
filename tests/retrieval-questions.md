@@ -28,12 +28,12 @@ that is a v1-review conversation rather than a mid-build cap raise.
 
 | # | Question | Layer | Registered path |
 |---|---|---|---|
-| 1 | What analogy do we use to explain what a server is? | L3 | `brain/domain/what-a-server-is-bank-teller-not-waiter.md` |
-| 2 | What does our salesperson persona already know, and what will they never need? | L2 | *(unwritten)* |
-| 3 | How long is a lesson, and how many new ideas may one lesson introduce? | L1 | *(unwritten)* |
-| 4 | What can a NexusLab lab actually grade? | L4 | *(unwritten)* |
+| 1 | What analogy do we use to explain what a server is? | L1 | `brain/pedagogy/our-analogies-chosen-and-rejected.md` |
+| 2 | What does our salesperson persona already know, and what will they never need? | L2 | `brain/audience/salesperson-persona.md` |
+| 3 | How long is a lesson, and how many new ideas may one lesson introduce? | L1 | `brain/pedagogy/beginner-lecture-archetype.md` |
+| 4 | What can a NexusLab lab actually grade? | L4 | `brain/platform/what-a-lab-can-actually-grade.md` |
 | 5 | What's the common misconception about frontend vs backend, and how do we pre-empt it? | L3 | `brain/domain/frontend-vs-backend-is-a-trust-line-not-a-job-title.md` |
-| 6 | How do we write a quiz question that tests understanding rather than recall? | L1 | *(unwritten)* |
+| 6 | How do we write a quiz question that tests understanding rather than recall? | L1 | `brain/pedagogy/scenario-mcqs-over-recall-mcqs.md` |
 | 7 | Where do we stand on introducing AI tooling before or after the manual mental model? | L1 | *(unwritten)* |
 | 8 | What is our source for the claim that X? *(pick any domain note)* | L6 | `brain/sources/` + the note's `sources:` field |
 | 9 | Which notes are volatile and due for re-verification? | — | `grep -rl "decay: volatile" brain/` then compare `review_by` |

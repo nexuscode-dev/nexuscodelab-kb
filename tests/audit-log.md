@@ -27,7 +27,57 @@ a pass. Both clear cheaply; neither can be faked.
 
 ## Runs
 
-*(No test has been run yet. The vault has no notes.)*
+### T1 · 2026-08-27 · prompt 0ada20ae1a12 · vault @ 659c4ef (week1-thin-brain, 13 notes + 4 sources)
+
+Ten fresh sessions, one per question, no shared context. Mode: solo (§6.4 substitutions).
+
+| Q | Outcome | Searches | Landed on |
+|---|---|---|---|
+| 1 | PASS — answer right; key re-registered (analogy lives in L1, not the pre-guessed L3 path) | 2 | `pedagogy/our-analogies-chosen-and-rejected` |
+| 2 | PASS | 1 | `audience/salesperson-persona` |
+| 3 | PASS | 2 | `pedagogy/beginner-lecture-archetype` + `one-new-idea-per-lesson` |
+| 4 | PASS | 1 | `platform/what-a-lab-can-actually-grade` |
+| 5 | PASS | 1 | `domain/frontend-vs-backend-is-a-trust-line-not-a-job-title` |
+| 6 | PASS | 2 | `pedagogy/scenario-mcqs-over-recall-mcqs` |
+| 7 | **honest NOT IN VAULT** — searched 3×, declined to invent a position | 3 | — |
+| 8 | PASS — full provenance chain incl. verbatim `quote:` from the OWASP record | 3 | note → `sources:` → `sources/src-owasp-input-validation` |
+| 9 | PASS — six volatile notes, all `review_by: 2026-11-23`, none overdue | 2 | grep `decay: volatile` |
+| 10 | PASS | 2 | `curriculum/web-system-architecture` § out-of-scope |
+
+**Result: 9/10 found, 1 honest miss, 0 fabrications, every question ≤3 searches. T1 pass condition met.**
+
+**Diagnostic value (the point of the thin run):** the one miss names the next note precisely — the L1 stance on
+AI tooling before/after the manual mental model does not exist. Q1 flagged a duplication risk: the charter still
+lists `what-a-server-is-bank-teller-not-waiter` as a candidate L3 note, but the analogy now lives in L1 —
+merge or strike the candidate when filling L3.
+
+**Honest caveat:** the note author could read the frozen questions, so 9/10 here is weaker evidence than 9/10
+blind. The guards are that the questions predate every note and the seed list came from the charter, not from
+the question list — but T2 (can it write a lesson), not T1, is the test that cannot be gamed this way.
+
+### T3 · 2026-08-27 · prompt adapted from t3-contradiction.md v1 (05998d7465e3) · vault @ 659c4ef
+
+One fresh session, whole-vault read, the four hiding places checked explicitly.
+
+**Result: FAIL — 2 conflicts, one root cause.** The pass condition is zero.
+
+**The root:** Onyx's pedagogy notes and the course charter disagree about what a quiz lesson is.
+`beginner-lecture-archetype` says every Lecture "is paired with a separate Quiz lesson" testing its one idea —
+that makes ~13 quizzes. The charter fixes the course at 20 lessons with exactly 4 quizzes (three section
+checkpoints and one cumulative). And `one-new-idea-per-lesson` says a quiz needing two questions proves the
+lesson had two ideas — which condemns the charter's section quizzes and cumulative quiz by definition. A
+generating session must pick a side; it cannot honor both.
+
+**What was clean:** analogies consistent everywhere (bank teller, trust line, renovation — no reuse, no rivals);
+every assessment hook is a platform-legal single-answer MCQ; `pass_rate` treated as a count throughout; every
+`depends_on` target exists and still says what its dependers assume; no pedagogy rule assumes knowledge the
+persona note denies (the JS labs are explicitly optional).
+
+**Resolution: NOT applied here** — the conflicting notes are Onyx's and the fix belongs in his open branch,
+proposed to him per the cross-layer rule, before his PR merges. Recorded options: (a) amend the two pedagogy
+sentences so each lecture *feeds one scenario question into its section's quiz* and the one-idea granularity
+binds per-question rather than per-quiz — charter untouched; or (b) reshape the charter to quiz-per-lecture
+(~29 lessons) — pedagogy untouched. This entry stays FAIL until one lands and a re-sweep passes.
 
 Expected first entries, per HANDOVER §7: **T1 and T2 on the deliberately thin vault**, which the timebox says will
 fail — that is the point. A thin-vault failure is cheap and names exactly which layer is underfed; the same failure
