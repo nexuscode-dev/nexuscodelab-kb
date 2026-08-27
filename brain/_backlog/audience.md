@@ -1,6 +1,6 @@
 # Backlog — L2 Audience
 
-**Cap for this layer: 3–4 notes.** At cap you may **merge two notes** or defer an idea here. You may **not** raise
+**Cap for this layer: 6–8 notes.** At cap you may **merge two notes** or defer an idea here. You may **not** raise
 the cap mid-build (KB_DESIGN_PROPOSAL §7.1) — that is a v1-review decision.
 
 This file is the pressure valve. Without it, ideas get smuggled into existing notes, which is worse than a new

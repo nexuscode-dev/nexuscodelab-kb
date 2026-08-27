@@ -72,7 +72,7 @@ Three refinements to the wording above, each closing a way a test could pass wit
   `tests/retrieval-questions.md`, not answering correctly — a fresh session can answer most of these from its own
   knowledge without opening the vault at all, which would score 9/10 on an empty repo.
 - **T4 audits every domain note, not a sample of 10.** §9's sampling rationale was written for a bigger layer than
-  L3 actually is: against a cap of 15–20, ten notes is 50–67% of the layer, so sampling buys nothing and costs the
+  L3 actually is: against a cap of 12–15, ten notes is 67–83% of the layer, so sampling buys nothing and costs the
   certainty. What T4 samples instead is *itself* — see the tripwire in §6.4.
 - **T2 needs a named lesson and a written rubric before it can be run at all.** See §2.2.
 
@@ -164,7 +164,7 @@ truth for what is published on NexusLab, `brain/` is the source of truth for *wh
 
 ### 3.3 The curriculum charter — the artifact L3 is scoped by
 
-§5 scopes L3 "by the curriculum, never by the field", and §7 caps it at 15–20 notes on that basis — but the
+§5 scopes L3 "by the curriculum, never by the field", and §7 caps it at 12–15 notes on that basis — but the
 original layout held no curriculum anywhere, because this document declared the curriculum out of its own scope.
 That was a correct scope boundary for a *design* document and a gap for a *builder*: without the artifact, "scoped
 by the curriculum" has no referent, `teaches:` has nothing to point at, T2 has no named lesson to generate, and
@@ -589,8 +589,8 @@ Rules that make that decision honest:
   signs them. This is a labelling discipline, not a blocker — the KB is fully usable with L1/L2 at `reviewed`,
   as long as nobody later mistakes them for sourced fact.
 - **T4 audits every domain note, and samples itself instead.** *Corrected 2026-08-19:* the original rule sampled
-  10 notes on the rationale that "exhaustive audit costs more than it returns" — but against §7's cap of 15–20,
-  ten notes is 50–67% of the layer, so sampling saved almost nothing and gave up the certainty. What needs
+  10 notes on the rationale that "exhaustive audit costs more than it returns" — but against §7's cap of 12–15,
+  ten notes is 67–83% of the layer, so sampling saved almost nothing and gave up the certainty. What needs
   sampling is the *auditor*, which is what §6.4's tripwire does.
 - **Every verify pass is logged**: note id · source id · verdict · quoted supporting sentence · date · auditor-prompt
   hash, in `tests/audit-log.md`. Without a record, "granted by a fresh session" is unfalsifiable — and §3's

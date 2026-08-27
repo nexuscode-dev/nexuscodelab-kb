@@ -91,6 +91,19 @@ re-test load-bearing ideas across the course in **new scenarios**, one idea per 
 the rationale clause to "three section quizzes plus a cumulative final". Everything else re-checked clean
 (personas, platform-legal hooks, analogies, depends_on). Entry stays FAIL until a clean re-sweep.
 
+**Re-run 2 · 2026-08-27 (later) · fresh session · vault @ 307d89e (PR #2 head): quiz model CLEAN, 2 new conflicts — both mine.**
+The previously failing site is fully resolved and verified sentence-by-sentence: section quizzes = one question
+per lecture, the cumulative Quiz 20 is licensed ("re-testing a taught idea in a new scenario is not a new idea"),
+and no remaining sentence mischaracterizes the split. **The two conflicts found are artifacts of the 2026-08-26
+budget rebalance, which updated the validator and two docs but missed the backlog headers, three proposal prose
+passages, and the charter's candidate-count line** — the vault disagreed with itself about its own caps
+(15–20 vs 12–15 for L3; 3–4 vs 6–8 for L2). Fixed same day, and the drift class is now mechanically closed:
+`check-vault.py` gains a rule that fails the build when a backlog header or CLAUDE.md's cap line disagrees with
+the CAPS the script enforces (tested by breaking a header on purpose). Charter consequence made explicit: 17 L3
+candidates against a 12–15 cap means at least two get merged or backlogged at fill time — candidate 2 (now
+duplicating the L1 analogies note) and the four ⚠ candidates are first in line.
+**Entry flips to PASS only after a zero-conflict sweep on merged main, post-PR #2.**
+
 Expected first entries, per HANDOVER §7: **T1 and T2 on the deliberately thin vault**, which the timebox says will
 fail — that is the point. A thin-vault failure is cheap and names exactly which layer is underfed; the same failure
 on day 8 against a full vault is expensive and ambiguous. **The diagnostic is which layer the failure names**, so

@@ -111,7 +111,7 @@ All three labs are one-buffer JavaScript whose stdout is compared byte-exactly (
 template so it prints X", with the scaffold in `template_code`. They stay optional: the 10-execution daily limit
 (§11.4) means each must be passable in a few tries, and none is on the course's critical path.
 
-## Candidate L3 notes — 17 against a cap of 15–20
+## Candidate L3 notes — 17 against a cap of 12–15, so at least two will not survive
 
 Filenames are the primary index, so these are descriptive kebab-case (CLAUDE.md).
 
@@ -134,6 +134,11 @@ Filenames are the primary index, so these are descriptive kebab-case (CLAUDE.md)
 16  build-versus-rent-third-party-services.md
 17  what-ai-changes-in-a-web-system-and-what-it-does-not.md
 ```
+
+**Seventeen candidates exceed the rebalanced cap (12–15), deliberately** — at least two get merged or backlogged
+at fill time rather than pre-cut now, so the day-3 diagnostic decides which. First in line to go: candidate 2
+(now duplicates the L1 analogies note — the bank-teller analogy landed in `pedagogy/our-analogies-chosen-and-
+rejected`, per the T1 run of 2026-08-27) and the four ⚠ candidates below.
 
 **The ⚠ notes earn their place only as misconception + teaching angle, never as definition** (§5). A note explaining
 what HTTP *is* competes with the model's own knowledge and loses. **If a draft of one of these reads as a

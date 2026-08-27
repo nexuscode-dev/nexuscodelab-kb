@@ -167,6 +167,34 @@ def check_status_gate() -> None:
         )
 
 
+def check_cap_literals() -> None:
+    """Cap numbers written as prose must match the CAPS this script enforces.
+
+    Exists because of T3 run 3 (2026-08-27): the budget rebalance changed CAPS here and in two docs but
+    missed the backlog headers and three prose passages, and a fresh contradiction sweep found the vault
+    disagreeing with itself about its own limits. A literal that lives in five places and is enforced in
+    one is the drift class this whole script exists to kill.
+    """
+    label = {"pedagogy": "L1", "audience": "L2", "domain": "L3", "platform": "L4", "style": "L5"}
+    claude = (ROOT / "CLAUDE.md").read_text(encoding="utf-8") if (ROOT / "CLAUDE.md").is_file() else ""
+    for layer, (lo, hi) in CAPS.items():
+        if layer == "sources":
+            continue
+        backlog = ROOT / "brain" / "_backlog" / f"{layer}.md"
+        if backlog.is_file():
+            m = re.search(r"Cap for this layer: (\d+)[–-](\d+)", backlog.read_text(encoding="utf-8"))
+            if m and (int(m.group(1)), int(m.group(2))) != (lo, hi):
+                problems.append(
+                    f"brain/_backlog/{layer}.md says cap {m.group(1)}–{m.group(2)} but the validator "
+                    f"enforces {lo}–{hi} — cap literals must agree everywhere"
+                )
+        if claude and f"{label[layer]} {lo}–{hi}" not in claude:
+            problems.append(
+                f"CLAUDE.md's cap line does not contain `{label[layer]} {lo}–{hi}` — it disagrees with "
+                f"the validator's CAPS"
+            )
+
+
 def check_hook_wiring() -> None:
     """The check cannot enforce its own distribution, so it makes its own absence loud.
 
@@ -226,6 +254,7 @@ def main() -> int:
         if not (brain / "_backlog" / f"{layer}.md").is_file():
             problems.append(f"brain/_backlog/{layer}.md is missing — the pressure valve is mandatory (§7.1)")
 
+    check_cap_literals()
     check_hook_wiring()
 
     if "--staged" in sys.argv:

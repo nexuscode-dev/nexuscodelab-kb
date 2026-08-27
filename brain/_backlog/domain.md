@@ -1,6 +1,6 @@
 # Backlog — L3 Domain
 
-**Cap for this layer: 15–20 notes.** At cap you may **merge two notes** or defer an idea here. You may **not** raise
+**Cap for this layer: 12–15 notes.** At cap you may **merge two notes** or defer an idea here. You may **not** raise
 the cap mid-build (KB_DESIGN_PROPOSAL §7.1) — that is a v1-review decision.
 
 This file is the pressure valve. Without it, ideas get smuggled into existing notes, which is worse than a new
