@@ -79,6 +79,18 @@ sentences so each lecture *feeds one scenario question into its section's quiz* 
 binds per-question rather than per-quiz — charter untouched; or (b) reshape the charter to quiz-per-lecture
 (~29 lessons) — pedagogy untouched. This entry stays FAIL until one lands and a re-sweep passes.
 
+**Re-run · 2026-08-27 (later) · fresh session · vault @ a4d5f7a (PR #2 head): FAIL — 1 conflict (was 2).**
+Onyx's fix resolved both original conflicts exactly as proposed — section quizzes collect one question per
+lecture, the one-idea rule binds per question; verified verbatim by a session with no memory of the first sweep.
+**Residual:** the archetype's mechanism produces no content for the charter's *cumulative* quiz 20 — S1–S3's
+ideas already spent their one question in quizzes 4, 9 and 14, and the archetype's rationale sentence
+mischaracterizes the charter as fixing four *section* quizzes (it fixes three, plus one cumulative). A generator
+writing lesson 20 must either make it S4's section quiz (contradicting "cumulative") or invent cross-course
+questions the archetype doesn't license. Fix is again single-file, in the archetype: license the final quiz to
+re-test load-bearing ideas across the course in **new scenarios**, one idea per question as ever, and correct
+the rationale clause to "three section quizzes plus a cumulative final". Everything else re-checked clean
+(personas, platform-legal hooks, analogies, depends_on). Entry stays FAIL until a clean re-sweep.
+
 Expected first entries, per HANDOVER §7: **T1 and T2 on the deliberately thin vault**, which the timebox says will
 fail — that is the point. A thin-vault failure is cheap and names exactly which layer is underfed; the same failure
 on day 8 against a full vault is expensive and ambiguous. **The diagnostic is which layer the failure names**, so
