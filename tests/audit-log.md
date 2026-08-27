@@ -55,7 +55,7 @@ merge or strike the candidate when filling L3.
 blind. The guards are that the questions predate every note and the seed list came from the charter, not from
 the question list — but T2 (can it write a lesson), not T1, is the test that cannot be gamed this way.
 
-### T3 · 2026-08-27 · prompt adapted from t3-contradiction.md v1 (05998d7465e3) · vault @ 659c4ef
+### T3 · 2026-08-27 · **PASS** (on the fifth run — the four failures below are the evidence the test works) · prompt adapted from t3-contradiction.md v1 (05998d7465e3) · vault @ 659c4ef
 
 One fresh session, whole-vault read, the four hiding places checked explicitly.
 
@@ -103,6 +103,20 @@ the CAPS the script enforces (tested by breaking a header on purpose). Charter c
 candidates against a 12–15 cap means at least two get merged or backlogged at fill time — candidate 2 (now
 duplicating the L1 analogies note) and the four ⚠ candidates are first in line.
 **Entry flips to PASS only after a zero-conflict sweep on merged main, post-PR #2.**
+
+**Re-run 3 · 2026-08-27 · fresh session · vault @ 4415414 (merged main): 1 conflict** — the last stale cap literal,
+in a backlog *row* one paragraph below the header the previous fix corrected. Fixed in `83aea5b`; the validator's
+cap check widened to scan every prose mention in brain/ and curriculum/, tested by planting a stale literal.
+
+**Re-run 4 · 2026-08-27 · fresh session · vault @ 83aea5b: ZERO CONFLICTS — T3 PASSES.**
+All six probe sites confirmed clean by a session with no memory of any earlier run: personas, platform-legal
+hooks, one-analogy-per-concept, depends_on integrity at `3d34a4e`, the quiz model (section checkpoints +
+licensed cumulative Quiz 20), and every cap literal in every file agreeing at 8–10 / 6–8 / 12–15 / 4–6 / 3–5.
+
+**What the five-run trail bought:** two cross-author quiz-model conflicts caught before merge, one residual at
+the cumulative quiz, and two cap-literal drifts from an half-applied budget change — each converted into either
+a fixed sentence or a new mechanical check (cap literals are now build-enforced, and probe sites 5 and 6 are
+permanent additions to the sweep prompt). Every failure made the next sweep harder to pass.
 
 Expected first entries, per HANDOVER §7: **T1 and T2 on the deliberately thin vault**, which the timebox says will
 fail — that is the point. A thin-vault failure is cheap and names exactly which layer is underfed; the same failure
