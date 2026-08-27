@@ -23,6 +23,6 @@ depends_on: [one-new-idea-per-lesson, scenario-mcqs-over-recall-mcqs, nexuslab-l
 5. **Misconception.** Name the specific wrong belief the reader arrives with (from the matching Domain note's "misconception to pre-empt") and take it apart. This is the highest-value paragraph.
 6. **Takeaway.** Close with one sentence the reader could say out loud the next day. It restates the idea, not the lesson.
 
-**The paired assessment.** A Lecture is one lesson type and cannot contain a question. Each Lecture is **paired with a separate Quiz lesson** whose single-answer scenario MCQ tests the same one idea, with self-diagnosing distractors (`scenario-mcqs-over-recall-mcqs`). Write the Quiz alongside the Lecture, from the same misconception, so the two stay aligned.
+**The paired assessment.** A Lecture is one lesson type and cannot contain a question, and it does **not** get its own Quiz lesson. Instead each Lecture **contributes one single-answer scenario question to its section's Quiz lesson**, testing this Lecture's one idea with self-diagnosing distractors (`scenario-mcqs-over-recall-mcqs`). Write that question alongside the Lecture, from the same misconception, so the two stay aligned. A section's Quiz collects one such question per Lecture in the section — which is why the charter fixes four Quiz lessons across the twenty, not one per Lecture.
 
 **Reproducibility test.** If a second author, given only the Domain note and this archetype, would place the same sections in the same order, the archetype is doing its job.

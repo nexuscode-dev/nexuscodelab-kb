@@ -103,7 +103,7 @@ a bit weak":
 | 4 | pre-empts the misconception the domain note names | L3 |
 | 5 | sounds like us — no hedging, no "in today's fast-paced world" | L5 |
 | 6 | fits what a lecture body can hold — HTML via the API: tables, links and mermaid are fine; nothing that needs the admin editor to survive a re-save | L4 |
-| 7 | is paired with a separate Quiz lesson (a lesson is exactly one type) whose single-answer scenario MCQ has self-diagnosing distractors | L1 + L4 |
+| 7 | contributes one single-answer scenario question (with self-diagnosing distractors) to its section's Quiz lesson — a Lecture does not get its own Quiz | L1 + L4 |
 | 8 | **every factual claim traces to a note id** | L3 + L6 |
 | 9 | **every domain / platform / audience factual claim is grounded in the vault; neutral hypothetical scene-setting is allowed only when it asserts no real-world statistic, behaviour pattern, technical fact, or learner fact** | — |
 | 10 | needs no rewrite before it could be published to the platform via the API | overall |

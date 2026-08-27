@@ -20,4 +20,4 @@ depends_on: []
 
 **What "one idea" is not.** It is not one fact. A lesson may state several facts if they all serve the single idea — the bank-teller analogy, the view-source example, and the trust boundary can all live in one lesson because they teach one thing. The test is the summary sentence, not the fact count.
 
-**How it shows up in assessment.** The end-of-lesson question tests the one idea, in scenario form, not the supporting facts. If the quiz needs two questions to cover the lesson, the lesson had two ideas.
+**How it shows up in assessment.** Each Lecture contributes one scenario question to its section's Quiz, and that question tests the Lecture's single idea, not the supporting facts. The "one idea" rule binds **per question**, not per Quiz: a section Quiz may hold several questions, each testing one earlier Lecture's idea. If a single Lecture needs two questions to cover it, that Lecture had two ideas.

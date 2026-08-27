@@ -26,19 +26,19 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 *How we teach — lesson archetypes, sequencing, outcome verbs, assessment patterns, cognitive load. Tops out at
 `reviewed`: these are opinions with no source (§9).*
 
-- [beginner-lecture-archetype](brain/pedagogy/beginner-lecture-archetype.md) — the fixed section order of a beginner Lecture, and its paired Quiz, so two authors write recognizably similar lessons (draft · durable)
+- [beginner-lecture-archetype](brain/pedagogy/beginner-lecture-archetype.md) — the fixed section order of a beginner Lecture, and how it contributes one question to its section's Quiz, so two authors write recognizably similar lessons (draft · durable)
 - [one-new-idea-per-lesson](brain/pedagogy/one-new-idea-per-lesson.md) — a lesson introduces exactly one new idea; everything else is scaffolding for it (draft · durable)
 - [our-analogies-chosen-and-rejected](brain/pedagogy/our-analogies-chosen-and-rejected.md) — one house analogy per concept, chosen for its boundary, with the rejected ones and why (draft · durable)
 - [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (draft · durable)
 
-## L2 Audience · 1 / 3–4
+## L2 Audience · 1 / 6–8
 
 *Who we teach — the three personas, prior knowledge, weekly time budget, motivation, how each fails. Tops out at
 `reviewed`.*
 
 - [salesperson-persona](brain/audience/salesperson-persona.md) — the spine persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (draft · durable)
 
-## L3 Domain · 4 / 15–20
+## L3 Domain · 4 / 12–15
 
 *What we teach — scoped by the charter above, never by the field. Every note needs a source in L6 and a teaching
 angle. 17 candidates are listed in the charter.*
