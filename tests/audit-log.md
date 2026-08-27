@@ -55,6 +55,30 @@ merge or strike the candidate when filling L3.
 blind. The guards are that the questions predate every note and the seed list came from the charter, not from
 the question list — but T2 (can it write a lesson), not T1, is the test that cannot be gamed this way.
 
+### T3 · 2026-08-27 · prompt adapted from t3-contradiction.md v1 (05998d7465e3) · vault @ 659c4ef
+
+One fresh session, whole-vault read, the four hiding places checked explicitly.
+
+**Result: FAIL — 2 conflicts, one root cause.** The pass condition is zero.
+
+**The root:** Onyx's pedagogy notes and the course charter disagree about what a quiz lesson is.
+`beginner-lecture-archetype` says every Lecture "is paired with a separate Quiz lesson" testing its one idea —
+that makes ~13 quizzes. The charter fixes the course at 20 lessons with exactly 4 quizzes (three section
+checkpoints and one cumulative). And `one-new-idea-per-lesson` says a quiz needing two questions proves the
+lesson had two ideas — which condemns the charter's section quizzes and cumulative quiz by definition. A
+generating session must pick a side; it cannot honor both.
+
+**What was clean:** analogies consistent everywhere (bank teller, trust line, renovation — no reuse, no rivals);
+every assessment hook is a platform-legal single-answer MCQ; `pass_rate` treated as a count throughout; every
+`depends_on` target exists and still says what its dependers assume; no pedagogy rule assumes knowledge the
+persona note denies (the JS labs are explicitly optional).
+
+**Resolution: NOT applied here** — the conflicting notes are Onyx's and the fix belongs in his open branch,
+proposed to him per the cross-layer rule, before his PR merges. Recorded options: (a) amend the two pedagogy
+sentences so each lecture *feeds one scenario question into its section's quiz* and the one-idea granularity
+binds per-question rather than per-quiz — charter untouched; or (b) reshape the charter to quiz-per-lecture
+(~29 lessons) — pedagogy untouched. This entry stays FAIL until one lands and a re-sweep passes.
+
 Expected first entries, per HANDOVER §7: **T1 and T2 on the deliberately thin vault**, which the timebox says will
 fail — that is the point. A thin-vault failure is cheap and names exactly which layer is underfed; the same failure
 on day 8 against a full vault is expensive and ambiguous. **The diagnostic is which layer the failure names**, so
