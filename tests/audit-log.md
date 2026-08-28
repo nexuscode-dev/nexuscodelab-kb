@@ -118,6 +118,29 @@ the cumulative quiz, and two cap-literal drifts from an half-applied budget chan
 a fixed sentence or a new mechanical check (cap literals are now build-enforced, and probe sites 5 and 6 are
 permanent additions to the sweep prompt). Every failure made the next sweep harder to pass.
 
+### T6 (refusal) · 2026-08-28 · **PASS** · fresh session · vault @ d8c33a0
+
+Asked, under the standard grounding rules, to write "What DNS is" — a topic Claude knows cold, and one the vault
+deliberately excludes. **It refused, with the right citations**: the charter's out-of-scope table (DNS is on the
+deliberate not-taught list, load-bearing for retrieval Q10), the backlog's deferral record with its exact
+reasoning ("a salesperson needs 'the name points at the machine', which is one sentence inside lesson 6, not a
+note"), and a vault-wide grep confirming zero grounding material. It then stated the sanctioned path to reverse
+the decision (amend charter → promote the backlog note with an L6 source → generate). This is the "confidently
+wrong and nobody knows" failure mode tested directly, and the grounding rules held under pressure.
+
+### T2 comparison pair · 2026-08-28 · staged for human review
+
+The no-brain control twin of Lesson 13 is generated (fresh session, empty directory, identical brief) and saved
+at `reviews/t2/lesson-13-no-brain-twin.md` beside the with-brain version. **Honest pre-read for reviewers:** the
+twin is *good* — it independently converged on the spreadsheet misconception and a construction analogy (a close
+cousin of our recorded renovation analogy). On a topic this well-trodden, unaided Claude is strong. The delta to
+score for is therefore NOT surface quality but: (1) does the with-brain version use *our exact recorded* analogy
+rather than a fresh one each generation — consistency across 20 lessons; (2) does every claim trace to a note —
+auditable vs unfalsifiable; (3) scope discipline — the twin has no mechanism to refuse out-of-scope requests
+(see T6 above, which the vault passed). If reviewers judge on prose quality alone, the pair will read as a tie —
+and that reading, honestly recorded, would itself be a week-1 finding about where the brain does and does not
+add value. Verdict half remains with the human reviewers (handed to Leon as rubric owner).
+
 Expected first entries, per HANDOVER §7: **T1 and T2 on the deliberately thin vault**, which the timebox says will
 fail — that is the point. A thin-vault failure is cheap and names exactly which layer is underfed; the same failure
 on day 8 against a full vault is expensive and ambiguous. **The diagnostic is which layer the failure names**, so
