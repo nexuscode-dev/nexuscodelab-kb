@@ -66,6 +66,8 @@ which forbids "Intro" and "Setup" for anyone editing by hand.
 | 4 | Quiz | scenario MCQs on the trust boundary |
 | 5 | Lab *(opt, javascript)* | given a submitted payload containing `role`, return whether the server should trust it |
 
+**Lesson 3 weighting.** One lesson, not two. The two-hop model (browser → server → database) is *setup*; the **trust boundary** is the main takeaway. Do not generate it as two equally weighted ideas or split it into a second lesson.
+
 ### S2 · The Round Trip — what travels, and why it is slow
 
 | # | Type | Lesson |
@@ -99,6 +101,10 @@ which forbids "Intro" and "Setup" for anyone editing by hand.
 **Lesson 13 is the course's centre of gravity.** It is the one lesson a salesperson will use the week after
 finishing, and the one least derivable from the model's own knowledge — which makes it the honest choice for the
 day-3 T2 run (HANDOVER §7 step 4).
+
+**Lesson 18 weighting.** One lesson, not two. **Scaling** (more copies, not a bigger machine) is the main idea;
+deployment is *orientation only* — one line, so the reader recognizes the word. Do not expand deployment into
+implementation detail.
 
 ## Why the labs are JavaScript and not SQL
 
