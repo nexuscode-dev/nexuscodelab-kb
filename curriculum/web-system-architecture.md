@@ -68,7 +68,7 @@ which forbids "Intro" and "Setup" for anyone editing by hand.
 
 **Lesson 3 weighting.** One lesson, not two. The two-hop model (browser → server → database) is *setup*; the **trust boundary** is the main takeaway. Do not generate it as two equally weighted ideas or split it into a second lesson.
 
-### S2 · The Round Trip — what travels, and why it is slow
+### S2 · The Round Trip — why a page is slow, and whose fault an error is
 
 | # | Type | Lesson |
 |---|---|---|
@@ -94,7 +94,7 @@ which forbids "Intro" and "Setup" for anyone editing by hand.
 |---|---|---|
 | 16 | Lecture | What an API is, in the only sense that matters |
 | 17 | Lecture | Build vs rent — third-party services |
-| 18 | Lecture | Where the code runs |
+| 18 | Lecture | Handling more users: more copies, not a bigger machine |
 | 19 | Lecture | What AI changes in a web system, and what it does not |
 | 20 | Quiz | cumulative scenario quiz |
 
@@ -102,9 +102,11 @@ which forbids "Intro" and "Setup" for anyone editing by hand.
 finishing, and the one least derivable from the model's own knowledge — which makes it the honest choice for the
 day-3 T2 run (HANDOVER §7 step 4).
 
-**Lesson 18 weighting.** One lesson, not two. **Scaling** (more copies, not a bigger machine) is the main idea;
-deployment is *orientation only* — one line, so the reader recognizes the word. Do not expand deployment into
-implementation detail.
+**Lesson 18 weighting.** One lesson, not two. **Scaling** (more copies, not a bigger machine) is the main idea.
+Deployment is *orientation only* — one line, so the reader recognizes the word. Resilience (one copy can fail while
+the others carry on) is an *orientation detail supporting scaling* — a subordinate consequence of running more copies,
+not a co-equal second idea, and it gets **no separate analogy** (checkout lanes stays the only one). No implementation
+detail.
 
 ## Why the labs are JavaScript and not SQL
 
@@ -171,6 +173,7 @@ which is one of the ten fixed T1 questions and is unanswerable without a written
 | Security beyond the trust boundary | Whole-course material; teaching it partially is worse than not at all |
 | Prompt engineering | Lesson 19 is about what AI changes *architecturally*, not how to use a tool |
 | Deployment as a practice | Folded into lesson 18 as one paragraph |
+| HTTP headers and request-body internals | One layer below the useful abstraction for this beginner; the envelope-vs-contents analogy is reserved for a future course |
 
 ## Open questions this charter depended on — answered 2026-08-24 (§12)
 
