@@ -194,7 +194,7 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and
 prioritize the refresh or the kill switch in its proposal.
 
-### Licensing decision — third-party YouTube videos in course 2 · 2026-09-02
+### Licensing decision — third-party YouTube videos in course 2 · 2026-09-01
 
 Checked 3blue1brown.com/about (by hein + Claude session): clips under 60s with attribution are allowed,
 re-uploads forbidden, and "any other use case, including uploading full lessons to an alternate educational

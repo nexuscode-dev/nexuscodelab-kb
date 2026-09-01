@@ -4,7 +4,7 @@ layer: platform
 status: draft
 confidence: high
 decay: volatile
-last_verified: 2026-09-02
+last_verified: 2026-09-01
 review_by: 2026-12-01
 verified_against: 5d5c879
 sources: []
@@ -27,7 +27,7 @@ blocks do not survive.
 - Seeder-shipped lectures (course 2's appendix and its diagram lectures, and any future rich lecture) are
   edited **in the seeder file and re-seeded**, never in the admin panel.
 - The admin app now shows a destructive warning banner when a loaded lecture's fetched content contains
-  `<table` or `language-mermaid` (guard added 2026-09-02, platform `develop`). The banner warns; it does not
+  `<table` or `language-mermaid` (guard added 2026-09-01, platform `develop`). The banner warns; it does not
   block — the rule above is still the protection.
 - A lecture authored *in* the admin editor is safe to keep editing there; the trap is only content the editor
   could never have produced.

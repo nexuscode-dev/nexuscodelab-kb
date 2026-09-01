@@ -69,7 +69,7 @@ AI cited a court case that doesn't exist. What happened?" — every distractor a
 4. **Reuse dependency** — S3 leans on course 1's API and client-server notes (the brain thesis paying off), so
    this course generates **second**, never in parallel with course 1.
 
-## Revision after review — 2026-09-02
+## Revision after review — 2026-09-01
 
 Updated to match the shipped seeder (`ClaudeFundamentalsSeeder.php` @ platform `develop`) after the 2026-09-01
 review of this course:
@@ -82,7 +82,7 @@ review of this course:
 - All lectures now follow `beginner-lecture-archetype` (Misconception + Takeaway present in 11/11).
 - Open question 3 (decay ownership) is now answered by the content-review registry in `tests/audit-log.md`
   (owner: hein · review_by 2026-12-01).
-- The two YouTube references are now **optional plain links, not embeds** (resolved 2026-09-02): 3Blue1Brown's
+- The two YouTube references are now **optional plain links, not embeds** (resolved 2026-09-01): 3Blue1Brown's
   reuse policy (3blue1brown.com/about) asks for a licensing inquiry for course-material use beyond short
   attributed clips, so we link out instead — linking needs no permission. Re-adding embeds requires written
   approval via his contact form first.

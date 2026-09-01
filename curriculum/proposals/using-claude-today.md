@@ -2,7 +2,7 @@
 id: using-claude-today
 status: proposal            # NOT a charter — awaits team + Leon approval
 proposed_by: hein
-date: 2026-09-02
+date: 2026-09-01
 course_slot: TBD (short companion to claude-ai-fundamentals)
 ---
 
