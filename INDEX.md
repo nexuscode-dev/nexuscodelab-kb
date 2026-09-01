@@ -48,13 +48,14 @@ angle. 17 candidates are listed in the charter.*
 - [frontend-vs-backend-is-a-trust-line-not-a-job-title](brain/domain/frontend-vs-backend-is-a-trust-line-not-a-job-title.md) — client-side JavaScript validation can be circumvented, so the server must validate before using data; we teach the split as a trust line (draft · durable)
 - [a-schema-change-is-not-a-text-edit](brain/domain/a-schema-change-is-not-a-text-edit.md) — in MySQL, adding a field is an ALTER TABLE that changes the table's structure; "not a text edit" is the teaching frame (draft · durable)
 
-## L4 Platform · 2 / 4–6
+## L4 Platform · 3 / 4–6
 
 *What NexusLab can hold, and its limits. Every note pins `verified_against: <myanlearn monorepo SHA>` — a date
 stamp is unfalsifiable, and §11 proved it.*
 
 - [nexuslab-lesson-primitives](brain/platform/nexuslab-lesson-primitives.md) — a lesson is exactly one of Lecture/Quiz/Lab, and the hard limits of each (draft · volatile)
 - [what-a-lab-can-actually-grade](brain/platform/what-a-lab-can-actually-grade.md) — one JS buffer, stdout byte-matched; no browser/DOM/packages, ten runs a day charged per test case (draft · volatile)
+- [admin-editor-strips-rich-content](brain/platform/admin-editor-strips-rich-content.md) — one admin-editor save deletes tables and mermaid; rich lectures are edited in the seeder, never the panel (draft · volatile)
 
 ## L5 Style · 2 / 3–5
 

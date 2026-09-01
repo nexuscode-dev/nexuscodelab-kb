@@ -34,9 +34,11 @@ models and prices, clearly marked perishable.
 
 ## Rough structure
 
-3 weeks · 3 sections · ~14 lessons — 10 Lecture · 3 Quiz · 1 optional JS lab.
-S1 "What the machine is actually doing" → S2 "Getting good work out of it" → S3 "AI connected to real systems",
-plus the volatile appendix as one clearly-dated lecture.
+3 weeks · 3 sections · 15 lessons — 11 Lecture · 3 Quiz · 1 optional JS lab.
+S1 "What the machine is actually doing" → S2 "Getting good work out of it" → S3 "AI connected to real systems".
+The perishable surface is exactly two clearly-dated lectures, both in S3: the models appendix and a one-lesson
+"Using Claude Today" orientation that maps product features back to the course's concepts and out-links to the
+fuller product-tour course (see `using-claude-today.md`).
 
 ## Platform fit
 
@@ -66,3 +68,19 @@ AI cited a court case that doesn't exist. What happened?" — every distractor a
 3. **Decay** — the appendix needs a standing `review_by` and a named owner, or it ships stale within a quarter.
 4. **Reuse dependency** — S3 leans on course 1's API and client-server notes (the brain thesis paying off), so
    this course generates **second**, never in parallel with course 1.
+
+## Revision after review — 2026-09-02
+
+Updated to match the shipped seeder (`ClaudeFundamentalsSeeder.php` @ platform `develop`) after the 2026-09-01
+review of this course:
+
+- The shipped course now carries this proposal's title, **Working With AI: Claude Fundamentals** (an interim
+  "Claude 101" title was reverted per this proposal's own commoditization reasoning).
+- A four-lesson "Meet Claude" product-tour section that had crept in post-proposal was removed per the review;
+  its content moved to a separate proposal, `using-claude-today.md`, so this course's perishable surface stays
+  at two dated lectures (~18% of lectures) with no quiz over product-UI facts.
+- All lectures now follow `beginner-lecture-archetype` (Misconception + Takeaway present in 11/11).
+- Open question 3 (decay ownership) is now answered by the content-review registry in `tests/audit-log.md`
+  (owner: hein · review_by 2026-12-01).
+- Both YouTube embeds are marked optional with text that stands alone; the licensing position of embedding
+  third-party videos as course material still needs human confirmation before publish.

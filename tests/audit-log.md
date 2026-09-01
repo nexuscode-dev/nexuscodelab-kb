@@ -169,3 +169,20 @@ pass; the intended signal was that someone consciously asserted it.)
 | Layer | Date | Why nothing is deferred |
 |---|---|---|
 | *(pending — no notes written yet)* | | |
+
+---
+
+## Content review registry — dated course lessons
+
+Course content has no `review_by` frontmatter the way Brain notes do, so decay ownership for dated lessons is
+recorded here (per the 2026-09-01 course 2 review, "Decay ownership is still unassigned"). One row per dated
+lesson; update `last_reviewed` on every re-verification, and on ship day set it to the publish date.
+
+| Course | Lesson | Owner | last_reviewed | review_by |
+|---|---|---|---|---|
+| Working With AI: Claude Fundamentals | Appendix: Today's Models | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
+| Working With AI: Claude Fundamentals | Using Claude Today (orientation lecture) | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
+| Using Claude Today (course, proposal-stage) | all 3 lectures | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
+
+A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and
+prioritize the refresh or the kill switch in its proposal.
