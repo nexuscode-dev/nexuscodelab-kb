@@ -83,12 +83,17 @@ The charter carries the full list, including deployment and HTTPS detail.
 
 ## Current Status
 
-**Ready** — course plan and structure, the out-of-scope list, and platform limits verified against the backend.
+**Content and functional validation complete; final knowledge-base cleanup in progress.** All 20 lessons are
+written and seeded. Functional browser smoke testing passed, the responsive Lab layout issues were fixed and
+verified, and the learner-facing content review is complete with its priority gating fixes applied. The quiz
+assessment blockers — the predictable correct-answer position and the learner answer-key API leak — are fixed, and
+both publish blockers were verified on the deployed server. The Lesson 13 comparison was completed and its feedback
+already drove the gating and content changes.
 
-**Pending** — independent review of the Lesson 13 sample; trimming the candidate note list (17 against a cap of
-12–15); a smoke test of the publishing path against staging.
-
-**Not started** — the other 19 lessons. Nothing is published to the platform.
+**Remaining after this cleanup** — the knowledge-base alignment in this pass (charter and platform-note
+corrections, the candidate-list trim, and the open Q7 teaching-sequence decision, which awaits an owner statement),
+then the §9 human sign-off on the L1/L2 opinion notes, and moving this proposal out of `proposal` status once that
+sign-off lands.
 
 ## Open Questions
 

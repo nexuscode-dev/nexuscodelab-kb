@@ -20,7 +20,9 @@ depends_on: [nexuslab-lesson-primitives]
 
 **What a lab cannot do.** No stdin, no network, no file input, no multiple files, no installed packages — none of those fields is ever sent to Judge0. A lab cannot fetch a URL, read input, or import a library. It **cannot run a browser, a DOM, Playwright, Puppeteer, or grade CSS or visual output** — a managed CE instance hosts no browser and no custom image. Learners can *model* a request in pure JS; they can never make one.
 
-**Limits.** Free learners get ten executions per day, **charged per test case** — so a five-case lab is two full attempts. `function_name` is nullable and the admin UI fails to persist it, so author labs as "complete the template so it prints X", with the scaffold in `template_code`.
+**Limits.** Free learners get ten executions per day, **charged per test case** — so a five-case lab is two full attempts.
+
+**`function_name` is used, not decorative.** The column is nullable, but the learner runtime *calls* it: the wrapper invokes `function_name` with the test input, so a lab with inputs and a null name produces an invalid wrapper that fails for every learner. Course seeders persist it and the admin *preview* receives it, but the admin create/update payload currently omits it: a value already stored (e.g. by a seeder) survives an admin re-save, while a Lab authored fresh in the admin UI previews fine and then saves with a null name. `LabResource` does not expose `function_name` to learners, so it must be told another way — **every lab must state its required function name in both the learner instructions and the starter template.**
 
 **Consequence for authoring.** Design every lab as: one function, a JSON-shaped input, one short printed line as the answer. Anything that needs a browser, a package, or multi-line output belongs in a Lecture or a Quiz, not a Lab.
 

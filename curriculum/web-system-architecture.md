@@ -36,9 +36,12 @@ lab can never be auto-graded (§11.4).
 
 ## The title is load-bearing
 
-A course record carries five fields: title, description, thumbnail, curriculum id, order. **No difficulty, level,
-audience, or tags** (§11.6). Persona targeting can therefore only live in the title and description strings, which
-is why the L5 titling note matters more than it looks. Description has a 10-character minimum.
+A course record carries a `level` field — `beginner` / `intermediate` / `advanced`, and Course 1 is `beginner` —
+alongside title, description, thumbnail, curriculum id, and order, but **no audience or tags** (§11.6). `level` is a
+coarse catalogue bucket: `beginner` says nothing about *who* the beginner is, so it cannot express this course's
+specific target learner — a non-technical salesperson who is not expected to write code. Persona targeting therefore
+still lives in the title and description strings, which is why the L5 titling note matters more than it looks.
+Description has a 10-character minimum.
 
 ## Spine persona
 
@@ -119,41 +122,40 @@ All three labs are one-buffer JavaScript whose stdout is compared byte-exactly (
 template so it prints X", with the scaffold in `template_code`. They stay optional: the 10-execution daily limit
 (§11.4) means each must be passable in a few tries, and none is on the course's critical path.
 
-## Candidate L3 notes — 17 against a cap of 12–15, so at least two will not survive
+## Candidate L3 notes — 15 within a cap of 12–15
 
 Filenames are the primary index, so these are descriptive kebab-case (CLAUDE.md).
 
 ```
  1  the-browser-is-a-program-on-the-users-machine.md
- 2  what-a-server-is-bank-teller-not-waiter.md
- 3  why-the-browser-cannot-reach-the-database.md          # worked in §4.3 — needs a real T4 pass first
- 4  frontend-vs-backend-is-a-trust-line-not-a-job-title.md    # answers retrieval Q5
- 5  validation-happens-twice-and-only-one-counts.md
- 6  the-request-carries-everything-the-server-knows.md
- 7  one-click-is-one-round-trip.md                        # ⚠ model knows the fact
- 8  latency-is-distance-not-bandwidth.md
- 9  status-codes-tell-you-whose-fault-it-is.md            # ⚠ model knows the fact
-10  stale-data-means-something-was-cached.md
-11  what-a-database-is-and-why-it-is-not-a-spreadsheet.md # ⚠ model knows the fact
-12  http-is-stateless-so-something-must-carry-identity.md
-13  a-schema-change-is-not-a-text-edit.md                 # highest-value note in the set
-14  scaling-means-more-copies-not-a-bigger-computer.md
-15  an-api-is-a-contract-between-two-teams.md             # ⚠ model knows the fact
-16  build-versus-rent-third-party-services.md
-17  what-ai-changes-in-a-web-system-and-what-it-does-not.md
+ 2  why-the-browser-cannot-reach-the-database.md          # worked in §4.3 — needs a real T4 pass first
+ 3  frontend-vs-backend-is-a-trust-line-not-a-job-title.md    # answers retrieval Q5
+ 4  validation-happens-twice-and-only-one-counts.md
+ 5  one-click-is-one-round-trip.md                        # ⚠ model knows the fact
+ 6  latency-is-distance-not-bandwidth.md
+ 7  status-codes-tell-you-whose-fault-it-is.md            # ⚠ model knows the fact
+ 8  stale-data-means-something-was-cached.md
+ 9  what-a-database-is-and-why-it-is-not-a-spreadsheet.md # ⚠ model knows the fact
+10  http-is-stateless-so-something-must-carry-identity.md
+11  a-schema-change-is-not-a-text-edit.md                 # highest-value note in the set
+12  scaling-means-more-copies-not-a-bigger-computer.md
+13  an-api-is-a-contract-between-two-teams.md             # ⚠ model knows the fact
+14  build-versus-rent-third-party-services.md
+15  what-ai-changes-in-a-web-system-and-what-it-does-not.md
 ```
 
-**Seventeen candidates exceed the rebalanced cap (12–15), deliberately** — at least two get merged or backlogged
-at fill time rather than pre-cut now, so the day-3 diagnostic decides which. First in line to go: candidate 2
-(now duplicates the L1 analogies note — the bank-teller analogy landed in `pedagogy/our-analogies-chosen-and-
-rejected`, per the T1 run of 2026-08-27) and the four ⚠ candidates below.
+**Fifteen candidates, within the rebalanced cap (12–15).** Two earlier candidates were cut: *what-a-server-is-bank-
+teller-not-waiter* (the bank-teller analogy is governed by `pedagogy/our-analogies-chosen-and-rejected`, and its
+rejected waiter image should not become a Domain note — learner-facing Course 1 no longer teaches the rejection),
+and *the-request-carries-everything-the-server-knows* (it backed HTTP headers / request-body internals, which Course
+1 now places out of scope). No replacement is invented to refill the cap.
 
 **The ⚠ notes earn their place only as misconception + teaching angle, never as definition** (§5). A note explaining
 what HTTP *is* competes with the model's own knowledge and loses. **If a draft of one of these reads as a
 definition, cut it.** The sharper test: if retrieval question 8 ("what is our source for the claim that X?") has no
 interesting answer, the note should not exist.
 
-Note 8 (latency) is the borderline case worth keeping anyway, because "just add more bandwidth" is the densest
+Note 6 (latency) is the borderline case worth keeping anyway, because "just add more bandwidth" is the densest
 misconception a salesperson carries into a delivery conversation.
 
 ## Out of scope, and why
