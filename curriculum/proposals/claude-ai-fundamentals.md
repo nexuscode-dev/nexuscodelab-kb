@@ -82,5 +82,7 @@ review of this course:
 - All lectures now follow `beginner-lecture-archetype` (Misconception + Takeaway present in 11/11).
 - Open question 3 (decay ownership) is now answered by the content-review registry in `tests/audit-log.md`
   (owner: hein · review_by 2026-12-01).
-- Both YouTube embeds are marked optional with text that stands alone; the licensing position of embedding
-  third-party videos as course material still needs human confirmation before publish.
+- The two YouTube references are now **optional plain links, not embeds** (resolved 2026-09-02): 3Blue1Brown's
+  reuse policy (3blue1brown.com/about) asks for a licensing inquiry for course-material use beyond short
+  attributed clips, so we link out instead — linking needs no permission. Re-adding embeds requires written
+  approval via his contact form first.

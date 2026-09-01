@@ -186,3 +186,12 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 
 A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and
 prioritize the refresh or the kill switch in its proposal.
+
+### Licensing decision — third-party YouTube videos in course 2 · 2026-09-02
+
+Checked 3blue1brown.com/about (by hein + Claude session): clips under 60s with attribution are allowed,
+re-uploads forbidden, and "any other use case, including uploading full lessons to an alternate educational
+platform" requires a licensing inquiry via his contact form. Embedding full videos in a paid course is not
+clearly covered → resolved by **replacing both embeds (3Blue1Brown, Karpathy) with optional plain YouTube
+links**, which require no permission. Decision: links stay unless a written approval via the contact form ever
+justifies restoring embeds. Seeder and live rows updated same day.
