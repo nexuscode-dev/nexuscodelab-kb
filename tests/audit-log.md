@@ -51,6 +51,13 @@ AI tooling before/after the manual mental model does not exist. Q1 flagged a dup
 lists `what-a-server-is-bank-teller-not-waiter` as a candidate L3 note, but the analogy now lives in L1 —
 merge or strike the candidate when filling L3.
 
+**Q7 resolved (2026-09-01), by an owner decision — not by an AI guess.** The stance now exists as
+`pedagogy/manual-model-before-ai-tooling`, recorded as an owner decision by Ye Yint Ohn Kyaing: the manual
+web-system mental model first, AI later as a component inside it, never a shortcut past the architecture. The T1
+result above stands exactly as recorded — 1 honest miss, 0 fabrications. When the note did not exist, the correct
+behavior was to log the gap and refuse to invent an owner opinion, and that refusal remains the right call; what
+closed the gap was an actual owner statement, which is the only thing that could.
+
 **Honest caveat:** the note author could read the frozen questions, so 9/10 here is weaker evidence than 9/10
 blind. The guards are that the questions predate every note and the seed list came from the charter, not from
 the question list — but T2 (can it write a lesson), not T1, is the test that cannot be gamed this way.

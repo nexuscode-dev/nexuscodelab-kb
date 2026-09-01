@@ -21,7 +21,7 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 
 - [web-system-architecture](curriculum/web-system-architecture.md) — v1's course charter: the salesperson spine, the 20-lesson outline, and **what we deliberately decided not to teach** (draft)
 
-## L1 Pedagogy · 4 / 8–10
+## L1 Pedagogy · 5 / 8–10
 
 *How we teach — lesson archetypes, sequencing, outcome verbs, assessment patterns, cognitive load. Tops out at
 `reviewed`: these are opinions with no source (§9).*
@@ -30,6 +30,7 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 - [one-new-idea-per-lesson](brain/pedagogy/one-new-idea-per-lesson.md) — a lesson introduces exactly one new idea; everything else is scaffolding for it (draft · durable)
 - [our-analogies-chosen-and-rejected](brain/pedagogy/our-analogies-chosen-and-rejected.md) — one house analogy per concept, chosen for its boundary, with the rejected ones and why (draft · durable)
 - [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (draft · durable)
+- [manual-model-before-ai-tooling](brain/pedagogy/manual-model-before-ai-tooling.md) — build the manual web-system model first; AI is taught later as a component inside it, never a shortcut past the architecture (draft · durable)
 
 ## L2 Audience · 1 / 6–8
 

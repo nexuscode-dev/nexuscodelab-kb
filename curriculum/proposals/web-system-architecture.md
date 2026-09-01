@@ -91,7 +91,8 @@ both publish blockers were verified on the deployed server. The Lesson 13 compar
 already drove the gating and content changes.
 
 **Remaining after this cleanup** — the knowledge-base alignment in this pass (charter and platform-note
-corrections, the candidate-list trim, and the open Q7 teaching-sequence decision, which awaits an owner statement),
+corrections, the candidate-list trim, and the Q7 teaching-sequence decision, now resolved by an owner statement in
+`pedagogy/manual-model-before-ai-tooling`),
 then the §9 human sign-off on the L1/L2 opinion notes, and moving this proposal out of `proposal` status once that
 sign-off lands.
 
