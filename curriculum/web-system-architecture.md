@@ -122,7 +122,7 @@ All three labs are one-buffer JavaScript whose stdout is compared byte-exactly (
 template so it prints X", with the scaffold in `template_code`. They stay optional: the 10-execution daily limit
 (§11.4) means each must be passable in a few tries, and none is on the course's critical path.
 
-## Candidate L3 notes — 15 within a cap of 12–15
+## Candidate L3 notes — 13 within a cap of 12–15 (Course 1 = the v1 boundary)
 
 Filenames are the primary index, so these are descriptive kebab-case (CLAUDE.md).
 
@@ -130,32 +130,39 @@ Filenames are the primary index, so these are descriptive kebab-case (CLAUDE.md)
  1  the-browser-is-a-program-on-the-users-machine.md
  2  why-the-browser-cannot-reach-the-database.md          # worked in §4.3 — needs a real T4 pass first
  3  frontend-vs-backend-is-a-trust-line-not-a-job-title.md    # answers retrieval Q5
- 4  validation-happens-twice-and-only-one-counts.md
- 5  one-click-is-one-round-trip.md                        # ⚠ model knows the fact
- 6  latency-is-distance-not-bandwidth.md
- 7  status-codes-tell-you-whose-fault-it-is.md            # ⚠ model knows the fact
- 8  stale-data-means-something-was-cached.md
- 9  what-a-database-is-and-why-it-is-not-a-spreadsheet.md # ⚠ model knows the fact
-10  http-is-stateless-so-something-must-carry-identity.md
-11  a-schema-change-is-not-a-text-edit.md                 # highest-value note in the set
-12  scaling-means-more-copies-not-a-bigger-computer.md
-13  an-api-is-a-contract-between-two-teams.md             # ⚠ model knows the fact
-14  build-versus-rent-third-party-services.md
-15  what-ai-changes-in-a-web-system-and-what-it-does-not.md
+ 4  one-click-is-one-round-trip.md                        # ⚠ model knows the fact
+ 5  latency-is-distance-not-bandwidth.md
+ 6  status-codes-tell-you-whose-fault-it-is.md            # ⚠ model knows the fact
+ 7  what-a-database-is-and-why-it-is-not-a-spreadsheet.md # ⚠ model knows the fact
+ 8  http-is-stateless-so-something-must-carry-identity.md
+ 9  a-schema-change-is-not-a-text-edit.md                 # highest-value note in the set
+10  scaling-means-more-copies-not-a-bigger-computer.md
+11  an-api-is-a-contract-between-two-teams.md             # ⚠ model knows the fact
+12  build-versus-rent-third-party-services.md
+13  what-ai-changes-in-a-web-system-and-what-it-does-not.md
 ```
 
-**Fifteen candidates, within the rebalanced cap (12–15).** Two earlier candidates were cut: *what-a-server-is-bank-
-teller-not-waiter* (the bank-teller analogy is governed by `pedagogy/our-analogies-chosen-and-rejected`, and its
-rejected waiter image should not become a Domain note — learner-facing Course 1 no longer teaches the rejection),
-and *the-request-carries-everything-the-server-knows* (it backed HTTP headers / request-body internals, which Course
-1 now places out of scope). No replacement is invented to refill the cap.
+**Thirteen candidates, within the cap (12–15) — each backs a specific Course 1 lecture; the list is not padded to
+the cap.** The cap is **not** raised for later courses: Course 1 is the v1 boundary, and domain knowledge that only
+Courses 2/3 need waits for a per-course v2 L3 budget (KB_DESIGN_PROPOSAL §7.1). Four candidates were cut across the
+cleanup, each moved to `_backlog/domain.md` rather than deleted:
+
+- *what-a-server-is-bank-teller-not-waiter* — the analogy is governed by `pedagogy/our-analogies-chosen-and-rejected`;
+  its rejected waiter image should not become a Domain note, and learner-facing Course 1 no longer teaches the rejection.
+- *the-request-carries-everything-the-server-knows* — it backed HTTP headers / request-body internals, now out of scope.
+- *validation-happens-twice-and-only-one-counts* — for Course 1 it duplicates the written `frontend-vs-backend-is-a-
+  trust-line` note (which already carries the OWASP-sourced "the server must validate" claim); its full client/server
+  validation treatment is Course 2 (Web Design) forms material, deferred to v2.
+- *stale-data-means-something-was-cached* — Course 1 teaches no caching lecture (S2 is round trip → latency → status
+  codes); the quiz-9 scenario is answered from the round-trip idea and lesson 6 carries a one-sentence orientation only.
+  Full caching/staleness is Course 2 performance material, deferred to v2.
 
 **The ⚠ notes earn their place only as misconception + teaching angle, never as definition** (§5). A note explaining
 what HTTP *is* competes with the model's own knowledge and loses. **If a draft of one of these reads as a
 definition, cut it.** The sharper test: if retrieval question 8 ("what is our source for the claim that X?") has no
 interesting answer, the note should not exist.
 
-Note 6 (latency) is the borderline case worth keeping anyway, because "just add more bandwidth" is the densest
+Note 5 (latency) is the borderline case worth keeping anyway, because "just add more bandwidth" is the densest
 misconception a salesperson carries into a delivery conversation.
 
 ## Out of scope, and why

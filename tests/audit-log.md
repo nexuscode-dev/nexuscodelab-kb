@@ -236,3 +236,23 @@ claim-granularity defect, not a sourcing one — the source record documents bot
 quote-or-NO is the test, not a technicality to argue with. Fetch note: dev.mysql.com served a block page on the
 first two attempts; the third returned the real manual, and the extract used contains the full ALTER TABLE
 description.
+
+### L3 v1 boundary · 2026-09-02 · Course 1 candidate list finalized (Round 2 decision)
+
+Not a T-series run — a recorded scope decision. **Course 1 is the v1 boundary. The L3 Domain cap stays 12–15 and is
+NOT raised for Courses 2/3;** domain knowledge those courses need waits for a per-course v2 L3 budget (§7.1). The
+charter's active candidate list is trimmed to the candidates a specific Course 1 lecture relies on.
+
+**Count: 15 → 13.** Two candidates were moved to `_backlog/domain.md` (not deleted), each with a v2-recoverable
+reason:
+
+- `validation-happens-twice-and-only-one-counts` — for Course 1 it duplicates the already-**verified**
+  `frontend-vs-backend-is-a-trust-line` note (T4 above granted its OWASP stamp: "input validation must be implemented
+  on the server-side…"), so the idea is covered; its own full treatment is Course 2 forms material.
+- `stale-data-means-something-was-cached` — Course 1 teaches no caching lecture; the quiz-9 scenario resolves from the
+  round-trip idea. Full caching is Course 2 performance material.
+
+The two earlier cuts (`what-a-server-is-bank-teller-not-waiter`, `the-request-carries-everything-the-server-knows`)
+were already applied on 2026-09-01 and are unchanged here. No written Domain note was deleted (the four
+`brain/domain/*.md` notes are all intact); nothing from Courses 2/3 was promoted into Course 1. **Prior T1/T3/T4
+records above are preserved exactly — this is an additive entry, not an edit to earlier evidence.**
