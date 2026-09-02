@@ -1,10 +1,10 @@
 ---
 id: frontend-vs-backend-is-a-trust-line-not-a-job-title
 layer: domain
-status: draft
+status: verified
 confidence: high
 decay: durable
-last_verified: 2026-08-25
+last_verified: 2026-09-02
 sources: [src-owasp-input-validation, src-mdn-client-server-overview]
 teaches: []
 depends_on: [why-the-browser-cannot-reach-the-database, nexuslab-lesson-primitives]

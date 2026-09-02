@@ -19,7 +19,7 @@ a pass. Both clear cheaply; neither can be faked.
 
 | Test | Why unmet | What clears it |
 |---|---|---|
-| **T5 · Cold reader** | The build is solo and the author cannot be the cold reader. A model asked to explain a note back is *anti-correlated* with what T5 measures — it already knows the domain, so it succeeds on exactly the notes a human finds impenetrable. **A simulated T5 does not weaken the test, it inverts it.** | 20 minutes of any non-author reading 3 notes. T5 needs a *reader*, not a collaborator — borrow one |
+| **T5 · Cold reader** | The build is solo and the author cannot be the cold reader. A model asked to explain a note back is *anti-correlated* with what T5 measures — it already knows the domain, so it succeeds on exactly the notes a human finds impenetrable. **A simulated T5 does not weaken the test, it inverts it.** | **Owner + trigger assigned 2026-09-02: Wai Lin, personally, reading 3 notes at publish** as part of his pass over the live site. A dated UNMET with a named owner is a different artifact from an open ask |
 | **T2 · verdict half** | The generation half is genuinely fresh, but the judgement half is contaminated: the author reads past gaps their own memory fills. Runs as `T2-partial` against the §2.2 rubric | A second reader scoring the same rubric |
 | **§9 · human sign-off on L1/L2** | L1 and L2 are opinions with no source, so they top out at `reviewed` and no AI pass can lift them. This was true by design before the build went solo | A human who has taught signs them |
 
@@ -189,10 +189,15 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 |---|---|---|---|---|
 | Working With AI: Claude Fundamentals | Appendix: Today's Models | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 | Working With AI: Claude Fundamentals | Using Claude Today (orientation lecture) | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
-| Using Claude Today (course, proposal-stage) | all 3 lectures | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
+| Using Claude Today (course, approved on hold) | all 3 lectures + the "Checkpoint: Using Claude" quiz | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 
 A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and
 prioritize the refresh or the kill switch in its proposal.
+
+**On-hold rows are pre-publication checks, not live-content deadlines.** *Using Claude Today* is approved but
+held from publication (decision 2026-09-02); until it is live, its row's `review_by` means "re-verify before
+publishing", and an overdue date on it is not a live-content incident — recorded so an overdue row on
+unpublished content is not read as registry noise.
 
 ### Licensing decision — third-party YouTube videos in course 2 · 2026-09-01
 
@@ -202,3 +207,32 @@ platform" requires a licensing inquiry via his contact form. Embedding full vide
 clearly covered → resolved by **replacing both embeds (3Blue1Brown, Karpathy) with optional plain YouTube
 links**, which require no permission. Decision: links stay unless a written approval via the contact form ever
 justifies restoring embeds. Seeder and live rows updated same day.
+
+---
+
+## T4 · 2026-09-02 · prompt 3c34eb552072
+
+Scope: all 4 domain notes (5 claims audited: 4 real + 1 planted). **Tripwire: PLANTED / CAUGHT.**
+
+Method: per `tests/auditor-prompts/t4-source-audit.md` v1, from outside the repo — five isolated fresh sessions
+in a scratch directory, one claim each, no vault access, no repo CLAUDE.md, never shown the note or the
+reasoning. Each auditor received only the claim sentence and the source page **fetched live 2026-09-02** from
+the URL in the source record — never the stored `quote:` field, which would make the audit circular. Builder
+(extraction, corruption, orchestration): hein + session. Onyx authored all four notes and all source records and
+touched nothing here (§6.4). HTML-stripping introduced stray spaces inside some words of the fetched text;
+auditors were told to treat spacing as artifact, and spacing is normalized in the transcription below.
+
+| note id | source id | verdict | quoted sentence | notes |
+|---|---|---|---|---|
+| what-a-table-record-and-column-are | src-postgresql-table-concepts | YES | "Each table is a named collection of rows. Each row of a given table has the same set of named columns, and each column is of a specific data type." | stamp granted |
+| why-the-browser-cannot-reach-the-database | src-mdn-client-server-overview | **NO** | — | Compound claim. MDN states each half separately — "Web browsers communicate with web servers using the HyperText Transfer Protocol (HTTP)." and "…the server determines the product ID, fetches the data from the database…" — but no single sentence states both, and the rules forbid reconstructing a claim from separate passages. **No stamp. Returned to the note's author: split the claim into its two sourced sentences, then re-audit that claim with a fresh tripwire.** |
+| *(tripwire)* "In MySQL, ALTER TABLE changes the data stored in a table's rows, but never its structure." | src-mysql-alter-table | **NO — CAUGHT** | — | Planted corruption (negated direction), position 3 of 5. Auditor cited the opposite sentence from the source. |
+| a-schema-change-is-not-a-text-edit | src-mysql-alter-table | YES | "ALTER TABLE changes the structure of a table. For example, you can add or delete columns, create or destroy indexes, change the type of existing columns, or rename columns or the table itself." | stamp granted |
+| frontend-vs-backend-is-a-trust-line-not-a-job-title | src-owasp-input-validation | YES | "Input validation must be implemented on the server-side before any data is processed by an application's functions, as any JavaScript-based input validation performed on the client-side can be circumvented by an attacker who disables JavaScript or uses a web proxy." | stamp granted |
+
+Result: **3/4 supported. Tripwire caught → the batch stands.** Stamps granted: three notes `draft` → `verified`
+(frontmatter + INDEX updated). `why-the-browser-cannot-reach-the-database` stays `draft`: the NO is a
+claim-granularity defect, not a sourcing one — the source record documents both halves individually — but
+quote-or-NO is the test, not a technicality to argue with. Fetch note: dev.mysql.com served a block page on the
+first two attempts; the third returned the real manual, and the extract used contains the full ALTER TABLE
+description.

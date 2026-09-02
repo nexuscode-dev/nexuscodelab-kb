@@ -1,10 +1,10 @@
 ---
 id: a-schema-change-is-not-a-text-edit
 layer: domain
-status: draft
+status: verified
 confidence: high
 decay: durable
-last_verified: 2026-08-25
+last_verified: 2026-09-02
 sources: [src-mysql-alter-table]
 teaches: []
 depends_on: [what-a-table-record-and-column-are, nexuslab-lesson-primitives]

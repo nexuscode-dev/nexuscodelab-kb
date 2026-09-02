@@ -1,12 +1,23 @@
 ---
 id: using-claude-today
-status: proposal            # NOT a charter — awaits team + Leon approval
+status: approved-on-hold    # approved by Wai Lin 2026-09-02; publication held — see Decision below
 proposed_by: hein
 date: 2026-09-01
 course_slot: TBD (short companion to claude-ai-fundamentals)
 ---
 
 # Course proposal — Using Claude Today
+
+## Decision — 2026-09-02 (Wai Lin)
+
+**Approved, with two conditions:**
+
+1. **Publication is held** until *Working With AI: Claude Fundamentals* is live and has real learners — this
+   course only makes sense to someone who already has the concepts, and every month unpublished is a month of
+   refresh debt not paid. Enforced in code: `UsingClaudeTodaySeeder` is not registered in `DatabaseSeeder` and
+   stays that way until the hold lifts.
+2. **Hard cap: 4 lessons** (the current 3 lectures + 1 quiz). This is the content type that grows; the cap is
+   the defence. Growing it requires a new decision, not an edit.
 
 The deliberately perishable half of the Claude pair. `claude-ai-fundamentals` teaches the durable concepts and
 is designed never to need re-shooting; this course shows where the buttons live today, and is designed to be

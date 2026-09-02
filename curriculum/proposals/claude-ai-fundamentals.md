@@ -62,6 +62,10 @@ AI cited a court case that doesn't exist. What happened?" — every distractor a
 ## Open questions / risks
 
 1. **Free-as-acquisition vs paid** — changes the quality bar and the appendix's refresh duty. Leon's call.
+   **DECIDED 2026-09-02 (Wai Lin): free for v1, revisit when billing exists.** Rationale: the goal is onboarding
+   test users, and the platform has no billing capability today. This settles the quality bar and refresh duty.
+   It does **not** reopen the licensing decision — the videos stay plain links at any price point, because
+   3Blue1Brown's licence terms do not turn on our pricing.
 2. **Commoditization** — why ours over Anthropic's free one? Our answer must be: sequenced for *our* personas,
    in our learners' context, and built on course 1's foundations. If that isn't credible, this course shouldn't
    exist.
