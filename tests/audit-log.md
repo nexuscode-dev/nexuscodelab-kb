@@ -280,3 +280,17 @@ Promoted `draft` → `reviewed` (status line only; bodies and all other metadata
 `reviewed` is the **ceiling** for these six; they are not `verified` and will not be. **T4** (source audit) and **T5**
 (cold reader) remain outstanding per the Standing UNMET table — this entry closes only the §9 L1/L2 sign-off gate,
 nothing else. Prior records above are preserved exactly; this is additive.
+
+### T4 fix returned · 2026-09-02 · `why-the-browser-cannot-reach-the-database` compound claim split
+
+Epsilon's Course 1 T4 returned one note for fix: `why-the-browser-cannot-reach-the-database` failed only on **claim
+granularity** — its single `Claim (sourced)` combined two independently supported facts ("communicates over HTTP"
+**and** "the server fetches the data from the database"), which the rules forbid reconstructing from separate
+passages. That NO stands recorded exactly as Epsilon returned it (see the T4 run above); it is **not** rewritten to
+look like a pass.
+
+Author fix applied: the compound claim was split into **Claim 1** (browser ↔ server over HTTP) and **Claim 2** (the
+server fetches from the database when handling the request), each mapping to one of the two verbatim MDN quotes
+already in `src-mdn-client-server-overview`. No new source added; no claim strengthened; the "cannot reach the
+database" / two-hop / bank-teller wording stays clearly labelled as framing, not sourced. Status stays **`draft`** —
+only an Epsilon re-audit of the two split claims may grant `verified`; the author does not self-grant.

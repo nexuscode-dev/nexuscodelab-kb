@@ -10,7 +10,9 @@ teaches: []
 depends_on: [nexuslab-lesson-primitives]
 ---
 
-**Claim (sourced).** A browser communicates with a server over HTTP, and the server fetches the data from the database (`src-mdn-client-server-overview`).
+**Claim 1 (sourced).** A browser communicates with a web server over HTTP (`src-mdn-client-server-overview`).
+
+**Claim 2 (sourced).** When handling the request, the server fetches the required data from the database before constructing the response (`src-mdn-client-server-overview`).
 
 **Framing (not sourced).** The title states the consequence we teach: the browser does not reach the database *directly*, so a request makes two hops (browser → server → database). The source establishes the two links only; "cannot reach the database" and "two hops" are our framing of them, not a quoted claim.
 
