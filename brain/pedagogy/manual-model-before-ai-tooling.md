@@ -1,7 +1,7 @@
 ---
 id: manual-model-before-ai-tooling
 layer: pedagogy
-status: draft
+status: reviewed
 confidence: high
 decay: durable
 last_verified: 2026-09-01

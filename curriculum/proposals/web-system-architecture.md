@@ -93,8 +93,9 @@ already drove the gating and content changes.
 **Remaining after this cleanup** — the knowledge-base alignment in this pass (charter and platform-note
 corrections, the candidate-list trim, and the Q7 teaching-sequence decision, now resolved by an owner statement in
 `pedagogy/manual-model-before-ai-tooling`),
-then the §9 human sign-off on the L1/L2 opinion notes, and moving this proposal out of `proposal` status once that
-sign-off lands.
+the §9 human sign-off on the six L1/L2 opinion notes is now done (promoted `draft` → `reviewed` on 2026-09-02; see
+`tests/audit-log.md`). Still outstanding before this proposal leaves `proposal` status: the T4 source audit and the
+T5 cold-reader pass.
 
 ## Open Questions
 

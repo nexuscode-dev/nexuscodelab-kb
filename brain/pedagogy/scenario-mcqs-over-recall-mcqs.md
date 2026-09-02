@@ -1,7 +1,7 @@
 ---
 id: scenario-mcqs-over-recall-mcqs
 layer: pedagogy
-status: draft
+status: reviewed
 confidence: high
 decay: durable
 last_verified: 2026-08-25

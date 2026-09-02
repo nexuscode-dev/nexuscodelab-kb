@@ -1,7 +1,7 @@
 ---
 id: salesperson-persona
 layer: audience
-status: draft
+status: reviewed
 confidence: high
 decay: durable
 last_verified: 2026-08-25

@@ -256,3 +256,27 @@ The two earlier cuts (`what-a-server-is-bank-teller-not-waiter`, `the-request-ca
 were already applied on 2026-09-01 and are unchanged here. No written Domain note was deleted (the four
 `brain/domain/*.md` notes are all intact); nothing from Courses 2/3 was promoted into Course 1. **Prior T1/T3/T4
 records above are preserved exactly — this is an additive entry, not an edit to earlier evidence.**
+
+### §9 sign-off · 2026-09-02 · six L1/L2 opinion notes `draft` → `reviewed`
+
+The opinion layers (L1 Pedagogy, L2 Audience) carry no source, so under §9 they top out at **`reviewed`** — a human
+who has taught signs them, and no AI pass can lift them further. That sign-off has now happened.
+
+**Evidence granting the promotion:** two documented Course 1 review rounds (Round 1 and Round 2, both recorded across
+this log and the Course 1 proposal), and **Wai Lin's explicit decision on 2026-09-02 that those two rounds constitute
+the §9 review** for these notes. This is a labelling promotion, not a sourcing one: `reviewed` records that a
+qualified human has read and endorsed the opinion — it makes **no** claim that the notes are source-verified, and by
+§9 they can never become `verified`.
+
+Promoted `draft` → `reviewed` (status line only; bodies and all other metadata unchanged):
+
+- `brain/pedagogy/beginner-lecture-archetype.md`
+- `brain/pedagogy/one-new-idea-per-lesson.md`
+- `brain/pedagogy/our-analogies-chosen-and-rejected.md`
+- `brain/pedagogy/scenario-mcqs-over-recall-mcqs.md`
+- `brain/pedagogy/manual-model-before-ai-tooling.md`
+- `brain/audience/salesperson-persona.md`
+
+`reviewed` is the **ceiling** for these six; they are not `verified` and will not be. **T4** (source audit) and **T5**
+(cold reader) remain outstanding per the Standing UNMET table — this entry closes only the §9 L1/L2 sign-off gate,
+nothing else. Prior records above are preserved exactly; this is additive.
