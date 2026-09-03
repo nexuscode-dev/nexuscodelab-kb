@@ -45,7 +45,7 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 angle. 17 candidates are listed in the charter.*
 
 - [what-a-table-record-and-column-are](brain/domain/what-a-table-record-and-column-are.md) — a table is rows sharing the same named columns; a column is a labelled slot every row has, not one cell's value (verified · durable)
-- [why-the-browser-cannot-reach-the-database](brain/domain/why-the-browser-cannot-reach-the-database.md) — the browser talks to a server over HTTP and the server fetches from the database; "cannot reach it directly" is the teaching frame (draft · durable)
+- [why-the-browser-cannot-reach-the-database](brain/domain/why-the-browser-cannot-reach-the-database.md) — the browser talks to a server over HTTP and the server fetches from the database; "cannot reach it directly" is the teaching frame (verified · durable)
 - [frontend-vs-backend-is-a-trust-line-not-a-job-title](brain/domain/frontend-vs-backend-is-a-trust-line-not-a-job-title.md) — client-side JavaScript validation can be circumvented, so the server must validate before using data; we teach the split as a trust line (verified · durable)
 - [a-schema-change-is-not-a-text-edit](brain/domain/a-schema-change-is-not-a-text-edit.md) — in MySQL, adding a field is an ALTER TABLE that changes the table's structure; "not a text edit" is the teaching frame (verified · durable)
 

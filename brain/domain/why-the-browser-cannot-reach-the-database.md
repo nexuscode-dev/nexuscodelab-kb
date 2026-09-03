@@ -1,10 +1,10 @@
 ---
 id: why-the-browser-cannot-reach-the-database
 layer: domain
-status: draft
+status: verified
 confidence: high
 decay: durable
-last_verified: 2026-08-25
+last_verified: 2026-09-02
 sources: [src-mdn-client-server-overview, src-owasp-input-validation]
 teaches: []
 depends_on: [nexuslab-lesson-primitives]

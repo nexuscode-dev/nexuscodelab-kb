@@ -294,3 +294,22 @@ server fetches from the database when handling the request), each mapping to one
 already in `src-mdn-client-server-overview`. No new source added; no claim strengthened; the "cannot reach the
 database" / two-hop / bank-teller wording stays clearly labelled as framing, not sourced. Status stays **`draft`** —
 only an Epsilon re-audit of the two split claims may grant `verified`; the author does not self-grant.
+
+### T4 re-audit · 2026-09-02 · prompt 3c34eb552072 · `why-the-browser-cannot-reach-the-database` only · vault @ ac1bf67
+
+Scope: the two split claims from the author fix above (3 claims audited: 2 real + 1 planted). **Tripwire:
+PLANTED / CAUGHT.** Same method as the full run above: isolated fresh sessions, one claim each, no vault access;
+source page re-fetched live 2026-09-02 from the URL in `src-mdn-client-server-overview`; auditors never shown
+the note, the stored quotes, or the prior verdicts. Fresh tripwire (direction reversed: "the database fetches
+the required data from the server"), planted position 2 of 3.
+
+| claim | verdict | quoted sentence |
+|---|---|---|
+| Claim 1 — "A browser communicates with a web server over HTTP." | YES | "Web browsers communicate with web servers using the HyperText Transfer Protocol (HTTP)." |
+| *(tripwire)* "…the database fetches the required data from the server…" | **NO — CAUGHT** | auditor cited the reverse: "the server determines the product ID, fetches the data from the database, and then constructs the HTML page for the response" |
+| Claim 2 — "When handling the request, the server fetches the required data from the database before constructing the response." | YES | "When receiving an HTTP GET Request for a product, the server determines the product ID, fetches the data from the database, and then constructs the HTML page for the response by inserting the data into an HTML template." |
+
+Result: **2/2 supported, tripwire caught → stamp granted.** `why-the-browser-cannot-reach-the-database`
+`draft` → `verified` (frontmatter + INDEX). All four L3 domain notes now hold `verified`, each backed by a
+ctrl-F-checkable quote. The original NO above stays in the record — that failure and this pass together are the
+audit trail, not a blemish on it.
