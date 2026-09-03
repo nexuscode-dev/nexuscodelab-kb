@@ -4,7 +4,7 @@ layer: domain
 status: verified
 confidence: high
 decay: durable
-last_verified: 2026-09-02
+last_verified: 2026-09-03
 sources: [src-mdn-client-server-overview, src-owasp-input-validation]
 teaches: []
 depends_on: [nexuslab-lesson-primitives]

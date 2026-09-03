@@ -295,11 +295,11 @@ already in `src-mdn-client-server-overview`. No new source added; no claim stren
 database" / two-hop / bank-teller wording stays clearly labelled as framing, not sourced. Status stays **`draft`** —
 only an Epsilon re-audit of the two split claims may grant `verified`; the author does not self-grant.
 
-### T4 re-audit · 2026-09-02 · prompt 3c34eb552072 · `why-the-browser-cannot-reach-the-database` only · vault @ ac1bf67
+### T4 re-audit · 2026-09-03 · prompt 3c34eb552072 · `why-the-browser-cannot-reach-the-database` only · vault @ ac1bf67
 
 Scope: the two split claims from the author fix above (3 claims audited: 2 real + 1 planted). **Tripwire:
 PLANTED / CAUGHT.** Same method as the full run above: isolated fresh sessions, one claim each, no vault access;
-source page re-fetched live 2026-09-02 from the URL in `src-mdn-client-server-overview`; auditors never shown
+source page re-fetched live 2026-09-03 from the URL in `src-mdn-client-server-overview`; auditors never shown
 the note, the stored quotes, or the prior verdicts. Fresh tripwire (direction reversed: "the database fetches
 the required data from the server"), planted position 2 of 3.
 
