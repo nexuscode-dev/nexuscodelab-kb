@@ -187,7 +187,7 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 
 | Course | Lesson | Owner | last_reviewed | review_by |
 |---|---|---|---|---|
-| Working With AI: Claude Fundamentals | Appendix: Today's Models | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
+| Working With AI: Claude Fundamentals | Appendix: Today's Models | hein | **2026-09-03 (pre-publication check — see below; bump to publish date on ship day)** | 2026-12-01 |
 | Working With AI: Claude Fundamentals | Using Claude Today (orientation lecture) | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 | Using Claude Today (course, approved on hold) | all 3 lectures + the "Checkpoint: Using Claude" quiz | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 
@@ -313,3 +313,20 @@ Result: **2/2 supported, tripwire caught → stamp granted.** `why-the-browser-c
 `draft` → `verified` (frontmatter + INDEX). All four L3 domain notes now hold `verified`, each backed by a
 ctrl-F-checkable quote. The original NO above stays in the record — that failure and this pass together are the
 audit trail, not a blemish on it.
+
+
+### Appendix pre-publication check · 2026-09-03
+
+Per the round-2 close-out ("appendix ship-day check can't complete today unless we publish today — split it"):
+
+- **Content verified now:** the models appendix was checked against Anthropic's own models page
+  (platform.claude.com/docs/en/about-claude/models/overview, fetched 2026-09-03). One drift found and fixed: the
+  lineup's frontier model is now **Claude Fable 5.1**, above Opus 5 — the appendix snapshot now names the full
+  ladder (Fable 5.1 frontier / Opus 5 & Sonnet 5 balanced / Haiku 4.5 fast). Everything else held: prices per
+  million tokens with input cheaper than output, free claude.ai app.
+- **"Last reviewed" bump staged as a one-liner:** in the seeder docblock (`ClaudeFundamentalsSeeder.php`) — a
+  `sed` that stamps the publish date into every "Last reviewed" line, followed by a
+  `COURSE_SEEDER_REPLACE=1` re-seed. The appendix's own date is set to 2026-09-03 (the day its content was
+  actually verified), not the publish date.
+- **This row is the dated pre-check log.** On ship day: run the one-liner, re-verify the vendor page once more,
+  and update the registry row above to the publish date.
