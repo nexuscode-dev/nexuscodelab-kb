@@ -330,3 +330,23 @@ Per the round-2 close-out ("appendix ship-day check can't complete today unless 
   actually verified), not the publish date.
 - **This row is the dated pre-check log.** On ship day: run the one-liner, re-verify the vendor page once more,
   and update the registry row above to the publish date.
+
+### L2 persona note added · 2026-09-04 · `career-switcher-persona` at `draft`
+
+Course 2 (Web Design & Development) shipped sixteen lectures before its audience note existed — the gap Open
+Question 3 of `curriculum/proposals/web-design-development-proposal.md` named, and the one Round 2 called the
+substantive item on that course's list. This row records the note being **written**, not the gap being closed.
+
+- Added `brain/audience/career-switcher-persona.md` at **`status: draft`**, with its `INDEX.md` row (L2 count
+  1 → 2, ceiling 8).
+- **Written after the lectures, not before**, so it is a reconstruction of assumptions the sixteen lectures
+  already make rather than a specification they were built against. `confidence: medium` records exactly that.
+- **The check it does not yet have** is the second half of the Round 2 ask: the sixteen lectures read against this
+  note, with every assumption they make that the note does not license either written into the note or corrected
+  in the lecture. Until that runs, the note is a claim about the learner, not a verified description of the course.
+  It could not be run in the authoring session — the lectures live in the platform monorepo seeder, not this vault.
+- **Not promoted here.** §9 caps L2 at `reviewed`, and a status the author grants themselves is not a review, so
+  the `draft` → `reviewed` step belongs to a separate owner in a commit of its own, with its own row in this log.
+
+This row exists because `check_status_gate()` requires it: the note's `+status: draft` line is a status change, so
+the commit adding it must touch this file. That is the gate working as designed, not a formality.

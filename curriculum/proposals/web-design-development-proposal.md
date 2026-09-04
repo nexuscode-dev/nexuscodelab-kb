@@ -107,7 +107,8 @@ Every line here is verified against the backend, not assumed.
 - **What lectures *can* carry is unusually good for this subject.** HTML via the authoring API, with images by
   URL or base64, video, tables, links, code blocks, and ` ```mermaid ` fences rendering as live diagrams. No image
   hosting is needed for diagrams. **Never round-trip a lecture through the admin editor** — it destroys tables and
-  mermaid fences on re-save, so publishing is API or seeder only (`nexuslab-lesson-primitives`).
+  mermaid fences on re-save, so publishing is API or seeder only (`nexuslab-lesson-primitives`,
+  `admin-editor-strips-rich-content`).
 - **A lesson is exactly one type** — Lecture, Quiz, or Lab. A lecture cannot contain a question, so each lecture
   contributes one scenario question to its section's quiz.
 - **Quizzes are narrow.** Single-answer multiple choice only; no true/false, no multi-select, and **no field to
@@ -163,16 +164,22 @@ they publish before the v2 notes exist is an open decision that should be taken 
    condition attached to it — no lesson generated before it exists — was not met: sixteen lectures were written
    first, so the note now has to be written *and* the lectures checked against it. `INDEX.md` reads
    `L2 Audience · 1 / 6–8`, so the slot is there, and the v2 budget decision below means nothing competes for it.
-4. **The note budget does not fit two courses — settled 2026-09-02.** §7 caps L3 at 12–15 notes for v1, four are
-   written, and course 1 alone lists 17 candidates against that cap. The resolution is not a raised cap (§7
+4. **The note budget does not fit two courses — settled at the Course 1 v1 boundary.** §7 caps L3 at 12–15 notes
+   for v1; four are written, and `curriculum/web-system-architecture.md` lists 13 candidates for Course 1 alone —
+   within the cap, but leaving at most two slots for two further courses. The resolution is not a raised cap (§7
    forbids that mid-build) but a smaller v1: **v1 closes at Course 1, and courses 2 and 3 get their own per-course
-   L3 budgets under a v2 review.** This course's domain notes and its L2 persona note therefore have a home and
-   compete with nothing. The sub-question about the backlog files printing different caps is closed too — the
-   literals were reconciled on `main` on 2026-08-27, and `check-vault.py`'s `check_cap_literals()` now fails the
-   build on any disagreement.
-5. **Course order.** Whether this or *Claude 101* follows course 1. This course's argument is that it makes
-   course 1's notes pay off; *Claude 101*'s is timeliness, against almost entirely volatile content.
-6. **Does a course record carry `level`?** The course-1 charter states courses have no difficulty or level field,
-   so persona targeting can live only in the title and description. The later platform verification lists `level`
-   (default `beginner`), `duration` and `time_limit` on courses. If the newer read is right, targeting has a real
-   field and one charter claim needs correcting.
+   L3 budgets under a v2 review.** That boundary is on the record in the Course 1 charter's candidate heading
+   (*"Course 1 = the v1 boundary"*) and in the two 2026-09-02 deferrals in `brain/_backlog/domain.md`, each of
+   which defers its note explicitly to a v2 per-course L3 budget. This course's domain notes and its L2 persona
+   note therefore have a home and compete with nothing. The sub-question about the backlog files printing
+   different caps is closed too — the literals were reconciled on `main` on 2026-08-27, and `check-vault.py`'s
+   `check_cap_literals()` now fails the build on any disagreement.
+5. **Course order — now a v2-review question.** Whether this or *Claude 101* follows course 1. This course's
+   argument is that it makes course 1's notes pay off; *Claude 101*'s is timeliness, against almost entirely
+   volatile content. The v1 boundary in Open Question 4 does not settle the ordering; it moves the decision into
+   the v2 review, alongside the per-course L3 budgets.
+6. **Does a course record carry `level`? — Answered: yes, and the charter is already corrected.** The newer
+   platform read was right. `curriculum/web-system-architecture.md` now states that a course record carries
+   `level` (`beginner` / `intermediate` / `advanced`, Course 1 being `beginner`) alongside title, description,
+   thumbnail, curriculum id and order, but **no audience or tags** (§11.6). Persona targeting therefore has one
+   real field plus the title and description, not the title and description alone.
