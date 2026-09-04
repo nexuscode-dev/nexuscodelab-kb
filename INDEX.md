@@ -32,12 +32,13 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 - [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (draft · durable)
 - [manual-model-before-ai-tooling](brain/pedagogy/manual-model-before-ai-tooling.md) — build the manual web-system model first; AI is taught later as a component inside it, never a shortcut past the architecture (draft · durable)
 
-## L2 Audience · 1 / 6–8
+## L2 Audience · 2 / 6–8
 
 *Who we teach — the three personas, prior knowledge, weekly time budget, motivation, how each fails. Tops out at
 `reviewed`.*
 
 - [salesperson-persona](brain/audience/salesperson-persona.md) — the spine persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (draft · durable)
+- [career-switcher-persona](brain/audience/career-switcher-persona.md) — the producer persona for course 2: a career-switcher made able to decide and defend page decisions, never certified on visual output (draft · durable)
 
 ## L3 Domain · 4 / 12–15
 
