@@ -330,3 +330,83 @@ Per the round-2 close-out ("appendix ship-day check can't complete today unless 
   actually verified), not the publish date.
 - **This row is the dated pre-check log.** On ship day: run the one-liner, re-verify the vendor page once more,
   and update the registry row above to the publish date.
+
+---
+
+## Platform reality update · 2026-09-08 · Course 1 shipped bilingual (not a T-series run)
+
+A recorded current-state update after Course 1 shipped to production (backend `ee49c6d` on `origin/develop`).
+**Additive: no earlier T1/T3/T4/T6/§9 record is altered.**
+
+**What changed in the platform since the notes were written:**
+
+- **Quiz explanations exist.** `quiz_options` now has `explanation_en` and `explanation_ja` (migration
+  `2026_09_08_100000`). `submitQuiz` returns a localized per-option explanation **after submission only**; the
+  pre-submit lesson API / `OptionResource` still carry none, so the answer key does not leak. This reverses the
+  "no `explanation` field" fact previously stated in `nexuslab-lesson-primitives`, `scenario-mcqs-over-recall-mcqs`,
+  the `why-the-browser-cannot-reach-the-database` assessment hook, and `CLAUDE.md`.
+- **Lab instructions localize.** `lesson_labs.content_ja` now exists (migration `2026_09_08_100001`);
+  `LabResource.content` resolves to the active locale with English fallback. Executable fields (`function_name`,
+  `template_code`, test inputs, `expected_output`) stay English — translating a byte-matched value breaks grading.
+- **Standing admin lab-edit bug** recorded in `what-a-lab-can-actually-grade`: `LabResource` exposes neither
+  `function_name` nor `solution_code`; the admin edit form requires both, so editing an existing lab loads them
+  empty and blocks saving. Volatile; not caused by the localization change.
+- **Course 1 shipped structure** is **15 lectures · 4 quizzes · 1 lab** (not the charter's 13/4/3), bilingual
+  EN/JA, pass rates [2,2,2,4].
+- **Frontend deployment separation** learned during production verification, recorded as the new platform note
+  `learner-and-admin-frontends-deploy-separately` (gitignored `public/build` learner build; separate Vercel admin;
+  quiz review not persisted).
+
+**Notes updated (bodies only; no status promotions):** `platform/nexuslab-lesson-primitives`
+(`verified_against` → `ee49c6d`), `platform/what-a-lab-can-actually-grade` (`verified_against` → `ee49c6d`),
+`platform/learner-and-admin-frontends-deploy-separately` (new · `verified_against: ee49c6d`),
+`pedagogy/scenario-mcqs-over-recall-mcqs`, `domain/why-the-browser-cannot-reach-the-database`
+(assessment-hook **framing only** — the two sourced claims and their quotes are untouched), `CLAUDE.md`, `INDEX.md`.
+
+**Explicitly NOT handled in this pass** (identified in the Course 1 Brain audit, deferred): the salesperson →
+general-beginner persona change; the Course 1 charter/outline structure update; broader pedagogy additions
+(post-submit explanation as an archetype rule, lab restraint, closing recap); style/humanization/transcreation
+rules; the `japanese-exemplars-inline` backlog decision.
+
+---
+
+## Persona + charter alignment · 2026-09-08 · Course 1 spine → general beginner (not a T-series run)
+
+A recorded current-state update aligning the audience/persona and the Course 1 charter with the shipped course.
+**Additive: no earlier T1/T3/T4/T6/§9 record is altered.**
+
+- **New persona added, not a replacement — Brain stays multi-persona.** Course 1's spine is a **general beginner
+  with little/no technical background**. This is captured by a **new** audience note
+  `brain/audience/general-beginner-persona.md` (`status: draft`, §9 owed), scoped explicitly as *Course 1's current
+  spine persona*, with salesperson / client / business roles named only as **examples**. It is **not** the global
+  default learner.
+- **`salesperson-persona` retained as a reusable persona.** It was **not** renamed or deleted — an earlier draft of
+  this pass renamed it, and that was reverted after the rule-impact review. It keeps its `reviewed` (§9) status and
+  content unchanged. It stays a reusable audience persona referenced by name in the Claude-fundamentals,
+  using-claude-today, and web-design proposals (the last explicitly notes it is "the only audience note in the
+  vault"), so the L2 layer now holds **two** personas (AUDI 2/8), as the multi-persona design (`the three personas`,
+  cap 6–8) always intended.
+- **Global pedagogy/style rules were NOT changed to Course 1's persona.** The earlier draft generalized
+  "salesperson → general beginner" inside reusable L1/L5/L3 notes; that promoted one course's audience into
+  universal rules and was **reverted**. `pedagogy/one-new-idea-per-lesson`, `pedagogy/manual-model-before-ai-tooling`,
+  `pedagogy/scenario-mcqs-over-recall-mcqs` (persona line), `pedagogy/our-analogies-chosen-and-rejected` ("A
+  salesperson reasons…" line), `style/voice-and-never-dos` (incl. `depends_on: [salesperson-persona]`),
+  `domain/frontend-vs-backend…` and `domain/a-schema-change…` are all back to their pre-pass reviewed/verified
+  wording. **Kept** from that draft: the reorder-safe analogy lesson-number → named-reference cleanup in
+  `our-analogies` (no analogy decision changed). A future pass may make these notes persona-*neutral*.
+- **English/Japanese reality (factual correction only).** `style/every-analogy-must-survive-japanese` updated
+  ("v1 ships in English, before any Japanese course" → Course 1 already ships EN+JA), and `CLAUDE.md` reworded to a
+  platform-level statement ("the platform supports localized course content; Course 1 currently ships English and
+  Japanese"). Not turned into a universal style rewrite. The JS-only lab rule is unchanged.
+- **Charter aligned to shipped v2.** `curriculum/web-system-architecture.md`: frontmatter `status: draft →
+  shipped`, `spine_persona: salesperson → general-beginner`, `language: en → en, ja`, `verified_against: 3d34a4e →
+  ee49c6d`, added `shipped: 2026-09-08`; a new **"Shipped v2 — 2026-09-08"** section records the live reality
+  (general-beginner audience; EN+JA; 4 sections / 20 lessons / **15 lectures · 4 quizzes · 1 lab**; 14 questions /
+  56 options; pass rates [2,2,2,4]; shipped section titles; 12 EN + 12 JA Mermaid; 56 EN + 56 JA explanations; the
+  `whoseFault` lab). The original 2026-08-19 plan is preserved below that section as the historical decision record.
+
+**Explicitly NOT handled in this pass** (deferred to the next Brain pass): broader pedagogy additions (lab
+restraint, closing-recap rule, post-submit explanation as an archetype rule); style/humanization (em-dash /
+AI-pattern guidance, the Japanese transcreation rule); the `japanese-exemplars-inline` backlog decision; the stale
+`tests/auditor-prompts/t3-contradiction.md` "no `explanation` field" methodology line; and the **fresh §9 sign-off**
+now owed on `general-beginner-persona`.

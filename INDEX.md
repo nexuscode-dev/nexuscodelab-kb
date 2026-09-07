@@ -19,7 +19,7 @@ a shared one-line-per-note index does constantly.
 
 The scope decision that L3 is written against. Neither knowledge nor output.
 
-- [web-system-architecture](curriculum/web-system-architecture.md) — v1's course charter: the salesperson spine, the 20-lesson outline, and **what we deliberately decided not to teach** (draft)
+- [web-system-architecture](curriculum/web-system-architecture.md) — Course 1's charter: the general-beginner spine, the 20-lesson outline, and **what we deliberately decided not to teach**; a "Shipped v2" section records the live reality (shipped · en+ja)
 
 ## L1 Pedagogy · 5 / 8–10
 
@@ -32,12 +32,13 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 - [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (draft · durable)
 - [manual-model-before-ai-tooling](brain/pedagogy/manual-model-before-ai-tooling.md) — build the manual web-system model first; AI is taught later as a component inside it, never a shortcut past the architecture (draft · durable)
 
-## L2 Audience · 1 / 6–8
+## L2 Audience · 2 / 6–8
 
-*Who we teach — the three personas, prior knowledge, weekly time budget, motivation, how each fails. Tops out at
-`reviewed`.*
+*Who we teach — the personas, prior knowledge, weekly time budget, motivation, how each fails. Tops out at
+`reviewed`. Personas are per-course: a charter names which one it uses.*
 
-- [salesperson-persona](brain/audience/salesperson-persona.md) — the spine persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (draft · durable)
+- [salesperson-persona](brain/audience/salesperson-persona.md) — a reusable persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (referenced by the Claude/Web-Design proposals) (reviewed · durable)
+- [general-beginner-persona](brain/audience/general-beginner-persona.md) — Course 1's current spine persona: a general beginner with little/no technical background, made conversant and correctly-modelled, never able to build; sales/client roles are examples, not the definition (draft · durable)
 
 ## L3 Domain · 4 / 12–15
 
@@ -49,14 +50,15 @@ angle. 17 candidates are listed in the charter.*
 - [frontend-vs-backend-is-a-trust-line-not-a-job-title](brain/domain/frontend-vs-backend-is-a-trust-line-not-a-job-title.md) — client-side JavaScript validation can be circumvented, so the server must validate before using data; we teach the split as a trust line (verified · durable)
 - [a-schema-change-is-not-a-text-edit](brain/domain/a-schema-change-is-not-a-text-edit.md) — in MySQL, adding a field is an ALTER TABLE that changes the table's structure; "not a text edit" is the teaching frame (verified · durable)
 
-## L4 Platform · 3 / 4–6
+## L4 Platform · 4 / 4–6
 
 *What NexusLab can hold, and its limits. Every note pins `verified_against: <myanlearn monorepo SHA>` — a date
 stamp is unfalsifiable, and §11 proved it.*
 
-- [nexuslab-lesson-primitives](brain/platform/nexuslab-lesson-primitives.md) — a lesson is exactly one of Lecture/Quiz/Lab, and the hard limits of each (draft · volatile)
-- [what-a-lab-can-actually-grade](brain/platform/what-a-lab-can-actually-grade.md) — one JS buffer, stdout byte-matched; no browser/DOM/packages, ten runs a day charged per test case (draft · volatile)
+- [nexuslab-lesson-primitives](brain/platform/nexuslab-lesson-primitives.md) — a lesson is exactly one of Lecture/Quiz/Lab, and the hard limits of each; each quiz option now carries a post-submit `explanation_en`/`explanation_ja` (draft · volatile)
+- [what-a-lab-can-actually-grade](brain/platform/what-a-lab-can-actually-grade.md) — one JS buffer, stdout byte-matched; instructions localize via `content_ja`, executable fields stay English; the standing admin lab-edit bug (draft · volatile)
 - [admin-editor-strips-rich-content](brain/platform/admin-editor-strips-rich-content.md) — one admin-editor save deletes tables and mermaid; rich lectures are edited in the seeder, never the panel (draft · volatile)
+- [learner-and-admin-frontends-deploy-separately](brain/platform/learner-and-admin-frontends-deploy-separately.md) — backend, learner (gitignored `public/build`), and admin (Vercel) frontends deploy on separate tracks and must be verified separately; quiz review is not persisted (draft · volatile)
 
 ## L5 Style · 2 / 3–5
 

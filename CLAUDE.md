@@ -8,9 +8,10 @@ layer definitions, budget, timebox. This file holds only the rules that must be 
 **Read `HANDOVER.md`** for why the design is shaped this way and where to start.
 
 **v1 is scoped to the web-system-architecture course** (decided 2026-08-19). Charter:
-`curriculum/web-system-architecture.md`. L3 is scoped by that charter, never by the field. **Courses ship in
-English; labs are JavaScript, never anything else** — the learner runner executes every submission as Node.js
-(`language_id` 63 hardcoded), so a non-JS lab passes the author's preview and silently mis-grades for learners.
+`curriculum/web-system-architecture.md`. L3 is scoped by that charter, never by the field. **The platform supports localized course content (Course 1
+currently ships English and Japanese); labs are JavaScript, never anything else** — the learner runner executes
+every submission as Node.js (`language_id` 63 hardcoded), so a non-JS lab passes the author's preview and silently
+mis-grades for learners.
 
 ## Layout
 ```
@@ -64,8 +65,9 @@ Wikipedia; the teaching angle is what makes it a lesson.
   months behind the platform. Platform facts come from the monorepo **`~/Desktop/MyanLearn` at `origin/develop`**
   (read via `git show origin/develop:<path>`; the working tree is stale). Precedence inside it: the **backend**
   (migrations, FormRequests, controllers, services) is authoritative for what the platform *is*; `apps/admin`
-  editor components only for what an author can do in the UI; **type files never** — five documented divergences
-  (`explanation`, `points`, `attempts_allowed`, `true_false`, `QuizStats`). Cite `file:line` @ a commit SHA.
+  editor components only for what an author can do in the UI; **type files never** — four documented divergences
+  (`points`, `attempts_allowed`, `true_false`, `QuizStats`). (`explanation_en`/`explanation_ja` are now real
+  `quiz_options` columns as of `ee49c6d`, no longer a type-file-only divergence.) Cite `file:line` @ a commit SHA.
   This rule exists because §11 was stamped "verified" twice and was wrong both times — first from type files,
   then from the fork.
 - NEVER round-trip a generated lecture through the admin editor — it silently deletes tables and mermaid fences
@@ -73,8 +75,9 @@ Wikipedia; the teaching angle is what makes it a lesson.
 - NEVER write a quiz `pass_rate` as a percentage. It is a **raw count** of correct questions
   (`$passedCount >= $quiz->pass_rate`); on a 4-question quiz, `70` is unpassable.
 - NEVER write an assessment hook that is not a **single-answer** MCQ. No true/false, no multi-select — the platform
-  has neither. And NEVER write a filler distractor: there is no `explanation` field, so a wrong option is the only
-  teaching a mistake ever receives, and it must be self-diagnosing.
+  has neither. Options now carry a post-submit `explanation` (`explanation_en`/`explanation_ja`, returned only after
+  the learner submits — never before). NEVER write a filler distractor — every distractor must still be a real,
+  self-diagnosing misconception; a wrong option nobody would pick teaches nothing, explanation or not.
 - NEVER mark a test passed when it did not run. If a test cannot run yet, it gets a dated `UNMET` row in
   `tests/audit-log.md`. Quietly loosening what *pass* means is the one failure this whole design exists to prevent.
 - NEVER change a `status:` line in a commit that does not also touch `tests/audit-log.md`.

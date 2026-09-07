@@ -1,12 +1,13 @@
 ---
 id: web-system-architecture
 slug: web-system-architecture
-status: draft
+status: shipped
 decided: 2026-08-19
-spine_persona: salesperson
-language: en
+shipped: 2026-09-08
+spine_persona: general-beginner
+language: en, ja
 length_weeks: 4
-verified_against: 3d34a4e
+verified_against: ee49c6d
 ---
 
 # Course charter — How a Web System Works
@@ -15,6 +16,29 @@ verified_against: 3d34a4e
 
 This is not a note and is exempt from the 150–400 word cap. It is the **scope decision** — neither knowledge
 (`brain/`) nor output (`courses/`). L3 is scoped by this file and by nothing else (KB_DESIGN_PROPOSAL §3.3, §5).
+
+## Shipped v2 — 2026-09-08 (current state; supersedes the original plan below)
+
+Course 1 shipped to production (backend `ee49c6d`). Where the shipped course differs from the original plan, **this
+section is the current state**; everything below it is preserved as the historical decision record, not the live shape.
+
+- **Audience.** General beginners with little or no technical background (`general-beginner-persona`), not the
+  salesperson-specific spine of the original plan. Salesperson / client / business situations remain only as examples.
+- **Language.** Bilingual **English + Japanese** in one course tree — every lecture and quiz is localized, and the lab
+  carries Japanese instructions (executable identifiers and test values stay English).
+- **Structure.** 4 sections · 20 lessons — **15 Lecture · 4 Quiz · 1 optional Lab** (the plan's 13/4/3 changed:
+  lectures grew and two of the three planned labs were cut). Quizzes hold **14 questions / 56 options**; pass rates by
+  quiz are **[2, 2, 2, 4]** — three section checkpoints plus the cumulative final.
+- **Sections (shipped titles).** 1 · Start Here: The Basic Picture · 2 · How the Pieces Work Together · 3 · When
+  Something Goes Wrong · 4 · The Wider System, and Putting It Together.
+- **Diagrams.** 12 English + 12 Japanese Mermaid diagrams (structure/flow only).
+- **Quiz feedback.** Every option carries a post-submit explanation — **56 EN + 56 JA** — shown only after submission
+  (`nexuslab-lesson-primitives`).
+- **The one lab.** Optional `whoseFault(code)` — 404 → `client`, 503 → `server`, 200 → `ok` — one JS buffer,
+  byte-exact (`what-a-lab-can-actually-grade`).
+
+Everything below is the **original 2026-08-19 plan**, kept for its reasoning (why this course, the out-of-scope
+decisions, the L3 candidate list). Read it as intent, not as the current lesson-by-lesson shape.
 
 ## Why this course, and not the other two
 

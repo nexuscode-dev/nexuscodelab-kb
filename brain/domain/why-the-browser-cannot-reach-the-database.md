@@ -24,6 +24,6 @@ depends_on: [nexuslab-lesson-primitives]
 
 **Minimal example.** View source on any site. The database password is not there. That is not an oversight — there is nowhere in the browser it *could* live safely.
 
-**Assessment hook (single-answer scenario MCQ).** "A login form has a hidden field `role=user`. Which of these can the user change before it reaches the server?" Tests the trust boundary rather than the vocabulary; every distractor is a real misconception, because the platform has no `explanation` field and nothing follows the click (`nexuslab-lesson-primitives`).
+**Assessment hook (single-answer scenario MCQ).** "A login form has a hidden field `role=user`. Which of these can the user change before it reaches the server?" Tests the trust boundary rather than the vocabulary; every distractor is a real misconception, and each option also carries a post-submit `explanation` shown only after the learner answers (`nexuslab-lesson-primitives`).
 
 **Sources.** `src-mdn-client-server-overview` — browsers talk to servers over HTTP and the server fetches from the database. `src-owasp-input-validation` — client-side controls can be circumvented, so trust begins server-side.

@@ -12,7 +12,7 @@ depends_on: []
 
 **Rule.** An analogy is only house-approved if it still carries the concept's boundary after being translated into Japanese. If it depends on an English pun, an English-only idiom, or a cultural reference that does not travel, it is rejected — no matter how well it works in English.
 
-**Why this rule exists now, before any Japanese course.** v1 ships in English. But the domain notes are the reusable substrate for later courses, and the platform is bilingual by design at the content layer, so an analogy chosen today is an analogy a Japanese lesson will inherit. Choosing an analogy that only works in English quietly makes the concept un-teachable in Japanese later — a cost paid far from where the mistake was made. Fixing it once, at authoring time, is one sentence of discipline.
+**Why this rule is load-bearing now.** Course 1 already ships in English **and Japanese**, so this is no longer hypothetical: every analogy chosen for it is one its Japanese lessons already carry. The domain notes are also the reusable substrate for later courses, and the platform is bilingual by design at the content layer, so an analogy chosen today is an analogy the next Japanese lesson inherits too. Choosing an analogy that only works in English quietly makes the concept un-teachable in Japanese — a cost paid far from where the mistake was made. Fixing it once, at authoring time, is one sentence of discipline.
 
 **The test.** State the analogy as a plain image, not a phrase: *bank teller and a vault*, *renovating a building*. Images translate; wordplay does not. If the analogy's force comes from how the English *sounds* rather than what it *pictures*, it fails.
 
