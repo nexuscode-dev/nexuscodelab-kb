@@ -119,11 +119,22 @@ abrupt lesson flow, lectures **too detailed**, and code labs inappropriate in a 
   following Course 1's pattern: correct options confirm the reasoning, wrong ones name the misconception. This
   retires the old constraint that all teaching had to be smuggled into distractor wording, and it is what makes
   shorter lectures safe — the detail now arrives at the moment the learner is actually wrong.
-- **Still open: Japanese course content.** Correction to an earlier draft of this note: Course 1 now ships
-  **en+ja**, so a proven localization path exists and the gap is this course plus the older JavaScript ones —
-  not the whole platform. Following it needs a named Japanese reviewer, and translation is also the enforcement
-  moment for `every-analogy-must-survive-japanese`. Separately, Articles are already fully bilingual
-  (`title_en/ja`, `content_en/ja`), which is an argument for delivering perishable product content as guides
-  rather than courses.
+- **Japanese localization shipped (2026-09-08).** Full coverage following Course 1's `localizeJapanese()`
+  pattern — course title/description, 4 section titles, 15 lesson titles, 12 lecture bodies, 3 quiz
+  instructions, 15 question texts, 60 option texts and all 60 explanations — applied positionally after the
+  English tree with count guards that throw rather than localize the wrong lesson. The shared curriculum row has
+  no `*_ja` columns, so it stays English.
+  **One lesson is deliberately not a translation:** the tokenization lecture teaches "one token is about four
+  characters", which is an English fact. Japanese tokenizes far more densely, so the Japanese version carries
+  its own example, its own rule of thumb, and the two practical consequences (context fills sooner, cost per
+  page is higher). A literal translation would have taught Japanese readers something false about their own
+  language — this is `every-analogy-must-survive-japanese` catching a real defect, not a stylistic preference.
+  The remaining analogies (colleague answering from memory, USB socket, junior colleague with logins) are plain
+  images and survive unchanged. **Awaiting sign-off from a Japanese-reading reviewer** — recorded in the
+  seeder's method docblock; the author of a translation is not its reviewer, same principle as T4.
+- **Frontend build is a separate deploy track.** The explanations were invisible on a local site whose
+  `public/build` predated the feature by six days — `learner-and-admin-frontends-deploy-separately` catching
+  exactly what it describes, one day after it was written. Merging the seeder does not ship the learner
+  frontend: `public/build` is gitignored, so whoever deploys must rebuild it there.
 - **Consistency question for the team:** Course 1 v2 keeps one optional JS lab while this course now has none.
   Whether a beginner course may contain a code lab at all should be one decision, not two.
