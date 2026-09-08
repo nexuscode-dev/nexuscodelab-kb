@@ -114,8 +114,16 @@ abrupt lesson flow, lectures **too detailed**, and code labs inappropriate in a 
   ends on the S3 quiz and no quiz sits on model or product facts.
 - **Course description rewritten** outcome-first, since that is the pre-enrolment surface that answers "what is
   this course about".
-- **Still open:** Japanese course content. Missing across every published course including the older JavaScript
-  ones, so it is a platform-wide translation project needing an owner and a Japanese reviewer, not a course fix.
-  Note that Articles are already fully bilingual (`title_en/ja`, `content_en/ja`) — short guides can ship in
-  both languages today, which is an argument for delivering perishable product content as guides rather than
-  courses. Translation is also the enforcement moment for `every-analogy-must-survive-japanese`.
+- **Per-option quiz explanations adopted.** `explanation_en` landed on `quiz_options` the same day
+  (migration `2026_09_08_100000`), so all 60 options here now carry a one-sentence post-submit explanation
+  following Course 1's pattern: correct options confirm the reasoning, wrong ones name the misconception. This
+  retires the old constraint that all teaching had to be smuggled into distractor wording, and it is what makes
+  shorter lectures safe — the detail now arrives at the moment the learner is actually wrong.
+- **Still open: Japanese course content.** Correction to an earlier draft of this note: Course 1 now ships
+  **en+ja**, so a proven localization path exists and the gap is this course plus the older JavaScript ones —
+  not the whole platform. Following it needs a named Japanese reviewer, and translation is also the enforcement
+  moment for `every-analogy-must-survive-japanese`. Separately, Articles are already fully bilingual
+  (`title_en/ja`, `content_en/ja`), which is an argument for delivering perishable product content as guides
+  rather than courses.
+- **Consistency question for the team:** Course 1 v2 keeps one optional JS lab while this course now has none.
+  Whether a beginner course may contain a code lab at all should be one decision, not two.
