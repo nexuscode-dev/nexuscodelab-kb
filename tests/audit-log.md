@@ -187,8 +187,8 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 
 | Course | Lesson | Owner | last_reviewed | review_by |
 |---|---|---|---|---|
-| Working With AI: Claude Fundamentals | Appendix: Today's Models | hein | **2026-09-03 (pre-publication check — see below; bump to publish date on ship day)** | 2026-12-01 |
-| Working With AI: Claude Fundamentals | Using Claude Today (orientation lecture) | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
+| Working With AI: Claude Fundamentals | Today's Models (S4 reference) | hein | **2026-09-03 (pre-publication check — see below; bump to publish date on ship day)** | 2026-12-01 |
+| Working With AI: Claude Fundamentals | Using Claude Today (S4 reference) | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 | Using Claude Today (course, approved on hold) | all 3 lectures + the "Checkpoint: Using Claude" quiz | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 
 A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and

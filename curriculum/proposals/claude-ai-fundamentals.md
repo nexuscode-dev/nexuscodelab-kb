@@ -34,11 +34,11 @@ models and prices, clearly marked perishable.
 
 ## Rough structure
 
-3 weeks · 3 sections · 15 lessons — 11 Lecture · 3 Quiz · 1 optional JS lab.
-S1 "What the machine is actually doing" → S2 "Getting good work out of it" → S3 "AI connected to real systems".
-The perishable surface is exactly two clearly-dated lectures, both in S3: the models appendix and a one-lesson
-"Using Claude Today" orientation that maps product features back to the course's concepts and out-links to the
-fuller product-tour course (see `using-claude-today.md`).
+3 weeks · **4 sections · 15 lessons — 12 Lecture · 3 Quiz · no lab** (revised 2026-09-07, below).
+S1 "What the machine is actually doing" (opens with a Start Here orientation lesson) → S2 "Getting good work out
+of it" (closes with the Prompt Clinic scenario quiz) → S3 "AI connected to real systems" → **S4 "Reference
+(dated)"**, holding the two perishable lectures — the models snapshot and the one-lesson "Using Claude Today"
+orientation — outside the learning path, with no quiz on them.
 
 ## Platform fit
 
@@ -46,6 +46,7 @@ Mostly Lecture + scenario MCQ — a genuine fit, since the teaching is conceptua
 everything: labs have no network access (§11.4), so a lab can never call an AI model.** Hands-on Claude use
 happens through out-links to claude.ai, not graded labs. The one lab that works is pure-JS context-budget
 arithmetic — deterministic, stdout-matched. Mermaid covers all architecture visuals natively (§11.2).
+**Superseded 2026-09-07:** that lab was cut and no lab replaces it — see the revision note below.
 
 ## What we deliberately are not teaching
 
@@ -90,3 +91,31 @@ review of this course:
   reuse policy (3blue1brown.com/about) asks for a licensing inquiry for course-material use beyond short
   attributed clips, so we link out instead — linking needs no permission. Re-adding embeds requires written
   approval via his contact form first.
+
+
+## Revision after the live-site review — 2026-09-07
+
+Wai Lin walked the published courses as a student and reported: no course-level introduction, no opening hook,
+abrupt lesson flow, lectures **too detailed**, and code labs inappropriate in a beginner AI course. Applied:
+
+- **New orientation lesson** opens S1 ("Start Here: What This Course Changes for You") — states what the learner
+  will be able to do, how the course runs, and pre-empts "I need to be technical for this". It carries a
+  misconception and takeaway like every other lecture, but contributes no quiz question: its idea is orientation,
+  not course content. Flagged to the archetype's owner rather than amending `beginner-lecture-archetype` here.
+- **Every lecture cut to a ~3-minute read** (168–291 words, was 500–800), one idea each, plainer wording for a
+  learner with no prior AI experience. Structure per the archetype is unchanged; only the detail is gone.
+- **The lab is removed, and no lab replaces it.** A Lab on this platform is JavaScript graded on stdout and
+  cannot call a model (`what-a-lab-can-actually-grade`), so the only lab this subject admits is code — which is
+  exactly the objection. Prompt practice now runs as the **"Prompt Clinic: Fix the Brief"** scenario quiz (6
+  briefs to diagnose, no code) plus an **ungraded try-it-in-claude.ai exercise** inside the Asking Well lecture.
+  Note this reverses a decision round 1 praised ("the one lab is correctly chosen and correctly reasoned"); the
+  reversal is Wai Lin's call, and the same question applies to Course 1's three optional labs.
+- **Perishable content moved to S4, a dated reference section** after the last checkpoint, so the learning path
+  ends on the S3 quiz and no quiz sits on model or product facts.
+- **Course description rewritten** outcome-first, since that is the pre-enrolment surface that answers "what is
+  this course about".
+- **Still open:** Japanese course content. Missing across every published course including the older JavaScript
+  ones, so it is a platform-wide translation project needing an owner and a Japanese reviewer, not a course fix.
+  Note that Articles are already fully bilingual (`title_en/ja`, `content_en/ja`) — short guides can ship in
+  both languages today, which is an argument for delivering perishable product content as guides rather than
+  courses. Translation is also the enforcement moment for `every-analogy-must-survive-japanese`.
