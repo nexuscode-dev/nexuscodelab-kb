@@ -204,6 +204,18 @@ prioritize the refresh or the kill switch in its proposal.
 no executable procedure — see the review entry below. A dated lecture is now refreshed with
 `COURSE_SEEDER_REFRESH_CONTENT=1`, which rewrites text in place, deletes nothing, and is therefore the only
 mode permitted on production. `COURSE_SEEDER_REPLACE=1` remains local-only and is for structure changes.
+
+**Pass the flag on the container, not the host.** Sail forwards no arbitrary environment variables, so
+`COURSE_SEEDER_REFRESH_CONTENT=1 sail artisan db:seed …` silently reads as unset and prints "skipping
+already-seeded course" — which looks like the flag applied and found nothing to do. Every seeder's documented
+command was wrong this way until 2026-09-09. The form that works:
+
+```sh
+sail exec -e COURSE_SEEDER_REFRESH_CONTENT=1 laravel.test \
+    php artisan db:seed --class=ClaudeFundamentalsSeeder
+```
+
+This is the kind of fact a `review_by` depends on: a refresh duty whose command does not run is not a duty.
 **The "kill switch" these rows and `using-claude-today.md` rely on still does not exist:** `courses` has no
 publish or status column, so a stale course cannot be unpublished, only deleted — which destroys learner
 progress. Recorded as UNMET rather than left implied.
