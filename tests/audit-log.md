@@ -559,3 +559,34 @@ Fixed, and the validator now checks that every INDEX line's `(status · decay)` 
 frontmatter. Verified by deliberately re-staling one line and confirming the failure, then restoring it. The
 enforcement lesson from the sibling repo applies exactly: the rule that lived in a template held at 100%, and
 every rule requiring an author to remember prose drifted.
+
+
+### §9 sign-off · 2026-09-09 · `accountable-ai-user-persona` `draft` → `reviewed`
+
+**Signed by hein**, the author of the course this persona describes. Recorded plainly, because who signed is the
+part a later reader relies on.
+
+**Which rule applies.** Two distinct rules were conflated during the review and are separated here. §9 bars
+L1/L2 from ever reaching `verified`, and CLAUDE.md separately bars granting **`verified`** from the authoring
+session. **Neither bars `reviewed` from the author.** `reviewed` requires "a human who has taught" — a
+*qualification* bar, not an independence bar. Two shipped bilingual courses meet it.
+
+**Evidence granting the promotion:** the course shipped, was reviewed twice (2026-09-01 round, 2026-09-07
+live-site round), swept for contradictions 2026-09-08, and blind-reviewed 2026-09-09; the persona was derived
+from what that shipped artifact demonstrably assumes rather than proposed ahead of it.
+
+**What this label does and does not claim.** It records that a qualified human has read and endorsed the
+opinion. It makes no sourcing claim, and by §9 this note can never become `verified`. **It is weaker evidence
+than the 2026-09-02 sign-off**, where Wai Lin — the reviewer, not the author — signed six notes. A self-signature
+records one person's belief twice. It is still the correct label: leaving a persona `draft` while two shipped
+courses depend on it asserts that nobody stands behind it, which is less true than the alternative.
+
+**`general-beginner-persona` stays `draft` by decision, not oversight.** It is Course 1's spine persona, Course 1
+has its own owner, and hein declined to sign work he did not do and would be accountable for. Its sign-off
+belongs to that course's owner or to Wai Lin. **A future contradiction sweep must not read the one-signed /
+one-unsigned split as drift and "tidy" it.**
+
+**Standing caveat, repeated from the note's own commit.** This persona documents the audience the shipped course
+already assumed rather than scoping the course in advance — the reverse of how L2 is meant to work. Signing it
+does not convert it into a scope decision. That is what promoting `claude-ai-fundamentals.md` from proposal to
+charter is for, and it has not happened yet.

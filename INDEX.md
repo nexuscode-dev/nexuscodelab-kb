@@ -40,7 +40,7 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 
 - [salesperson-persona](brain/audience/salesperson-persona.md) — a reusable persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (referenced by the Claude/Web-Design proposals) (reviewed · durable)
 - [general-beginner-persona](brain/audience/general-beginner-persona.md) — Course 1's current spine persona: a general beginner with little/no technical background, made conversant and correctly-modelled, never able to build; sales/client roles are examples, not the definition (draft · durable)
-- [accountable-ai-user-persona](brain/audience/accountable-ai-user-persona.md) — the Claude Fundamentals spine persona, and the entry persona every career pathway starts from: someone accountable for AI output they cannot fully verify, made capable and sceptical rather than merely conversant (draft · durable)
+- [accountable-ai-user-persona](brain/audience/accountable-ai-user-persona.md) — the Claude Fundamentals spine persona, and the entry persona every career pathway starts from: someone accountable for AI output they cannot fully verify, made capable and sceptical rather than merely conversant (reviewed · durable)
 
 ## L3 Domain · 4 / 12–15
 
