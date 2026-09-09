@@ -488,3 +488,74 @@ scoped by a proposal.
 audience of a second shipped course; L2's two existing personas overlap heavily and
 `general-beginner-persona` already calls salespeople "examples, not the definition", so a **merge** is probably
 the right answer rather than carrying three near-duplicates; and L4 needs the single-edit-path note above.
+
+
+## L1 amendments + index integrity · 2026-09-09 (not a T-series run)
+
+Three L1 changes and one validator change, arising from the 2026-09-09 blind course review. Recorded together
+because two of them are the *vault* failing rather than a course failing.
+
+### The analogy register hit the word ceiling, so it split by domain
+
+`our-analogies-chosen-and-rejected` stood at 391 of 400 words. Registering the Claude course's six analogies
+needed roughly 120. The register is a **growing list inside a note contract designed for atomic claims**, and
+with a second course that shape finally broke.
+
+Resolved within the existing rules: a sibling note, [`ai-analogies-chosen-and-rejected`](../brain/pedagogy/ai-analogies-chosen-and-rejected.md),
+scoped to AI concepts, cross-linked from the original, both indexed. L1 goes 5 → 6 of 8–10, so there is cap
+room. The six pictures are recorded with their boundaries, plus the fact that the first four are deliberately
+**one extended colleague image** — the through-line is the teaching, and without that written down someone
+later "fixes" it into four unrelated pictures.
+
+**One ruling was needed, not assumed.** The original register holds *API = a vending machine's button panel*,
+and MCP-as-socket is arguably one concept in two pictures. **Ruled distinct:** the panel carries *a fixed set of
+allowed requests*, the socket carries *one shape of plug, many devices*. Recorded in both notes so neither can
+be read alone and get it wrong.
+
+**Recorded honestly:** the new register carries choices without their rejected alternatives, because none were
+written down while the course was authored. That is half of what makes the original note useful. Record
+rejections *as you choose* next time; reconstructing them later is invention.
+
+**Proposed to the design (KB_DESIGN_PROPOSAL), not acted on here:** an analogy register is a **ledger**, like L6
+sources — which `check-vault.py` already exempts from the word ceiling for exactly this reason. Splitting by
+domain works twice and then stops working. `our-analogies-chosen-and-rejected` now sits at **400/400 with zero
+headroom**, so the next entry in it fails the validator. This wants a decision before course 3, not after.
+
+### `beginner-lecture-archetype`: the guarantee is coverage, not a question ceiling
+
+The 2026-09-08 sweep's sharpest open finding was that the shipped quiz counts (S1 5/4, S2 6/3, S3 4/2 — 15
+questions where the mechanism licensed 9) contradicted the archetype. Amended, and deliberately **more general
+than the sweep proposed**. The sweep suggested licensing a new "practice quiz" type; that adds a concept and
+would not have covered Section 1, whose *checkpoint* also carries two questions on one lecture (*Why It
+Forgets* — window overflow and a fresh chat, one idea with two consequences). The rule now reads: a Quiz
+contributes **at least one** question per Lecture and **may** carry further questions re-testing already-taught
+ideas in new scenarios, introducing no new idea — **the guarantee is coverage, not a ceiling.**
+
+**The risk in this, stated plainly:** amending a rule because our own artifact violated it is the "tune the KB
+to fit the output" failure this design exists to prevent. It is defensible here only because the licence being
+generalized **already existed** for the cumulative final quiz, on identical reasoning, and because the
+amendment is stated as a general rule with the prohibition intact (no new ideas). It also *removed* a defect:
+the old paragraph hardcoded Course 1's quiz layout ("the charter's four quizzes… the cumulative Quiz 20") into a
+general L1 note. If a future reviewer thinks this was self-serving, the test is whether any section quiz now
+lacks a question for some lecture — that, not the count, is what the rule guarantees.
+
+**A gap the gate does not close.** Both notes edited here are `status: reviewed`, and the §6.4 gate guards
+`status:` *lines*, not bodies. So a signed note's content can change after sign-off with nothing tripping, which
+means `reviewed` can silently describe text no human read. Editing these bodies was a deliberate decision by
+the L1 owner and is recorded as such — but **proposed: any body edit to a `reviewed` L1/L2 note either resets it
+to `draft` or requires a dated line here.** Today it requires neither.
+
+### Four INDEX statuses were stale, and the validator could not see it
+
+The 2026-09-02 §9 sign-off promoted five L1 notes to `reviewed` in their frontmatter and **left four INDEX lines
+reading `draft`** — `manual-model-before-ai-tooling`, `one-new-idea-per-lesson`,
+`our-analogies-chosen-and-rejected`, `scenario-mcqs-over-recall-mcqs`. Undetected for a week.
+
+This is not cosmetic. INDEX.md is the retrieval entry point and this vault's own claim is that grepping it
+"often answers the question without opening anything" — which makes a stale status there a **wrong answer**, and
+`check-vault.py` only ever verified that a line *existed*.
+
+Fixed, and the validator now checks that every INDEX line's `(status · decay)` **agrees** with its note's
+frontmatter. Verified by deliberately re-staling one line and confirming the failure, then restoring it. The
+enforcement lesson from the sibling repo applies exactly: the rule that lived in a template held at 100%, and
+every rule requiring an author to remember prose drifted.

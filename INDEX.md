@@ -21,16 +21,17 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 
 - [web-system-architecture](curriculum/web-system-architecture.md) — Course 1's charter: the general-beginner spine, the 20-lesson outline, and **what we deliberately decided not to teach**; a "Shipped v2" section records the live reality (shipped · en+ja)
 
-## L1 Pedagogy · 5 / 8–10
+## L1 Pedagogy · 6 / 8–10
 
 *How we teach — lesson archetypes, sequencing, outcome verbs, assessment patterns, cognitive load. Tops out at
 `reviewed`: these are opinions with no source (§9).*
 
-- [beginner-lecture-archetype](brain/pedagogy/beginner-lecture-archetype.md) — the fixed section order of a beginner Lecture, and how it contributes one question to its section's Quiz, so two authors write recognizably similar lessons (draft · durable)
-- [one-new-idea-per-lesson](brain/pedagogy/one-new-idea-per-lesson.md) — a lesson introduces exactly one new idea; everything else is scaffolding for it (draft · durable)
-- [our-analogies-chosen-and-rejected](brain/pedagogy/our-analogies-chosen-and-rejected.md) — one house analogy per concept, chosen for its boundary, with the rejected ones and why (draft · durable)
-- [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (draft · durable)
-- [manual-model-before-ai-tooling](brain/pedagogy/manual-model-before-ai-tooling.md) — build the manual web-system model first; AI is taught later as a component inside it, never a shortcut past the architecture (draft · durable)
+- [beginner-lecture-archetype](brain/pedagogy/beginner-lecture-archetype.md) — the fixed section order of a beginner Lecture, and how it contributes at least one question to its section's Quiz, so two authors write recognizably similar lessons; the guarantee is coverage, not a question ceiling (reviewed · durable)
+- [one-new-idea-per-lesson](brain/pedagogy/one-new-idea-per-lesson.md) — a lesson introduces exactly one new idea; everything else is scaffolding for it (reviewed · durable)
+- [our-analogies-chosen-and-rejected](brain/pedagogy/our-analogies-chosen-and-rejected.md) — one house analogy per concept, chosen for its boundary, with the rejected ones and why (reviewed · durable)
+- [ai-analogies-chosen-and-rejected](brain/pedagogy/ai-analogies-chosen-and-rejected.md) — the AI-concept half of the analogy register: the six pictures the Claude course teaches, why the first four are deliberately one extended image, and the ruling that MCP-as-socket is distinct from API-as-button-panel (draft · durable)
+- [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (reviewed · durable)
+- [manual-model-before-ai-tooling](brain/pedagogy/manual-model-before-ai-tooling.md) — build the manual web-system model first; AI is taught later as a component inside it, never a shortcut past the architecture (reviewed · durable)
 
 ## L2 Audience · 3 / 6–8
 

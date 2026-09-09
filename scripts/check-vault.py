@@ -49,6 +49,7 @@ SHA = re.compile(r"\A[0-9a-f]{7,40}\Z")
 
 problems: list[str] = []
 notes_by_layer: dict[str, list[Path]] = {layer: [] for layer in CAPS}
+note_status: dict[str, str] = {}  # filename stem -> frontmatter status, for the INDEX agreement check
 
 
 def fail(path: Path, msg: str) -> None:
@@ -86,6 +87,9 @@ def check_note(path: Path, layer: str) -> None:
     for key, allowed in VALID.items():
         if key in fields and fields[key] not in allowed:
             fail(path, f"`{key}: {fields[key]}` is not one of {sorted(allowed)}")
+
+    if fields.get("status"):
+        note_status[path.stem] = fields["status"]
 
     if fields.get("id") and fields["id"] != path.stem:
         fail(path, f"`id: {fields['id']}` does not match the filename `{path.stem}`")
@@ -128,14 +132,39 @@ def check_note(path: Path, layer: str) -> None:
         fail(path, f"{words} words, over the {WORD_CEILING}-word ceiling — retrieval is what this protects (§4.2)")
 
 
+INDEX_LINE = re.compile(
+    r"^- \[(?P<id>[^\]]+)\]\([^)]+\).*?\((?P<status>draft|reviewed|verified) · (?:durable|volatile)\)\s*$",
+    re.MULTILINE,
+)
+
+
 def check_index(index_text: str) -> None:
-    """A note with no INDEX.md line cannot be retrieved, and a note that cannot be retrieved does not exist (§3.1)."""
+    """A note with no INDEX.md line cannot be retrieved, and a note that cannot be retrieved does not exist (§3.1).
+
+    The line must also *agree* with the note. Checking only for presence was not enough: the 2026-09-02 §9
+    sign-off promoted five L1 notes to `reviewed` in their frontmatter and left four INDEX lines reading
+    `draft`, undetected until 2026-09-09. INDEX.md is the retrieval entry point and the vault's own claim is
+    that grepping it often answers the question without opening anything — which makes a stale status here a
+    wrong answer, not a cosmetic slip.
+    """
+    indexed = {m.group("id"): m.group("status") for m in INDEX_LINE.finditer(index_text)}
+
     for layer, paths in notes_by_layer.items():
         if layer == "sources":
             continue  # L6 records are reached through a note's `sources:` field, not by browsing the index
         for path in paths:
             if path.stem not in index_text:
                 fail(path, "no line in INDEX.md — a note that cannot be retrieved does not exist (§3.1)")
+                continue
+
+            listed = indexed.get(path.stem)
+            if listed is None:
+                fail(path, "INDEX.md line has no trailing `(status · decay)` — retrieval cannot see its state")
+                continue
+
+            actual = note_status.get(path.stem)
+            if actual and listed != actual:
+                fail(path, f"INDEX.md says `{listed}` but the note says `{actual}` — the index is the entry point")
 
 
 def check_status_gate() -> None:

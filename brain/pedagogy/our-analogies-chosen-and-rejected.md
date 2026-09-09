@@ -10,7 +10,7 @@ teaches: []
 depends_on: [every-analogy-must-survive-japanese]
 ---
 
-**Rule.** One house analogy per core concept, recorded once, not reinvented per lesson — with the analogies we reject and why.
+**Rule.** One house analogy per core concept, recorded once, not reinvented per lesson — with the analogies we reject and why. Web-system concepts here; **AI concepts: [[ai-analogies-chosen-and-rejected]].**
 
 **Why.** A salesperson reasons from the analogy long after the lesson; two pictures for one concept build two shaky models.
 
@@ -26,7 +26,7 @@ depends_on: [every-analogy-must-survive-japanese]
 - **Latency vs bandwidth = the delivery van carrying the posted letter.** How long the van takes vs how big it is. Always composed with the posted letter.
 - **Status codes (4xx vs 5xx — whose fault) = the marking on a returned letter.** Extends the posted letter: "no such address" is the sender's fault (request side); "sorting office on fire" is the postal service's fault (server side). A *return* marking, not a postage stamp (in Japanese, a returned-mail marking, never 切手). The old envelope-vs-contents picture is retired here, reserved for headers/body in a future course.
 - **Session / session ID = a cloakroom ticket.** The attendant reads the ticket you present, not your face.
-- **API = a vending machine's button panel.** A fixed set of allowed requests: press B4, get exactly that; nothing off-panel. Rejected: *restaurant menu* — drifts toward negotiation.
+- **API = a vending machine's button panel.** A fixed set of allowed requests: press B4, get exactly that. Rejected: *restaurant menu* — drifts toward negotiation. Ruled distinct from MCP-as-socket, 2026-09-09.
 - **Third-party service = the electricity grid.** Rent power from a specialist rather than build a plant — essential, not your business.
 - **Scaling = opening more checkout lanes.** Add lanes and direct customers to a free one, not one enormous cashier.
 
