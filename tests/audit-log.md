@@ -467,7 +467,7 @@ a test); the unexecutable refresh duty (platform fix); no content test for this 
 (pinned null + test); Section 4 gating completion it was described as sitting outside (`is_optional` on lessons);
 two distractors whose explanations conceded they were right (rewritten); three factual errors in the models
 appendix (rewritten, tier ordering had been correct); and this proposal's own "168–291 words" claim not matching
-the shipped 167–306. Full detail in the 2026-09-09 revision of `curriculum/proposals/claude-ai-fundamentals.md`.
+the shipped 167–306. Full detail in the 2026-09-09 revision of `curriculum/claude-ai-fundamentals.md` (promoted to a charter later the same day).
 
 **What the review checked and found sound**, so it is not re-done: bilingual parity exact across 60 options and
 60 explanations; one correct option per question; correct-answer positions spread across all four slots with no
@@ -590,3 +590,30 @@ one-unsigned split as drift and "tidy" it.**
 already assumed rather than scoping the course in advance — the reverse of how L2 is meant to work. Signing it
 does not convert it into a scope decision. That is what promoting `claude-ai-fundamentals.md` from proposal to
 charter is for, and it has not happened yet.
+
+
+### Charter promotion · 2026-09-09 · `claude-ai-fundamentals` proposal → charter
+
+`curriculum/proposals/claude-ai-fundamentals.md` → `curriculum/claude-ai-fundamentals.md`, `status: proposal` →
+`status: charter`, with `spine_persona: accountable-ai-user`, `language: en, ja`, and
+`verified_against: dac2d3c`. Indexed under `## Curriculum`.
+
+**What this unblocks.** Nothing yet — and that is the point of recording it. While the file said `proposal`, no
+L3 note for any AI concept could legitimately exist (CLAUDE.md: "L3 is never scoped by a proposal"), so the
+2026-09-08 sweep's item 3 was not a backlog item but a structural prohibition. The charter converts it into **one
+explicit decision: raise the L3 cap, or adopt per-course L3 budgets.** L3 is 12–15 and Course 1 holds 13; the
+seven candidates the charter now lists do not fit. Per CLAUDE.md a cap is never raised mid-build, so this belongs
+on a v1-review agenda. **No AI domain note should be written until it is decided.**
+
+A second consideration for that decision, recorded because it is easy to miss: the L6 sources those notes would
+cite are vendor documentation, which decays in a way MDN and the MySQL manual do not. Seven `decay: volatile`
+domain notes is a different maintenance proposition from four durable ones.
+
+**Deliberately `charter`, not `shipped`.** The course is merged-pending. Course 1's charter reads `shipped` with
+a date because it is live. On publish day this file gets `status: shipped`, a `shipped:` date, and a fresh
+`verified_against`. Stamping a state that has not happened is the error §11 committed twice.
+
+**What the charter adds beyond a status word:** a *binding* out-of-scope list (seven entries, each with its
+reason), the candidate-L3 list above, and a "Current shape" section that supersedes the original plan rather than
+burying the built reality under four appended revision sections. The original proposal is preserved below it in
+full as the decision record.

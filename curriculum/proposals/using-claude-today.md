@@ -3,7 +3,7 @@ id: using-claude-today
 status: approved-on-hold    # approved by Wai Lin 2026-09-02; publication held — see Decision below
 proposed_by: hein
 date: 2026-09-01
-course_slot: TBD (short companion to claude-ai-fundamentals)
+course_slot: TBD (short companion to the claude-ai-fundamentals charter)
 ---
 
 # Course proposal — Using Claude Today

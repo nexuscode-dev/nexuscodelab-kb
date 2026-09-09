@@ -1,14 +1,100 @@
 ---
 id: claude-ai-fundamentals
-status: proposal            # NOT a charter — awaits team + Leon approval; L3 is never scoped by a proposal
+slug: claude-ai-fundamentals
+status: charter             # promoted from proposal 2026-09-09. NOT `shipped` — see the note below.
 proposed_by: hein
 date: 2026-08-28
-course_slot: 2 (proposed)
+promoted: 2026-09-09
+course_slot: 2
+spine_persona: accountable-ai-user
+language: en, ja
+length_weeks: 3
+verified_against: dac2d3c
 ---
 
-# Course proposal — Working With AI: Claude Fundamentals
+# Course charter — Working With AI: Claude Fundamentals
 
 Working title chosen deliberately over "Claude 101" — see risks.
+
+This is not a note and is exempt from the 150–400 word cap. It is the **scope decision** — neither knowledge
+(`brain/`) nor output (`courses/`). L3 for AI concepts is scoped by this file and by nothing else
+(KB_DESIGN_PROPOSAL §3.3, §5). Until 2026-09-09 this file was `status: proposal`, which meant no L3 note for any
+AI concept could legitimately be written at all — CLAUDE.md: "L3 is never scoped by a proposal." That was the
+real reason the 2026-09-08 sweep's item 3 looked unfixable.
+
+**Why `status: charter` and not `status: shipped`.** The course is merged-pending, not live. Course 1's charter
+carries `status: shipped` with a `shipped:` date because it actually is. Stamping a state that has not happened
+is the exact error class this repo exists to prevent — §11 was marked "verified" twice and was wrong both times.
+**On publish day:** set `status: shipped`, add `shipped: <date>`, and bump `verified_against`.
+
+## Current shape — 2026-09-09 (supersedes the original plan below)
+
+Where the built course differs from the original plan, **this section is the current state**; everything below is
+the historical decision record.
+
+- **Spine persona.** `accountable-ai-user-persona` — someone accountable for AI output they cannot fully verify.
+  Signed `reviewed` 2026-09-09. Read its standing caveat: it documents the audience this course already assumed
+  rather than having scoped it in advance.
+- **Language.** Bilingual EN + JA in one course tree. The tokenization lecture is deliberately **not** a
+  translation — "one token is about four characters" is an English fact, so the Japanese carries its own example,
+  rule of thumb, and two consequences (`every-analogy-must-survive-japanese` catching a real defect).
+- **Structure.** 4 sections · **16 lessons — 13 Lecture · 3 Quiz · no lab.** Quizzes hold **15 questions / 60
+  options**, every option with a post-submit explanation in both languages. Pass rates (raw counts): **[4 of 5,
+  4 of 6, 3 of 4]** — three section checkpoints, no cumulative final.
+- **Sections.** 1 · What the Machine Is Actually Doing · 2 · Getting Good Work Out of It · 3 · AI Connected to
+  Real Systems · 4 · Reference (Dated — Check the Date).
+- **Section 4 is `is_optional`.** The learning path ends on the Section 3 checkpoint. Both its lectures are dated
+  and carry no quiz — quizzing perishable product facts is what the 2026-09-01 review forbade.
+- **No lab.** A lab here could only be JavaScript graded on stdout and cannot call a model
+  (`what-a-lab-can-actually-grade`), which is exactly the objection the live-site review raised. Prompt practice
+  is the *Prompt Clinic* scenario quiz plus an ungraded try-it-in-claude.ai exercise.
+- **Diagrams.** 3 EN + 3 JA Mermaid, structure/flow only.
+- **Analogies.** Registered in `ai-analogies-chosen-and-rejected`; the first four are one extended colleague
+  image, and MCP-as-socket is ruled distinct from API-as-button-panel.
+- **Refresh path.** Section 4 is refreshed with `COURSE_SEEDER_REFRESH_CONTENT=1` (in place, deletes nothing,
+  the only mode permitted on production). Registry row and `review_by` in `tests/audit-log.md`.
+
+## Candidate L3 notes — and the cap decision this forces
+
+**Zero L3 notes exist for any AI concept**, so no distractor in this course carries the provenance
+`scenario-mcqs-over-recall-mcqs` requires ("the misconception the matching Domain note names"). The course's
+assessment layer therefore rests on author judgement, not on the vault. That is the honest state, and promoting
+this charter does not by itself change it.
+
+Candidates, in the order they would earn their place — each is a lecture's single idea that already has a
+misconception and a quiz question, which is what an L3 note needs:
+
+1. `a-model-predicts-it-does-not-look-up` — the root claim the whole course hangs from.
+2. `why-a-model-invents-citations` — prediction applied to regularly-shaped text.
+3. `a-context-window-is-not-memory` — fixed window, two consequences.
+4. `tokens-are-chunks-not-words` — and why the English rule of thumb fails in Japanese.
+5. `an-agent-is-a-model-in-a-loop-with-tools`.
+6. `an-agent-is-bounded-by-its-access`.
+7. `mcp-is-a-socket-standard-not-a-model`.
+
+**The blocker, stated plainly.** L3's cap is 12–15 and Course 1 already claims 13 of it. Seven more does not
+fit, and CLAUDE.md forbids raising a cap mid-build — it is a v1-review decision. So this charter converts
+"structurally forbidden" into **one explicit decision: raise the L3 cap, or adopt per-course L3 budgets.**
+Nothing here should be written until that is decided. Each candidate also needs an L6 source record, and the
+vendor documentation these would cite is `decay: volatile` in a way MDN and the MySQL manual are not — which is
+itself an argument the decision should consider.
+
+## Out of scope, and why (binding)
+
+- **Prompt-engineering folklore.** "Magic words", persona incantations. The course teaches that the phrase was
+  never doing the work — the added detail was.
+- **API coding.** A developer course's job. This persona will never write it.
+- **Model comparisons and benchmarks.** Perishable and vendor-marketing territory. The ladder outlives the names.
+- **Prices as numbers.** The shape of pricing (per million tokens, input cheaper than output) is durable; the
+  figures are not, and printing them creates a refresh duty in the wrong place.
+- **Fine-tuning and training.** Not reachable by this persona and not needed for any outcome claimed.
+- **Product UI walkthroughs and screenshots.** They rot fastest of all. Prose orientation only, in Section 4.
+- **Anything needing monthly updating outside Section 4.** If a fact cannot survive a year, it belongs in the
+  dated section or nowhere.
+
+---
+
+# Original proposal — 2026-08-28 (historical decision record)
 
 ## Target learner
 
@@ -37,7 +123,7 @@ models and prices, clearly marked perishable.
 
 ## Rough structure
 
-3 weeks · **4 sections · 15 lessons — 12 Lecture · 3 Quiz · no lab** (revised 2026-09-07, below).
+3 weeks · **4 sections · 15 lessons — 12 Lecture · 3 Quiz · no lab** (revised 2026-09-07, below; the built course is 16/13/3 after the 2026-09-09 lecture split — see Current shape).
 S1 "What the machine is actually doing" (opens with a Start Here orientation lesson) → S2 "Getting good work out
 of it" (closes with the Prompt Clinic scenario quiz) → S3 "AI connected to real systems" → **S4 "Reference
 (dated)"**, holding the two perishable lectures — the models snapshot and the one-lesson "Using Claude Today"
