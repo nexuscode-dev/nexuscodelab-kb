@@ -25,6 +25,12 @@ a pass. Both clear cheaply; neither can be faked.
 
 ---
 
+### Standing UNMET — added 2026-09-09
+
+| Item | Why it is unmet | Owner / trigger |
+|---|---|---|
+| **Course publish state** | Every decision that says "held from publication", "approved on hold", or "unpublish it rather than let it grade wrong answers" assumes a capability the platform does not have: `courses` has no publish/status column, so publication is enforced only by nobody running a seeder, and the kill switch cannot be operated. `articles` already have this column, so the pattern exists and was simply never applied to courses. | **Needs Wai Lin's call**, since it changes what "approved on hold" means operationally. Blocks the Career Pathway direction too — a living handbook cannot ship content it cannot retire. |
+
 ## Runs
 
 ### T1 · 2026-08-27 · prompt 0ada20ae1a12 · vault @ 659c4ef (week1-thin-brain, 13 notes + 4 sources)
@@ -188,11 +194,19 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 | Course | Lesson | Owner | last_reviewed | review_by |
 |---|---|---|---|---|
 | Working With AI: Claude Fundamentals | Today's Models (S4 reference) | hein | **2026-09-03 (pre-publication check — see below; bump to publish date on ship day)** | 2026-12-01 |
-| Working With AI: Claude Fundamentals | Using Claude Today (S4 reference) | hein | **2026-09-03** (rewritten and re-checked that day; bump to publish date on ship day) | 2026-12-01 |
+| Working With AI: Claude Fundamentals | Where These Ideas Live in the App (S4 reference — renamed 2026-09-09, was "Using Claude Today") | hein | **2026-09-03** (rewritten and re-checked that day; bump to publish date on ship day) | 2026-12-01 |
 | Using Claude Today (course, approved on hold) | all 3 lectures + the "Checkpoint: Using Claude" quiz | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 
 A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and
 prioritize the refresh or the kill switch in its proposal.
+
+**How a live refresh is actually applied (added 2026-09-09).** Until this date these rows recorded a duty with
+no executable procedure — see the review entry below. A dated lecture is now refreshed with
+`COURSE_SEEDER_REFRESH_CONTENT=1`, which rewrites text in place, deletes nothing, and is therefore the only
+mode permitted on production. `COURSE_SEEDER_REPLACE=1` remains local-only and is for structure changes.
+**The "kill switch" these rows and `using-claude-today.md` rely on still does not exist:** `courses` has no
+publish or status column, so a stale course cannot be unpublished, only deleted — which destroys learner
+progress. Recorded as UNMET rather than left implied.
 
 **On-hold rows are pre-publication checks, not live-content deadlines.** *Using Claude Today* is approved but
 held from publication (decision 2026-09-02); until it is live, its row's `review_by` means "re-verify before
@@ -410,3 +424,55 @@ restraint, closing-recap rule, post-submit explanation as an archetype rule); st
 AI-pattern guidance, the Japanese transcreation rule); the `japanese-exemplars-inline` backlog decision; the stale
 `tests/auditor-prompts/t3-contradiction.md` "no `explanation` field" methodology line; and the **fresh §9 sign-off**
 now owed on `general-beginner-persona`.
+
+
+## Course content review · 2026-09-09 · blind session · Claude Fundamentals
+
+Not a T-series run. A fresh session with no memory of the authoring decisions was given the shipped course, the
+whole vault, the platform source, and the vendors' own model data, and asked to review before merge. Recorded
+here because two of its eight findings were **misses by the 2026-09-08 contradiction sweep**, and the reason for
+each miss is reusable.
+
+**Method gaps this exposed in our own sweep (the reason this entry exists).**
+
+1. **The sweep never checked whether outbound references resolve.** It compared course content against vault
+   *content* and found real defects, but the course shipped a pointer to `Using Claude Today` — a course whose
+   proposal is `approved-on-hold` — in both languages. Comparing text to text cannot catch a reference to
+   something that exists as a document and not as a thing a learner can reach. **Added to the T3-per-course
+   method: every outbound reference must resolve to reachable content, and publication state is part of what a
+   contradiction sweep compares against.**
+2. **No note described how live content gets edited, so nobody could see that the refresh duty was
+   unexecutable.** L4 held `admin-editor-strips-rich-content` (the editor destroys tables and mermaid) and the
+   seeder held a local-only replace guard. Each was correct alone; together they closed every path to updating
+   the dated appendix once published, and the vault had no place where that intersection was visible. A
+   `review_by` was therefore recorded against content that could not be revised. **Proposed to the L4 owner: a
+   note stating that a shipped course has exactly one safe edit path, naming it.** The platform gained that path
+   the same day (`COURSE_SEEDER_REFRESH_CONTENT=1`).
+
+**Findings and disposition.** Eight findings, all eight addressed: the dead cross-reference (fixed, EN+JA, plus
+a test); the unexecutable refresh duty (platform fix); no content test for this course while Course 1 had one
+(`ClaudeFundamentalsContentIntegrityTest`, 12 cases); `video_url` still populated against the licensing decision
+(pinned null + test); Section 4 gating completion it was described as sitting outside (`is_optional` on lessons);
+two distractors whose explanations conceded they were right (rewritten); three factual errors in the models
+appendix (rewritten, tier ordering had been correct); and this proposal's own "168–291 words" claim not matching
+the shipped 167–306. Full detail in the 2026-09-09 revision of `curriculum/proposals/claude-ai-fundamentals.md`.
+
+**What the review checked and found sound**, so it is not re-done: bilingual parity exact across 60 options and
+60 explanations; one correct option per question; correct-answer positions spread across all four slots with no
+guessable run; `pass_rate` a raw count throughout; answer key and explanations both invisible pre-submit; all six
+mermaid diagrams parser-safe; and a `voice-and-never-dos` scan returning six hits, all six legitimate uses. The
+2026-09-08 sweep's own fixes held.
+
+**Status change in this commit.** `brain/audience/accountable-ai-user-persona.md` added at `status: draft` — L2
+tops out at `reviewed` (§9) and the authoring session may not grant it, so it needs a human who has taught to
+sign. **Read it with a caveat:** it documents the audience the shipped course already assumed rather than
+scoping the course in advance, which is the reverse of how L2 is meant to work. It closes a real gap (the
+proposal named a persona the vault never held) but it is a record of a decision, not the decision. The course
+still has **no charter** — `claude-ai-fundamentals.md` remains `status: proposal`, and CLAUDE.md says L3 is never
+scoped by a proposal.
+
+**Proposed to other layers, not edited here** (cross-layer discipline): L5 `voice-and-never-dos` declares
+`depends_on: [salesperson-persona]` and "The reader is a busy salesperson", which now under-describes the
+audience of a second shipped course; L2's two existing personas overlap heavily and
+`general-beginner-persona` already calls salespeople "examples, not the definition", so a **merge** is probably
+the right answer rather than carrying three near-duplicates; and L4 needs the single-edit-path note above.

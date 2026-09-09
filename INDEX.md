@@ -32,13 +32,14 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 - [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (draft · durable)
 - [manual-model-before-ai-tooling](brain/pedagogy/manual-model-before-ai-tooling.md) — build the manual web-system model first; AI is taught later as a component inside it, never a shortcut past the architecture (draft · durable)
 
-## L2 Audience · 2 / 6–8
+## L2 Audience · 3 / 6–8
 
 *Who we teach — the personas, prior knowledge, weekly time budget, motivation, how each fails. Tops out at
 `reviewed`. Personas are per-course: a charter names which one it uses.*
 
 - [salesperson-persona](brain/audience/salesperson-persona.md) — a reusable persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (referenced by the Claude/Web-Design proposals) (reviewed · durable)
 - [general-beginner-persona](brain/audience/general-beginner-persona.md) — Course 1's current spine persona: a general beginner with little/no technical background, made conversant and correctly-modelled, never able to build; sales/client roles are examples, not the definition (draft · durable)
+- [accountable-ai-user-persona](brain/audience/accountable-ai-user-persona.md) — the Claude Fundamentals spine persona, and the entry persona every career pathway starts from: someone accountable for AI output they cannot fully verify, made capable and sceptical rather than merely conversant (draft · durable)
 
 ## L3 Domain · 4 / 12–15
 

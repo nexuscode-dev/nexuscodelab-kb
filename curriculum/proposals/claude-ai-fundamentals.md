@@ -12,9 +12,12 @@ Working title chosen deliberately over "Claude 101" — see risks.
 
 ## Target learner
 
-The career-switcher and student from our persona set — people who will build or work alongside AI tools.
-The salesperson gets standalone value from weeks 1–2 (how these systems work, how to ask well) and can stop
-there; sequence is ungated, so that costs nothing.
+`accountable-ai-user-persona` (written 2026-09-09, closing open question 5 below): someone who has to produce
+work with an AI assistant and put their own name on the result, with no prior AI experience and no intention of
+writing code. What distinguishes them from our other personas is not their background but their exposure — they
+are **accountable for output they cannot fully verify**, and every outcome this course claims follows from that.
+The salesperson and general-beginner personas still get standalone value from sections 1–2; sequence is ungated,
+so that costs nothing.
 
 ## Why this course
 
@@ -106,7 +109,7 @@ abrupt lesson flow, lectures **too detailed**, and code labs inappropriate in a 
   will be able to do, how the course runs, and pre-empts "I need to be technical for this". It carries a
   misconception and takeaway like every other lecture, but contributes no quiz question: its idea is orientation,
   not course content. Flagged to the archetype's owner rather than amending `beginner-lecture-archetype` here.
-- **Every lecture cut to a ~3-minute read** (168–291 words, was 500–800), one idea each, plainer wording for a
+- **Every lecture cut to a ~3-minute read** (167–306 words at the time, was 500–800; the range is 167–343 after the 2026-09-09 review, which lengthened the models appendix to make it accurate — see that revision), one idea each, plainer wording for a
   learner with no prior AI experience. Structure per the archetype is unchanged; only the detail is gone.
 - **The lab is removed, and no lab replaces it.** A Lab on this platform is JavaScript graded on stdout and
   cannot call a model (`what-a-lab-can-actually-grade`), so the only lab this subject admits is code — which is
@@ -212,10 +215,79 @@ full because a found-and-fixed conflict is worth more than a clean claim.
    allowed requests", the socket carries "one shape of plug, many devices" — but it is exactly the case the
    note exists to catch, so it should be decided rather than assumed.
 5. **The proposal named a persona the vault has never described** ("the career-switcher and student from our
-   persona set"). `brain/audience/` holds only `salesperson-persona` and `general-beginner-persona`. Until a
-   note exists, this course is written against `salesperson-persona`, which is what its voice and examples
-   actually assume.
-6. **Two-sentence explanations** where this proposal said "a one-sentence post-submit explanation". The longer
-   ones are where a wrong answer needs its misconception named *and* the correct behaviour stated. Either the
-   proposal's wording relaxes to "one or two sentences", or those options get trimmed; recommend relaxing the
-   wording, since the second sentence is doing teaching work.
+   persona set"). **CLOSED 2026-09-09** by `accountable-ai-user-persona`. Read the honesty caveat in the
+   2026-09-09 revision before treating this as a clean close: the note documents the audience the shipped
+   course already assumed, so it is a record of a decision, not the decision itself.
+6. **Two-sentence explanations** where this proposal said "a one-sentence post-submit explanation".
+   **RESOLVED 2026-09-09: the wording relaxes to "one or two sentences."** The second sentence is where a wrong
+   answer gets its misconception named *and* the correct behaviour stated, which is the teaching the shorter
+   lectures now depend on. Trimming them would have cut content to satisfy a word this proposal chose casually.
+
+
+## Revision after the blind review — 2026-09-09
+
+A fresh session with no memory of the authoring decisions reviewed the shipped course against the whole of
+`brain/`, the platform source, and the vendors' own model data, then fixed what it found. Eight findings; all
+eight addressed. Recorded in full because the review's most useful output was the two defects the 2026-09-08
+contradiction sweep had missed.
+
+**What the sweep missed, and why (the finding worth learning from).**
+
+1. **The course shipped a pointer to an unpublished course, in both languages.** The Section 4 orientation
+   lecture read "A fuller hands-on tour lives in the separate short course *Using Claude Today*" — a course
+   whose own proposal is `approved-on-hold` with publication held. `using-claude-today.md` even asserts "The
+   fundamentals course loses nothing when this one is offline", which was false the moment that sentence was
+   written. **Method gap:** the sweep compared the course against `brain/` + `curriculum/` *content*, never
+   against *publication state*. A future sweep must check every outbound reference resolves to something a
+   learner can actually reach. Fixed: the clause is gone from both languages, the lecture is renamed *Where
+   These Ideas Live in the App* (its old title collided with the held course's name), and a test now fails if
+   the string "Using Claude Today" reappears in any lecture body.
+
+2. **The dated appendix could not be refreshed once live.** The `review_by: 2026-12-01` commitment rested on a
+   procedure that cannot run: `COURSE_SEEDER_REPLACE` is local-only by design, and the admin editor destroys
+   the tables and mermaid these lectures contain (`admin-editor-strips-rich-content`). Both routes closed, so
+   the one piece of content designed to need refreshing was the one piece that could not be. **This was a
+   platform gap the KB could not see, because no note described how live content gets edited at all.** Fixed on
+   the platform: `COURSE_SEEDER_REFRESH_CONTENT=1` rewrites text in place, deletes nothing, is therefore
+   allowed on production, and refuses if the live structure has drifted from the seeder. Proposed to the L4
+   owner: a note recording that a shipped course has exactly one safe edit path.
+
+**Also fixed in the course.**
+
+- **Section 4 is now genuinely outside the learning path.** It was described as a reference to come back to
+  later while course completion counted every lesson — so a learner who followed the orientation lecture's own
+  instruction could never complete the course. The platform gained an `is_optional` flag on lessons (default
+  false, so no existing course changes), and both completion gates now read one shared required-lesson list.
+- **Two distractors were marked wrong while their own explanation conceded they were right** — the calculator
+  question ("the model still writes the final answer") and the attached-policy question ("the document failed to
+  attach"). On single-answer MCQ with no partial credit that punishes the sharpest learner. Both replaced with
+  real folk theories that are cleanly wrong.
+- **Three factual errors in the one section that is explicitly about facts.** Haiku was listed as part of the
+  Claude 5 family (it is a prior generation); the free app was implied to give access to every rung; and two
+  models roughly two-and-a-half times apart in price shared one "middle" rung, which made "start in the middle"
+  ambiguous advice. Rewritten to name the everyday default explicitly and to say plainly that four names do not
+  map cleanly onto three rungs — which strengthens the lecture's own thesis rather than weakening it. Verified
+  against the vendor's current model and pricing data; the tier *ordering* in the original was correct.
+- **`video_url` was still populated with both YouTube URLs** despite the licensing decision that replaced the
+  embeds with plain links. Dead today — nothing in the learner frontend reads it — but DOMPurify permits
+  `<iframe>`, so it becomes an unlicensed auto-embed the day anything renders that field. Pinned to null, with
+  the reason in the code, and a test asserts it.
+- **The Japanese guard checked option counts but not explanation counts**, so a dropped `explanation_ja` fell
+  back to English silently. Now guarded.
+
+**What was checked and found sound** (worth recording, so a later reviewer does not redo it): bilingual parity
+is exact at 60 options and 60 explanations; every question has exactly one correct option; correct-answer
+positions use all four slots with no guessable run; `pass_rate` is a raw count everywhere; the answer key and
+the explanations are both invisible before submit; all six mermaid diagrams use parser-safe labels; and a
+`voice-and-never-dos` sweep returned six hits, all six legitimate (quoted learner speech, temporal "just",
+"just as wrong"). The prose quality of the course was not the problem.
+
+**New standing protection.** `ClaudeFundamentalsContentIntegrityTest` (12 cases) now locks in every property
+above. This course previously had only seeder-*safety* tests, so everything a reviewer verified by hand stayed
+unprotected — the asymmetry with Course 1's `Course1QuizIntegrityTest` was itself a finding.
+
+**Still open, and still needing a decision rather than an edit** — carried forward unchanged from the
+2026-09-08 sweep, because none of them is fixable at the course level: the quiz-count amendment to
+`beginner-lecture-archetype` (items 1), the Agentic lecture teaching two ideas (item 2), the absent L3 layer for
+AI concepts (item 3), and the six unregistered analogies (item 4). Item 2 is the one a reader will notice
+first.
