@@ -10,7 +10,7 @@ teaches: []
 depends_on: [our-analogies-chosen-and-rejected, every-analogy-must-survive-japanese]
 ---
 
-**Rule.** The analogy register for **AI concepts**, on the same terms as [[our-analogies-chosen-and-rejected]]: one picture per concept, recorded once, never reinvented per lesson. That note holds the web-system pictures and is at its word ceiling; the split is by domain, so **check both before inventing one.**
+**Rule.** The analogy register for **AI concepts**, on the same terms as [[our-analogies-chosen-and-rejected]]: one picture per concept, recorded once, never reinvented per lesson. That note holds the web-system pictures and is at its word ceiling; [[delegation-and-review-analogies]] holds the delegation-and-review pictures, split off for the same reason at the same cap. The split is by domain, so **check all three before inventing one.**
 
 **The house choices.**
 

@@ -22,7 +22,7 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 - [web-system-architecture](curriculum/web-system-architecture.md) — Course 1's charter: the general-beginner spine, the 20-lesson outline, and **what we deliberately decided not to teach**; a "Shipped v2" section records the live reality (shipped · en+ja)
 - [claude-ai-fundamentals](curriculum/claude-ai-fundamentals.md) — Course 2's charter (promoted from proposal 2026-09-09): the accountable-ai-user spine, the 16-lesson shape, the seven candidate L3 notes and the cap decision they force, and the binding out-of-scope list (charter · en+ja)
 
-## L1 Pedagogy · 6 / 8–10
+## L1 Pedagogy · 7 / 8–10
 
 *How we teach — lesson archetypes, sequencing, outcome verbs, assessment patterns, cognitive load. Tops out at
 `reviewed`: these are opinions with no source (§9).*
@@ -31,16 +31,18 @@ The scope decision that L3 is written against. Neither knowledge nor output.
 - [one-new-idea-per-lesson](brain/pedagogy/one-new-idea-per-lesson.md) — a lesson introduces exactly one new idea; everything else is scaffolding for it (reviewed · durable)
 - [our-analogies-chosen-and-rejected](brain/pedagogy/our-analogies-chosen-and-rejected.md) — one house analogy per concept, chosen for its boundary, with the rejected ones and why (reviewed · durable)
 - [ai-analogies-chosen-and-rejected](brain/pedagogy/ai-analogies-chosen-and-rejected.md) — the AI-concept half of the analogy register: the six pictures the Claude course teaches, why the first four are deliberately one extended image, and the ruling that MCP-as-socket is distinct from API-as-button-panel (draft · durable)
+- [delegation-and-review-analogies](brain/pedagogy/delegation-and-review-analogies.md) — the third analogy register: the five pictures for delegating to AI and reviewing what returns, each recorded with the alternative it beat (draft · durable)
 - [scenario-mcqs-over-recall-mcqs](brain/pedagogy/scenario-mcqs-over-recall-mcqs.md) — every quiz question asks for a judgement about a situation, never a definition (reviewed · durable)
 - [manual-model-before-ai-tooling](brain/pedagogy/manual-model-before-ai-tooling.md) — build the manual web-system model first; AI is taught later as a component inside it, never a shortcut past the architecture (reviewed · durable)
 
-## L2 Audience · 3 / 6–8
+## L2 Audience · 4 / 6–8
 
 *Who we teach — the personas, prior knowledge, weekly time budget, motivation, how each fails. Tops out at
 `reviewed`. Personas are per-course: a charter names which one it uses.*
 
 - [salesperson-persona](brain/audience/salesperson-persona.md) — a reusable persona: a non-technical salesperson to be made conversant and correctly-modelled, never able to build (referenced by the Claude/Web-Design proposals) (reviewed · durable)
 - [general-beginner-persona](brain/audience/general-beginner-persona.md) — Course 1's current spine persona: a general beginner with little/no technical background, made conversant and correctly-modelled, never able to build; sales/client roles are examples, not the definition (draft · durable)
+- [delegating-engineer-persona](brain/audience/delegating-engineer-persona.md) — the engineer who delegates implementation to AI and merges it: can verify, but their review habits were built on code that leaves human signals (draft · durable)
 - [accountable-ai-user-persona](brain/audience/accountable-ai-user-persona.md) — the Claude Fundamentals spine persona, and the entry persona every career pathway starts from: someone accountable for AI output they cannot fully verify, made capable and sceptical rather than merely conversant (reviewed · durable)
 
 ## L3 Domain · 4 / 12–15

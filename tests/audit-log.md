@@ -617,3 +617,20 @@ a date because it is live. On publish day this file gets `status: shipped`, a `s
 reason), the candidate-L3 list above, and a "Current shape" section that supersedes the original plan rather than
 burying the built reality under four appended revision sections. The original proposal is preserved below it in
 full as the decision record.
+
+### New notes at `status: draft` · 2026-09-11 · course 3 proposal
+
+Recorded because the pre-commit hook asks for it, and the honest answer is that **no test granted anything
+here.** Three artifacts arrived with the AI-Era Engineering Judgment proposal, and none of them is a status
+upgrade:
+
+| Note | Status | What would move it |
+|---|---|---|
+| `delegating-engineer-persona` | `draft` | A human sign-off, the gate `accountable-ai-user-persona` passed on 2026-09-09. L2 tops out at `reviewed`; no AI pass can lift it (§9). |
+| `delegation-and-review-analogies` | `draft` | Same: an L1 opinion with no source, so `reviewed` is its ceiling and a human has to read it. |
+| `curriculum/proposals/ai-era-engineering-judgment.md` | `proposal` | Team approval → `charter`. Until then no L3 note for its concepts may be written — the constraint the Fundamentals charter identified on 2026-09-09. |
+
+The persona carries a standing caveat in its own body: it was written alongside the course it scopes rather than
+ahead of it, so it documents an intended audience rather than evidencing one. That is the same caveat
+`accountable-ai-user-persona` carries, and it is the reason both stay `draft` until someone who is not their
+author reads them.
