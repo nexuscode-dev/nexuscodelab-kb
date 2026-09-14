@@ -1,15 +1,16 @@
 ---
 id: claude-ai-fundamentals
 slug: claude-ai-fundamentals
-status: charter             # promoted from proposal 2026-09-09. NOT `shipped` — see the note below.
+status: shipped             # published 2026-09-09 09:42 UTC; recorded 2026-09-14 — see the note below.
 proposed_by: hein
 date: 2026-08-28
 promoted: 2026-09-09
+shipped: 2026-09-09
 course_slot: 2
 spine_persona: accountable-ai-user
 language: en, ja
 length_weeks: 3
-verified_against: dac2d3c
+verified_against: b71807e
 ---
 
 # Course charter — Working With AI: Claude Fundamentals
@@ -22,10 +23,17 @@ This is not a note and is exempt from the 150–400 word cap. It is the **scope 
 AI concept could legitimately be written at all — CLAUDE.md: "L3 is never scoped by a proposal." That was the
 real reason the 2026-09-08 sweep's item 3 looked unfixable.
 
-**Why `status: charter` and not `status: shipped`.** The course is merged-pending, not live. Course 1's charter
-carries `status: shipped` with a `shipped:` date because it actually is. Stamping a state that has not happened
-is the exact error class this repo exists to prevent — §11 was marked "verified" twice and was wrong both times.
-**On publish day:** set `status: shipped`, add `shipped: <date>`, and bump `verified_against`.
+**Published 2026-09-09 09:42 UTC — and this file said otherwise for five days.** It read `status: charter`
+and "the course is merged-pending, not live" until 2026-09-14, when hein mentioned in passing that he had
+seeded it himself. Nothing in the vault knew. The publish date is not a recollection: it is the course row's
+`created_at` on production, which is the moment the seeder created it.
+
+**Why that matters more than the label.** A reader asking the vault "what is live?" got the wrong answer for a
+course already serving learners, and the two registry rows sat marked "bump to publish date on ship day" as
+though the duty were still pending. This is the fourth record found outliving its subject in one week — after
+the Sail flag commands, the register-to-publish claim, and two local-only guard comments. The pattern is
+consistent enough to name: **nothing updates the vault when a human does something by hand, so every manual
+action is a place where the record silently goes stale.**
 
 ## Current shape — 2026-09-09 (supersedes the original plan below)
 

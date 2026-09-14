@@ -193,8 +193,8 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 
 | Course | Lesson | Owner | last_reviewed | review_by |
 |---|---|---|---|---|
-| Working With AI: Claude Fundamentals | Today's Models (S4 reference) | hein | **2026-09-03 (pre-publication check — see below; bump to publish date on ship day)** | 2026-12-01 |
-| Working With AI: Claude Fundamentals | Where These Ideas Live in the App (S4 reference — renamed 2026-09-09, was "Using Claude Today") | hein | **2026-09-03** (rewritten and re-checked that day; bump to publish date on ship day) | 2026-12-01 |
+| Working With AI: Claude Fundamentals | Today's Models (S4 reference) | hein | **2026-09-09** — rewritten and tier-checked during the blind review; page said 2026-09-03 until corrected 2026-09-14 | 2026-12-01 |
+| Working With AI: Claude Fundamentals | Where These Ideas Live in the App (S4 reference — renamed 2026-09-09, was "Using Claude Today") | hein | **2026-09-09** — renamed and dead cross-reference removed that day | 2026-12-01 |
 | Using Claude Today (course, approved on hold) | all 3 lectures + the "Checkpoint: Using Claude" quiz | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
 | AI-Era Engineering Judgment | Today's AI Coding Tools (S4 reference) | hein | **2026-09-14 (publish day — re-read before the bump; names no product, quotes no price, nothing stale)** | 2026-12-01 |
 
@@ -750,3 +750,34 @@ is not verification; running the command is.**
 
 **Standing debt, now live rather than pending:** the Japanese in this course is unreviewed by decision
 (2026-09-14), owner hein, and the same is true of course 2. It has moved from a risk to a fact.
+
+
+### Correction · 2026-09-14 · course 2 had been live for five days and the vault did not know
+
+`claude-ai-fundamentals` read `status: charter` and "merged-pending, not live" until today, when hein mentioned
+he had merged and seeded it himself on 2026-09-09. The publish time is not a recollection — it is the course
+row's `created_at` on production, 09:42 UTC, which is the moment the seeder created it.
+
+**Checked rather than assumed, because the timing was close.** PR #57 merged at 09:18 UTC and the seed was
+09:42 UTC, 24 minutes later — but `created_at` is stored in the app's timezone (`config/app.php` = UTC) and the
+commits are +0700, so the arithmetic was ambiguous enough not to trust. The decisive test was the data: the
+Agentic-lecture split is inside PR #57, and production reports **16 lessons**. Production therefore carries the
+fully-reviewed course, not a pre-fix one. *Use a fact the deployment itself exposes, not a clock.*
+
+**The dated pages understated themselves.** Both Section 4 lectures still read "Last reviewed: 3 September
+2026" while the blind review had rewritten them on 2026-09-09 — three factual errors corrected in the models
+snapshot, tiers re-checked, the other page renamed. The commits never touched the date because bumping it was
+the ship-day step, and ship day never formally happened. Corrected to 2026-09-09, **not to today**: today would
+claim a verification nobody performed.
+
+**A latent bug in the ship-day procedure, found while fixing this.** The staged `sed` one-liner was
+English-only. Had anyone run it, `Last reviewed` would have moved and `最終確認` would not — the two languages
+disagreeing about when the page was checked, with nothing to flag it. Now bilingual, with a note saying why
+both lines are mandatory.
+
+**The pattern, now with four instances in one week** — the Sail flag commands, the register-to-publish claim,
+two local-only guard comments, and this. Every one was a record that outlived its subject, and **every one was
+found by running something or being told, never by reading the vault.** The common cause is worth stating
+plainly: *nothing updates the vault when a human does something by hand.* Seeding, merging, and publishing are
+all manual here, so each is a point where the record goes stale silently. Until something closes that loop, a
+"what is live?" answer from this vault should be treated as a claim to verify against production, not a fact.

@@ -20,7 +20,7 @@ a shared one-line-per-note index does constantly.
 The scope decision that L3 is written against. Neither knowledge nor output.
 
 - [web-system-architecture](curriculum/web-system-architecture.md) — Course 1's charter: the general-beginner spine, the 20-lesson outline, and **what we deliberately decided not to teach**; a "Shipped v2" section records the live reality (shipped · en+ja)
-- [claude-ai-fundamentals](curriculum/claude-ai-fundamentals.md) — Course 2's charter (promoted from proposal 2026-09-09): the accountable-ai-user spine, the 16-lesson shape, the seven candidate L3 notes and the cap decision they force, and the binding out-of-scope list (charter · en+ja)
+- [claude-ai-fundamentals](curriculum/claude-ai-fundamentals.md) — Course 2's charter (promoted from proposal 2026-09-09): the accountable-ai-user spine, the 16-lesson shape, the seven candidate L3 notes and the cap decision they force, and the binding out-of-scope list (shipped · en+ja)
 - [ai-era-engineering-judgment](curriculum/ai-era-engineering-judgment.md) — Course 3's charter (promoted 2026-09-14): the delegating-engineer spine, the 16-lesson shape, why the lab ships broken in one case and carries three test cases rather than four, and the L3 cap now blocking two charters (shipped · en+ja)
 
 ## L1 Pedagogy · 7 / 8–10
