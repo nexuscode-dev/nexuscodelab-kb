@@ -196,7 +196,7 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 | Working With AI: Claude Fundamentals | Today's Models (S4 reference) | hein | **2026-09-03 (pre-publication check — see below; bump to publish date on ship day)** | 2026-12-01 |
 | Working With AI: Claude Fundamentals | Where These Ideas Live in the App (S4 reference — renamed 2026-09-09, was "Using Claude Today") | hein | **2026-09-03** (rewritten and re-checked that day; bump to publish date on ship day) | 2026-12-01 |
 | Using Claude Today (course, approved on hold) | all 3 lectures + the "Checkpoint: Using Claude" quiz | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
-| AI-Era Engineering Judgment | Today's AI Coding Tools (S4 reference) | hein | 2026-09-14 (written and checked that day; bump to publish date on ship day) | 2026-12-01 |
+| AI-Era Engineering Judgment | Today's AI Coding Tools (S4 reference) | hein | **2026-09-14 (publish day — re-read before the bump; names no product, quotes no price, nothing stale)** | 2026-12-01 |
 
 A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and
 prioritize the refresh or the kill switch in its proposal.
@@ -723,3 +723,30 @@ Recorded as a decision rather than left as a stale gate, because a record assert
 enforced is the precise defect class this log exists to catch — the same shape as a `review_by` on content that
 could not be refreshed (2026-09-09). **This is a known debt with a named owner (hein), outstanding on two
 courses, and it compounds per course rather than per release.**
+
+
+### Published · 2026-09-14 · AI-Era Engineering Judgment (course 3)
+
+**The first course this team has actually published.** `docs/course-1-publish-checkpoint.md` had recorded the
+publishing path as never exercised; it has now been walked end to end: merge → ship-day date bump → a human
+running `db:seed --class=…` against production.
+
+Ship-day duties, done in this order because the seeder is what writes the dates into the database — bumping
+after seeding would have left production holding the old ones:
+
+1. **Re-read the dated lecture, then bump the date.** "Last reviewed" moved to 14 September 2026, EN and JA.
+   Nothing had gone stale — the lecture names no product and quotes no price, teaching three durable shapes and
+   saying outright that it prints no product list because a stale recommendation is worse than none. **Worth
+   recording that this was a two-minute check rather than a vendor audit**, and that is a property of how the
+   lecture was written, not luck. Course 2's equivalent page names four models and will not be this cheap.
+2. Charter `status: charter` → `shipped`, `shipped: 2026-09-14`, `verified_against: d653bf3`.
+3. Registry row updated with what was actually checked, not just a date.
+
+**A stale claim found while doing it.** Both seeders said "replace mode is local-only" — untrue since replace
+was changed to carry enrolments and gate on lesson progress rather than environment. Corrected in both. This is
+the third time a comment has outlived the behaviour it described (after the Sail flag commands and the
+register-to-publish claim), all three found by exercising the thing rather than reading it. **Reading a comment
+is not verification; running the command is.**
+
+**Standing debt, now live rather than pending:** the Japanese in this course is unreviewed by decision
+(2026-09-14), owner hein, and the same is true of course 2. It has moved from a risk to a fact.

@@ -1,16 +1,17 @@
 ---
 id: ai-era-engineering-judgment
 slug: ai-era-engineering-judgment
-status: charter             # promoted 2026-09-14. NOT `shipped` — nothing is published yet.
+status: shipped             # published 2026-09-14
 proposed_by: hein
 date: 2026-09-11
 promoted: 2026-09-14
+shipped: 2026-09-14
 course_slot: 3
 spine_persona: delegating-engineer
 language: en, ja
 length_weeks: 3
 pathway: AI-Era Software Engineering
-verified_against: 0232881
+verified_against: d653bf3
 ---
 
 # Course proposal — AI-Era Engineering Judgment
@@ -22,12 +23,15 @@ This is not a note and is exempt from the 150–400 word cap. It is the **scope 
 (`brain/`) nor output (`courses/`). L3 for this course's concepts is scoped by this file and by nothing else.
 Promoted from proposal on 2026-09-14, alongside signing `delegating-engineer-persona`.
 
-**Why `charter` and not `shipped`.** Merging publishes nothing. No course seeder is registered in
-`DatabaseSeeder`, nothing runs `db:seed` automatically, and there is no CI — every course is published by a
-human running `db:seed --class=…` against the target environment, a path
-`docs/course-1-publish-checkpoint.md` records as **never yet exercised**. On publish day: set
-`status: shipped`, add `shipped: <date>`, bump `verified_against`, and bump the dated lecture's row in the
-content-review registry.
+**Published 2026-09-14**, by a human running `db:seed --class=AiEraEngineeringJudgmentSeeder` against
+production — the first time that path has been exercised (`docs/course-1-publish-checkpoint.md` had recorded it
+as never used). Merging publishes nothing here: no course seeder is registered in `DatabaseSeeder`, nothing runs
+`db:seed` automatically, and there is no CI. Publishing is that command and nothing else.
+
+**Ship-day duties completed:** Section 4's "Last reviewed" bumped to 14 September 2026 in both languages after
+re-reading it (it names no product and quotes no price, so nothing had gone stale); `verified_against` moved to
+`d653bf3`; the content-review registry row updated. **Standing:** the Japanese ships unreviewed by decision, and
+that debt is now live rather than pending.
 
 ## Current shape — 2026-09-14 (supersedes the rough structure below)
 
