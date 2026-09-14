@@ -755,7 +755,8 @@ is not verification; running the command is.**
 ### Correction · 2026-09-14 · course 2 had been live for five days and the vault did not know
 
 `claude-ai-fundamentals` read `status: charter` and "merged-pending, not live" until today, when hein mentioned
-he had merged and seeded it himself on 2026-09-09. The publish time is not a recollection — it is the course
+he had merged and seeded it himself. **Corrected below: the course had been live since 2026-08-31 — two weeks,
+not five days.** The publish time is not a recollection — it is the course
 row's `created_at` on production, 09:42 UTC, which is the moment the seeder created it.
 
 **Checked rather than assumed, because the timing was close.** PR #57 merged at 09:18 UTC and the seed was
@@ -781,3 +782,36 @@ found by running something or being told, never by reading the vault.** The comm
 plainly: *nothing updates the vault when a human does something by hand.* Seeding, merging, and publishing are
 all manual here, so each is a point where the record goes stale silently. Until something closes that loop, a
 "what is live?" answer from this vault should be treated as a claim to verify against production, not a fact.
+
+
+### Correction to the correction · 2026-09-14 · the publish date, and what it re-dates
+
+The entry above first recorded `shipped: 2026-09-09` from the course row's `created_at`. **Wrong field.** That
+timestamp is when a destructive replace *rebuilt the row*; `0232881`, authored six minutes earlier, already
+records "4 enrolments" on production. A rebuilt row reports the rebuild.
+
+**The real date is 2026-08-31**, established from data replace does not touch: the earliest enrolment's
+`started_at` is 2026-08-31 08:30:33, and the shared curriculum row was created 05:56:10 that morning. All four
+enrolments share one `created_at` and carry four different `started_at` values — the rebuild is visible in the
+data if you look at the right column.
+
+**Rule worth keeping: `created_at` is a publish date only if nothing has ever rebuilt the row.** This project
+built a feature whose entire purpose is rebuilding rows, so `created_at` is the one field that cannot be trusted
+for this question here. Prefer evidence the rebuild carries across — enrolment `started_at` — or an external
+record.
+
+**What the corrected date re-dates.** This log has described the 2026-09-09 blind review as pre-merge quality
+work. It was not: the course had been live for **nine days**. The dead pointer to an unpublished course, the
+three factual errors in the models appendix, and the two distractors marked wrong while their explanations
+conceded them were all served to real learners across four enrolments. **The review did not stop those
+shipping. It found them afterwards, and only because a restructure happened to be scheduled.**
+
+That reframes the week's other findings too. "Found by running the thing, never by reading the vault" was
+already the pattern; the sharper version is that **nothing in this system looks at live content at all.** There
+is no CI, no publish checklist, and no mechanism that compares what is deployed against what the vault claims.
+Every defect this week was found by a human happening to look. The `review_by: 2026-12-01` dates are the only
+scheduled check that exists, and they are a calendar reminder with no teeth.
+
+**The cheap fix, proposed rather than taken:** have the seeder write the publish moment somewhere a rebuild
+cannot erase, and make "update the KB" a line in the publish procedure. Neither is a design change; both close
+the loop that let a live course read as unpublished for two weeks.

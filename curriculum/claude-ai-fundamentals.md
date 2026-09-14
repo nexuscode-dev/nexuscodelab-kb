@@ -1,11 +1,11 @@
 ---
 id: claude-ai-fundamentals
 slug: claude-ai-fundamentals
-status: shipped             # published 2026-09-09 09:42 UTC; recorded 2026-09-14 — see the note below.
+status: shipped             # live 2026-08-31; recorded 2026-09-14 — see the note below.
 proposed_by: hein
 date: 2026-08-28
 promoted: 2026-09-09
-shipped: 2026-09-09
+shipped: 2026-08-31
 course_slot: 2
 spine_persona: accountable-ai-user
 language: en, ja
@@ -23,17 +23,31 @@ This is not a note and is exempt from the 150–400 word cap. It is the **scope 
 AI concept could legitimately be written at all — CLAUDE.md: "L3 is never scoped by a proposal." That was the
 real reason the 2026-09-08 sweep's item 3 looked unfixable.
 
-**Published 2026-09-09 09:42 UTC — and this file said otherwise for five days.** It read `status: charter`
-and "the course is merged-pending, not live" until 2026-09-14, when hein mentioned in passing that he had
-seeded it himself. Nothing in the vault knew. The publish date is not a recollection: it is the course row's
-`created_at` on production, which is the moment the seeder created it.
+**Live since 2026-08-31 — and this file said "not live" until 2026-09-14.** Two weeks.
 
-**Why that matters more than the label.** A reader asking the vault "what is live?" got the wrong answer for a
-course already serving learners, and the two registry rows sat marked "bump to publish date on ship day" as
-though the duty were still pending. This is the fourth record found outliving its subject in one week — after
-the Sail flag commands, the register-to-publish claim, and two local-only guard comments. The pattern is
-consistent enough to name: **nothing updates the vault when a human does something by hand, so every manual
-action is a place where the record silently goes stale.**
+**How the date was established, after getting it wrong once.** The first attempt used the course row's
+`created_at` (2026-09-09 09:42 UTC) and was wrong: that is when a destructive **replace rebuilt the row**, not
+when the course shipped. `0232881` proves it — authored six minutes earlier, it records "4 enrolments" already
+on production. The evidence that holds is the enrolments themselves, whose `started_at` replace carries across
+untouched: the earliest is **2026-08-31 08:30:33**, and the shared curriculum row was created 05:56:10 that
+same morning. A learner enrolled two and a half hours after the tree existed.
+
+**`created_at` is only a publish date if nothing has ever rebuilt the row** — and this project built a feature
+whose entire job is rebuilding rows. All four enrolments carry an identical `created_at` and four different
+`started_at` values, which is the rebuild visible in the data.
+
+**What that re-dates, and it is not trivial.** The 2026-09-09 blind review has been described throughout this
+vault as pre-merge quality work. It was not. The course had been live for **nine days**, so the pointer to an
+unpublished course, the three factual errors in the models appendix, and the two distractors marked wrong while
+their own explanations conceded them were all **in front of real learners**, across four enrolments. The review
+did not prevent those defects from shipping; it found them after they had shipped, by chance, because a
+restructure was scheduled. Nothing else was looking.
+
+**And the vault said "not live" throughout.** A reader asking "what is live?" got the wrong answer for two
+weeks, while both registry rows sat marked "bump to publish date on ship day" as though the duty were pending.
+This is the fourth record found outliving its subject in one week — after the Sail flag commands, the
+register-to-publish claim, and two local-only guard comments. The pattern is worth naming: **nothing updates
+the vault when a human acts by hand**, and merging, seeding and publishing are all manual here.
 
 ## Current shape — 2026-09-09 (supersedes the original plan below)
 
