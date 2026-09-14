@@ -1,7 +1,7 @@
 ---
 id: delegating-engineer-persona
 layer: audience
-status: draft
+status: reviewed
 confidence: medium
 decay: durable
 last_verified: 2026-09-11

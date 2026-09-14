@@ -1,11 +1,12 @@
 ---
 id: ai-era-engineering-judgment
 slug: ai-era-engineering-judgment
-status: proposal            # NOT a charter — awaits team approval. L3 is never scoped by a proposal.
+status: charter             # promoted 2026-09-14. NOT `shipped` — nothing is published yet.
 proposed_by: hein
 date: 2026-09-11
-course_slot: 3 (proposed)
-spine_persona: delegating-engineer (draft, pending sign-off)
+promoted: 2026-09-14
+course_slot: 3
+spine_persona: delegating-engineer
 language: en, ja
 length_weeks: 3
 pathway: AI-Era Software Engineering
@@ -16,6 +17,45 @@ verified_against: 0232881
 
 This is not a note and is exempt from the 150–400 word cap. It is the **scope decision** for course 3 —
 neither knowledge (`brain/`) nor output (`courses/`).
+
+This is not a note and is exempt from the 150–400 word cap. It is the **scope decision** — neither knowledge
+(`brain/`) nor output (`courses/`). L3 for this course's concepts is scoped by this file and by nothing else.
+Promoted from proposal on 2026-09-14, alongside signing `delegating-engineer-persona`.
+
+**Why `charter` and not `shipped`.** Merging publishes nothing. No course seeder is registered in
+`DatabaseSeeder`, nothing runs `db:seed` automatically, and there is no CI — every course is published by a
+human running `db:seed --class=…` against the target environment, a path
+`docs/course-1-publish-checkpoint.md` records as **never yet exercised**. On publish day: set
+`status: shipped`, add `shipped: <date>`, bump `verified_against`, and bump the dated lecture's row in the
+content-review registry.
+
+## Current shape — 2026-09-14 (supersedes the rough structure below)
+
+- **Spine persona.** `delegating-engineer-persona`, signed `reviewed` 2026-09-14. An engineer who reads and
+  writes code, hands substantial implementation to an AI tool, and merges the result under their own name. The
+  pathway's first persona that is *not* its entry persona.
+- **Structure.** 4 sections · **16 lessons — 12 Lecture · 3 Quiz · 1 Lab.** Quizzes hold **14 questions / 56
+  options**, every option with a post-submit explanation in both languages. Lectures run 155–278 words.
+- **The lab ships deliberately broken in exactly one case** — `averageRating` passes the happy paths and fails
+  on the empty list. The defect *is* the exercise. **Three test cases, not four**: each case costs a free
+  learner one of ten daily code executions, and this lab's method is run → read the failure → fix → run. Four
+  cases bought two attempts a day; three buys three.
+- **Section 4 is a dated reference lecture** outside the learning path, with no quiz on it. Registry row and
+  `review_by` in `tests/audit-log.md`.
+- **Analogies.** Five recorded in `delegation-and-review-analogies` *with their rejected alternatives* — the
+  discipline the sibling register asked the next course to start. Two more are reused unchanged from
+  `ai-analogies-chosen-and-rejected` rather than reinvented, which is the registers working as designed.
+- **Japanese ships unreviewed.** Decision 2026-09-14: publish, and a Japanese-reading reviewer signs off after
+  the fact. A recorded debt, not a satisfied gate — and it is now outstanding on two courses.
+
+## L3 and the cap decision this still forces
+
+**Zero L3 notes exist for this course's concepts**, so no distractor here carries the provenance
+`scenario-mcqs-over-recall-mcqs` requires; they are drawn from the persona note instead. Promoting this charter
+makes such notes *legitimate* to write and does not make room for them: L3's cap is 12–15, Course 1 holds 13, and
+there are now **two charters** queued behind that cap rather than one. A cap is never raised mid-build
+(KB_DESIGN_PROPOSAL §7.1), so this is a v1-review decision, and it has gone from one course's problem to a
+standing block on the pathway.
 
 ## Where it came from
 

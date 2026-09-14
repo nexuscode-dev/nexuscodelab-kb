@@ -196,6 +196,7 @@ lesson; update `last_reviewed` on every re-verification, and on ship day set it 
 | Working With AI: Claude Fundamentals | Today's Models (S4 reference) | hein | **2026-09-03 (pre-publication check — see below; bump to publish date on ship day)** | 2026-12-01 |
 | Working With AI: Claude Fundamentals | Where These Ideas Live in the App (S4 reference — renamed 2026-09-09, was "Using Claude Today") | hein | **2026-09-03** (rewritten and re-checked that day; bump to publish date on ship day) | 2026-12-01 |
 | Using Claude Today (course, approved on hold) | all 3 lectures + the "Checkpoint: Using Claude" quiz | hein | 2026-08-31 (re-verify on ship day) | 2026-12-01 |
+| AI-Era Engineering Judgment | Today's AI Coding Tools (S4 reference) | hein | 2026-09-14 (written and checked that day; bump to publish date on ship day) | 2026-12-01 |
 
 A lesson whose `review_by` has passed without a row update here is presumed stale: do not market it, and
 prioritize the refresh or the kill switch in its proposal.
@@ -634,3 +635,91 @@ The persona carries a standing caveat in its own body: it was written alongside 
 ahead of it, so it documents an intended audience rather than evidencing one. That is the same caveat
 `accountable-ai-user-persona` carries, and it is the reason both stay `draft` until someone who is not their
 author reads them.
+
+
+## Course 3 blind review + promotion · 2026-09-14
+
+A fresh session reviewed `ai-era-engineering-judgment` before merge; a second session verified its findings
+independently, including the two the first could not check because the KB was not in its workspace. Recorded
+because one finding resolved the opposite way once the vault was readable, and because a prediction this log
+made on 2026-09-09 came true faster than expected.
+
+### The analogy register hit the ceiling on the day it was created
+
+The 2026-09-09 entry proposed treating analogy registers as ledgers and warned: *"Splitting by domain works
+twice and then stops working… This wants a decision before course 3, not after."* Course 3 arrived three days
+later. `delegation-and-review-analogies` was written at ~400 words, and adding a single 40-word cross-reference
+took it to 455; fitting it back under the cap took six trims across five entries, each shaving reasoning off a
+rejection — the part of the note that carries the discipline.
+
+**Three registers now exist and each is within a few words of the ceiling.** The next course cannot add a
+cross-reference to any of them without deleting content from one. The mechanical rule still holds, and holding
+it is now costing the thing it protects. **The ledger proposal is no longer a suggestion; it is the next
+blocker.**
+
+### The finding that reversed once the vault was readable
+
+The first review flagged that the course ships seven analogies while the register records five, and offered
+two readings: two went unrecorded, or the count was stale. Both were wrong. The two are *briefing a colleague
+who missed the meeting* and *judging a colleague by their first rough draft* — **already recorded in
+`ai-analogies-chosen-and-rejected`** from course 2. Same concept, same picture, second course: the register
+working exactly as designed. The only defect was that nothing said so, now fixed in the note.
+
+**Method note.** The reviewer was right to flag it and right to say they could not resolve it. A review run
+without the vault can identify a discrepancy but cannot tell a gap from correct reuse — and the two call for
+opposite actions. Worth remembering when scoping a review: **the KB must be in the workspace, or analogy and
+provenance findings arrive unresolvable.**
+
+### Also fixed
+
+Two docblocks copied wholesale from `ClaudeFundamentalsSeeder` described content that does not exist in this
+course — a paragraph of 3Blue1Brown/Karpathy licensing policy (this course references no video at all) and a
+pointer to "the tokenization lesson" (there is none). Both read as binding constraints for absent subjects. The
+docblock also named the wrong register. A `first()`/`firstOrFail()` split was found in `localizeJapanese` and
+**also existed in `ClaudeFundamentalsSeeder`**, carried forward by copy; both fixed, since fixing one seeder
+would have left two disagreeing.
+
+
+### §9 sign-off · 2026-09-14 · `delegating-engineer-persona` `draft` → `reviewed`
+
+**Signed by hein**, the author of the course it describes — the same basis as the 2026-09-09 sign-off of
+`accountable-ai-user-persona`, and carrying the same caveat: a self-signature records one person's belief
+twice, which is weaker evidence than the 2026-09-02 sign-off where the reviewer rather than the author signed.
+`reviewed` requires "a human who has taught", a qualification bar rather than an independence bar; §9's
+independence rule binds `verified`, which L2 can never reach.
+
+**Evidence:** the course is built, blind-reviewed twice (two independent sessions, the second verifying the
+first), and the persona is differentiated rather than duplicative — it names and defines itself against
+`accountable-ai-user-persona` four times, and is explicitly the pathway's first persona that is *not* its entry
+persona.
+
+`general-beginner-persona` remains `draft`, unchanged and deliberately: it is Course 1's, with its own owner.
+
+### Charter promotion · 2026-09-14 · `ai-era-engineering-judgment` proposal → charter
+
+Moved to `curriculum/`, `status: charter`, `spine_persona: delegating-engineer`, indexed. **Not `shipped`** —
+nothing is published.
+
+**A correction worth keeping, because it was wrong in the review and nearly acted on.** The seeder's docblock
+said "Register it when the proposal is promoted", and the first plan here was to register it in
+`DatabaseSeeder` on promotion, described as making the course live. That is false in both directions:
+**no course seeder is registered there at all**, nothing runs `db:seed` automatically (composer runs migrations
+only; there is no CI), and `docs/course-1-publish-checkpoint.md` records that the publishing path has **never
+been exercised**. Registering publishes nothing; publishing is a human running `db:seed --class=…` against the
+target environment. The misleading comment is corrected in the seeder. Caught by hein asking how merging could
+possibly make a course live — the claim did not survive being questioned.
+
+**The L3 cap has gone from one course's problem to a standing block.** Two charters now sit behind a 12–15 cap
+that Course 1 holds 13 of. Neither can have a domain note. A cap is never raised mid-build (§7.1), so this is a
+v1-review decision and it is now blocking the pathway rather than a course.
+
+### Decision · 2026-09-14 · Japanese ships unreviewed on two courses
+
+Both `ClaudeFundamentalsSeeder` and `AiEraEngineeringJudgmentSeeder` carried "a Japanese-reading reviewer signs
+this off **before publish**". That is no longer the intent: **the decision is to publish and have the Japanese
+reviewed after the fact.** Both docblocks now say so.
+
+Recorded as a decision rather than left as a stale gate, because a record asserting a gate that is not being
+enforced is the precise defect class this log exists to catch — the same shape as a `review_by` on content that
+could not be refreshed (2026-09-09). **This is a known debt with a named owner (hein), outstanding on two
+courses, and it compounds per course rather than per release.**
